@@ -1,0 +1,23 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-2,-0.5) node[left] {$V_{in}$}
+    (opamp.-) -- (-1.5,0.5)
+    (opamp.out) --  (2,0) node[right] {$V_o$}
+    (opamp.up) --++(0,0.25) node[vcc]{15\,\textnormal{V}}
+    (opamp.down) --++(0,-0.25) node[vee]{-15\,\textnormal{V}}
+    (-1.5,0.5) to[short,-] (-1.5,2.5)
+    (1.5,0) to[short,*-] (1.5,2.5)
+    (1.5,2.5) to[R,l_=$R_f$,-*] (-1.5,2.5)
+    (-1.5,2.5) to[R,l_=$R_i$,-] (-4.5,2.5)
+    (-4.5,2.5) -- (-4.5,2)
+    (-4.5,2) node[ground]{} 
+    
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Amplificador não inversor.}
+\end{figure}

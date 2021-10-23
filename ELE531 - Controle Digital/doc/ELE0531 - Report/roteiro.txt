@@ -1,0 +1,78 @@
+\begin{axis}[very thick,
+                     samples = 100,
+                     ytick={-10,10},
+                     xlabel = {$V_{o2}[V]$},
+                     ylabel = {$V_{o1}[V]$},
+                     xmin = -1.3,
+                     xmax = 1.3,
+                     ymin = -1.3,
+                     ymax = 1.3,
+                     axis x line = middle,
+                     axis y line = middle,
+                     ticks = none]
+            \addplot[dashed] plot (\x, 3.4);
+            \addplot[dashed] plot (\x,-3.4);
+            \addplot[red, name path=A] plot (\x, {(cos(x))^2+(sin(x))^2});
+            
+           % \addplot[red, name path=B] plot (\x, {-3.4+6.8/(1 + exp(-(\x+2.32)*100))});
+            \addplot[mark=none] coordinates {(0,3.4)} node[pin=150:{$+3.4V$}]{};
+            \addplot[mark=none] coordinates {(0,-3.4)} node[pin=-30:{$-3.4V$}]{};
+            \addplot[->] coordinates {(2.32,-0.0001) (2.32,0)};
+            \addplot[->] coordinates {(-2.32,0) (-2.32,-0.0001)};
+            \addplot[mark=none] coordinates {(-2.32,0)} node[pin=150:{$-2.32V$}]{};
+            \addplot[mark=none] coordinates {(2.32,0)} node[pin=-30:{$+2.32V$}]{};
+        \end{axis}
+
+
+Texto:
+Sistemas trabalhados
+Discretização dos sistemas
+Análise dos sistemas em tempo contínuo e discreto
+Representação das plantas em espaço de estados e respostas em frequência
+Projeto de controlador
+Controlabilidade e observabilidade das plantas discretas
+Projeto de observador de estado
+
+
+1 - Escolher uma planta ESTAVEL de 2a ordem e uma INSTAVEL de 2a ordem continuas.
+
+1 - Discretizar ambas utilidando ZOH.
+
+1 - Analisar suas saídas discrets e comparar com as saídas respectivas contínuas (utilizar 2 entradas: degrau e senoise com frequencia adequada).
+
+2 - Para planta estavel, analisar transitório e regime permanente (discretos).
+
+2 - Representar ambas em espaço de estados e respostas em frequencia.
+
+2 - Projetar um controlador para ambas as plantas. (o projeto é livre, mas precisa ser detalhado e explicado).
+
+3 - Simular os sistema continuos (método a escolhe do aluno) e utilizar os dados simulados para identificar a planta discreta. (a entrada deve ser escolhida adequadamente).
+
+3 - Analisar controlabilidade e observabilidade das plantas discretas
+
+3 - Projetar um observador de estado para ambas as plantas discretas.
+
+
+
+
+
+
+1 - Escolher uma planta ESTÁVEL de 2a ordem e uma INSTÁVEL de 2a ordem continuas.
+
+1 - Discretizar ambas utilizando ZOH (justificar a escolha do período de amostragem).
+
+1 - Analisar suas saídas discretas e comparar com as saídas respectivas contínuas (utilizar 2 entradas: degrau e senoide com frequência adequada).
+
+2 - Analisar transitório, regime permanente e estabilidade (discretos) para ambas as plantas. 
+
+2 - Representar ambas em espaço de estados e respostas em frequência. 
+
+2 - Projetar um controlador para ambas as plantas. (o projeto é livre, mas precisa ser detalhado e explicado).
+
+3 - Simular os sistema contínuos (método a escolhe do aluno) e utilizar os dados simulados para identificar a planta discreta. (a entrada deve ser escolhida adequadamente). 
+
+3 - Analisar controlabilidade e observabilidade das plantas discretas
+
+3 - Projetar um observador de estado para ambas as plantas discretas.
+
+Obs.: Justificar e escrever sobre todos os itens, explicando as escolhas e descrevendo e comentando os resultados.

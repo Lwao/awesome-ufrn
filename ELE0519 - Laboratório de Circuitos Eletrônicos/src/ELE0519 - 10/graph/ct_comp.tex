@@ -1,0 +1,33 @@
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture} 
+\begin{axis}[very thick,
+                     samples = 100,
+                     ytick={-10,10},
+                     xlabel = {$V_{o2}[V]$},
+                     ylabel = {$V_{o1}[V]$},
+                     xmin = -8,
+                     xmax = 8,
+                     ymin = -5,
+                     ymax = 5,
+                     axis x line = middle,
+                     axis y line = middle,
+                     ticks = none]
+            \addplot[dashed] plot (\x, 3.4);
+            \addplot[dashed] plot (\x,-3.4);
+            \addplot[red, name path=A] plot (\x, {-3.4+6.8/(1 + exp(-(\x-2.32)*100))});
+            \addplot[red, name path=B] plot (\x, {-3.4+6.8/(1 + exp(-(\x+2.32)*100))});
+            \addplot[mark=none] coordinates {(0,3.4)} node[pin=150:{$+3.4V$}]{};
+            \addplot[mark=none] coordinates {(0,-3.4)} node[pin=-30:{$-3.4V$}]{};
+            \addplot[->] coordinates {(2.32,-0.0001) (2.32,0)};
+            \addplot[->] coordinates {(-2.32,0) (-2.32,-0.0001)};
+            \addplot[mark=none] coordinates {(-2.32,0)} node[pin=150:{$-2.32V$}]{};
+            \addplot[mark=none] coordinates {(2.32,0)} node[pin=-30:{$+2.32V$}]{};
+        \end{axis}
+        
+\end{tikzpicture}
+\end{center}
+\caption{Característica de transferência para o comparador não-inversor com histerese.}
+\label{graph:1} 
+\end{figure}

@@ -1,0 +1,21 @@
+No problema da lista anterior era descrito um sistema PAM binário com taxa de transmissão de $56$kbps projetado para ter um espectro do tipo \textit{raised cosine}. Assim solicitava-se a determinação da largura de banda de transmissão para diferentes fatores de decaimento (\textit{roll-off}): $r = [0.25; 0.5; 0.75; 1]$.
+
+Porém, neste caso considera-se um PAM de oito níveis e que cada pulso pode transmitir até 3 bits ($n=3$). Isso significa que as larguras de bandas serão reduzidas em um terço dos valores binários.
+
+Primeiramente, semelhante aos casos anteriores, calcula-se a banda mínima de transmissão, para em seguida adicionar a banda excedente proporcionada pelo espectro do \textit{raised cosine}.
+\begin{center}
+    $B_m = \frac{C_{bin}}{n}\frac{1}{2} =  \frac{56000}{3}\frac{1}{2}= 9.333$ kHz
+\end{center}
+O excedente de banda será tal que a expressão da banda total será:
+\begin{center}
+    $B_T = (1+r)B_m $ 
+\end{center}
+Finalmente, aplicando os fatores de \textit{roll-off} para cada caso:
+
+\begin{center}
+    $B_T(r=0.25) = (1+0.25) \times 9333.3 \approx 11.67$ kHz \\ \vspace{1pt}
+    $B_T(r=0.5) = (1+0.5) \times 9333.3 = 14$ kHz \\ \vspace{1pt}
+    $B_T(r=0.75) = (1+0.75) \times 9333.3 \approx 16.33 $ kHz \\ \vspace{1pt}
+    $B_T(r=1) = (1+1) \times 9333.3 \approx 18.67 $ kHz \\ \vspace{1pt}
+\end{center}
+\newpage

@@ -1,0 +1,31 @@
+\begin{subquestion}
+    \item De acordo com o gráfico da figura \ref{graph:1} e considerando a função degrau unitário como $u(t)$, pode-se determinar a representação matemática do sinal $s(t)$ como:
+    
+    \begin{center}
+        $s(t) = \frac{A}{2}[u(t) - 2u(t-T/2) - u(t-T)]$
+    \end{center}
+    \input{graph1.tex}
+    
+    Como a resposta ao impulso para o filtro casado é dado por: $h(t) = s(T-t)$, tem-se que a representação gráfica é dada pela figura \ref{graph:2} e a sua representação matemática será:
+    
+    \begin{center}
+        $h(t) = \frac{A}{2}[u(T-t) - 2u(T/2-t)] - u(-t)]$
+    \end{center}
+    
+    \input{graph2.tex}
+    
+    \item Enquanto isso a saída do filtro casado é dada pela convolução entre o sinal de entrada e o filtro, de forma que: $r(t) = s(t) \ast h(t)$. Apesar da tarefa ser exaustiva, a convolução será calculada por partes levando em consideração a representação gráfica. Sendo assim:
+    
+    \begin{center}
+        $0 \leq t \leq T/2$: $r(t) = -\frac{A^2}{4}t$ \\ \vspace{2pt}
+        $T/2 < t \leq T$: $r(t) = -\frac{A^2T}{8} + \frac{3A^2}{4}(t-T/2)$ \\ \vspace{2pt}
+        $T < t \leq 3T/2$: $r(t) = \frac{A^2T}{4} - \frac{3A^2}{4}(t-T)$ \\ \vspace{1pt}
+        $3T/2 < t \leq 2T$: $r(t) = -\frac{A^2T}{8} + \frac{A^2}{4}(t-3T/2)$ \\ \vspace{1pt}
+    \end{center}
+    
+    \input{graph3.tex}
+    
+    \item O valor máximo pode ser facilmente encontrado pelo gráfico \ref{graph:3} ou pela expressão matemática como $\frac{A^2T}{4}$ em $t=T$, ou seja, com pico em um instante de amostragem igual ao tempo de símbolo.
+\end{subquestion}
+
+\newpage

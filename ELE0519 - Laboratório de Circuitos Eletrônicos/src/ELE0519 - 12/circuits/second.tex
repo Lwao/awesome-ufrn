@@ -1,0 +1,22 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.75, inner sep=0] {
+\begin{tikzpicture} [american]
+    \draw (0,0) node[op amp, yscale=-1] (opamp) {}
+    (opamp.+) -- (-2.5,0.5) to[R, l_=$R_2$, -o] (-5,0.5)
+    (opamp.-) -- (-1.5,-0.5) -- (-1.5,-2) -- (1.5,-2) to[short,-*] (1.5,0)
+    (opamp.out) to[short, -o] (2,0) 
+    (opamp.down) -- (0,0.5) node[vcc]{-12\,\textnormal{V}}
+    (opamp.up) -- (0,-0.5) node[vee]{+12\,\textnormal{V}}
+    (2.5,0) node[]{$V_o$}
+    (-7.5,0.5) node[]{$V_i$}
+    (-2.5,-1.5) node[ground]{} to[C, l=$C_2$, -*] (-2.5,0.5)
+    (-5,0.5) to[short, *-] (-5,2) to[C, l=$C_1$] (1.5,2) -- (1.5,0)
+    (-5,0.5) to[R, l_=$R_1$, -o] (-7,0.5)
+    ;
+\end{tikzpicture}
+};
+\end{center}
+\caption{Filtro Butterworth de 2ª ordem ($R_1=8.2k\ohm$, $R_2=15k\ohm$, $C_1=22nF$ e $C_2=10nF$)}
+\label{ckt:2} 
+\end{figure}

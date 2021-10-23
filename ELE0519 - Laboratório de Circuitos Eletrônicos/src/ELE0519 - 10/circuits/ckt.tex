@@ -1,0 +1,35 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.75, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0.5) node[op amp] (opamp) {}
+    (opamp.+) -- (-1.5,0) -- (-1.5,-1.5)
+    (opamp.-) -- (-2.5,1) -- (-2.5,-0.5) node[ground]{} 
+    (opamp.out) to[R, l=$R_4$, -*] (3.5,0.5) to[short, -*] (4.5,0.5) to[R, l=$R_2$] (6.5,0.5)
+    (opamp.up) -- (0,1) node[vcc]{+10\,\textnormal{V}}
+    (opamp.down) -- (0,0) node[vee]{-10\,\textnormal{V}}
+    
+    (4.5,1) to[short, *-] (4.5,-1.5) to[zzD*, l_=$2.7 V$] (4.5,0.5)
+    (4.5,-1.5) to[zzD*, l=$2.7 V$] (4.5,-3.5) node[ground]{}
+    (3.5,0.5) -- (3.5,-1.5) to[R, l=$R_1$, -*] (-1.5,-1.5)
+    (4.5,1.5) node[]{$V_{o1}$}
+    ;
+    \draw (8.5,0) node[op amp] (opamp) {}
+    (opamp.+) -- (7,-0.5) node[ground]{}
+    (opamp.-) -- (6.5,0.5)
+    (opamp.out) to[short, -*] (10,0) to[short, -*] (10.5,0) 
+    (11,0) node[]{$V_{o2}$}
+    (opamp.up) -- (8.5,0.5) node[vcc]{+10\,\textnormal{V}}
+    (opamp.down) -- (8.5,-0.5) node[vee]{-10\,\textnormal{V}}
+    (7,0.5) to[short, *-] (7,2.5) to[C, l=$C$] (10,2.5) to[short, -*] (10,0)
+    (10,0) -- (10,-5) to[R, l=$R_3$] (-1.5,-5) -- (-1.5,-1.5)
+    (0,0.5)  node[]{\Large \textbf{A}}
+    (8.5,0)  node[]{\Large \textbf{B}}
+    ;
+    
+\end{tikzpicture}
+};
+\end{center}
+\caption{Gerador de onda quadrada e triangular ($R_1 = 12k \ohm, R_2 = R_3 = 8.2kK \ohm, R_4 = 560 \ohm, C= 22nF$).}
+\label{ckt:1} 
+\end{figure}

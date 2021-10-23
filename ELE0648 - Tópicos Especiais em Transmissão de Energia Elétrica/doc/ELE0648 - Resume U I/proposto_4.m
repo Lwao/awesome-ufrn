@@ -1,0 +1,15 @@
+len = 150e3;       % comprimento da linha [m]
+x = 0.377e-3;      % densidade de reatancia indutiva [ohm/m]
+c = 14e-12;        % densidade de capacitancia [F/m]
+Vn = 500e3;        % tensao nominal [V]
+f = 60;            % frequencia [Hz]
+w = 2*pi*f;        % velocidade angular [rad/s]
+V1 = 1;            % tensao de entrada da linha [p.u]
+
+L = x*len/w;       % indutancia total da linha [H]
+C = c*len;         % capacitancia total da linha [F]
+s = 1j*w;
+Lr = -2/(s^2*C);             % reator de compensacao [H]
+V1_real = V1*Vn/sqrt(3);     % tensao de entrada por fase [V]
+I1_real = V1_real/(2/(s*C)); % corrente de entrada por fase [A]
+Qc = V1_real*conj(I1_real);  % potencia reativa por fase[var]

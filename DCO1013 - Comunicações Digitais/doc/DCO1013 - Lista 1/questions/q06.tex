@@ -1,0 +1,36 @@
+Considerando um sinal $g(t)$ contínuo no tempo e um trem de impulsos $\delta_T(t)$ periódico e com período $T$, tem-se que o sinal $g(t)$ amostrado em um período $T$ será:
+
+\begin{equation}
+    g_T(t) = g(t)\delta_T(t)
+\end{equation}
+
+Como o trem de impulsos é periódico, ele pode ser representado por meio de uma série de deltas de Kronecker deslocadas em períodos inteiros de $T$:
+
+\begin{equation}
+    \delta_T(t) = \sum_{n = -\infty}^{\infty} \delta(t-nT)
+\end{equation}
+
+Substituindo na equação do sinal amostrado, tem-se:
+
+\begin{equation}
+     g_T(t) = \sum_{n = -\infty}^{\infty} g(t)\delta(t-nT)
+\end{equation}
+
+Da definição da delta de Kronecker, tal que:
+
+\begin{equation} 
+\centering
+\delta(t) =
+\left \{
+\begin{array}{cc}
+1, & t=0 \\
+0, & t\neq0
+\end{array}
+\right.
+\end{equation}
+
+Observa-se que a função só possui valor diferente de zero na origem, assim ao considerar impulsos atrasados de $nT$, estes só assumirão valor nesse instante de tempo. Assim, quando o sinal $g(t)$ for multiplicado pelo trem de impulsos, ele fará com que seus valores sejam aqueles referentes ao instante de tempo $nT$, $\forall \, n \in \mathbb{Z} $, tal que:
+
+\begin{equation}
+     g_T(t) = \sum_{n = -\infty}^{\infty} g(t-nT)
+\end{equation}

@@ -1,0 +1,19 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture} [ american, ]
+    %shorts
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-2.5,-0.5) %node[left] {$V_{in}$}
+    (opamp.-) -- (-1.5,0.5)
+    (opamp.out) --  (2,0) node[right] {$V_x$}
+    (opamp.up) --++(0,0.25) node[vcc]{15\,\textnormal{V}}
+    (opamp.down) --++(0,-0.25) node[vee]{-15\,\textnormal{V}}
+    (1.5,0) to[short, *-] (1.5,2)
+    (1.5,2) -- (-1.5,2) -- (-1.5,0.5)
+    (-3,1.25) node[left] {$+V_{CC}$} to[pR, l_=$100k \ohm$, *-*] node[left] {$-V_{CC}$} (-3,-2.25)
+    ;
+\end{tikzpicture}
+\end{center}
+\caption{Divisor de tensão com \textit{buffer}.}
+\label{ckt:2} 
+\end{figure}

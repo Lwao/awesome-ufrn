@@ -1,0 +1,127 @@
+\section{Descrição do projeto elétrico em média tensão}
+
+\subsection{Detalhes do fornecimento de energia elétrica}
+
+Uma vez que a demanda máxima da instalação é de $109$ kVA e esta supera a carga instalada da instalação maior que 75 kW, esta unidade consumidora está classificada para ser atendida em média tensão de distribuição da concessionária Cosern (13.800 V). 
+
+O tipo de subestação do consumidor será simplificada e instalada ao tempo e ancorada em um poste, já que a potência do transformador não superará os $300$ kVA limitantes.
+
+\subsection{Ponto de entrega}
+
+O ponto de entrega deve estar situado no limite da via pública com a propriedade do consumidor, caso não seja possível, este deve distar de até $40 m$ do ponto de derivação da rede distribuidora e deve estar na primeira estrutura da propriedade do consumidor. 
+
+%No caso de um fornecimento por uma rede subterrânea, o ponto de entrega deve situar-se em câmara, cubículo ou em caixa de emenda situada no máximo a 10 m do limite da propriedade com a via pública.
+
+\subsection{Entrada de serviço}
+
+Considerando a tabela 9 da norma DIS-NOR-036, para uma tensão primária de 13,8 kV e demanda máxima estabelecida no projeto de $109$ kVA, os condutores do ramal de ligação e de entrada aéreo serão de alumínio nu de 4 AWG. 
+
+O ramal de ligação derivará de um ramal alimentador pertencente à rede da Cosern de média tensão de distribuição e será de inteira responsabilidade da empresa distribuidora. Este, a princípio, deve ser aéreo%, mas podendo ser subterrâneo por necessidade técnica
+. O ramal de ligação deve entrar pela frente do terreno e não pode cruzar terreno de terceiros ou passar sob áreas construídas e %, quando aéreo, 
+deve estar livre de obstáculos e visível em toda a sua extensão. O ramal de ligação também deverá possuir tamanho máximo de $40 m$.
+
+%Em consequência do estabelecimento da distância máxima do ponto de entrega, o ramal de ligação também deverá possuir comprimento máximo correspondente à distância máxima do ponto de entrega.
+
+A instalação e materiais do ramal de entrada são de inteira responsabilidade do consumidor e este é responsável pela conservação de seus componentes. O ramal de entrada aéreo deverá manter a altura mínima para o solo definida pelas normas ABNT NBR 15688 e ABNT NBR 15992. 
+%Quando houver cerca metálica sob o ramal, a mesma deve ser seccionada e devidamente aterrada conforme a norma ABNT NBR 15688. 
+O ramal de entrada aéreo deve obedecer aos afastamentos mínimos em relação às paredes das edificações, sacadas, janelas, escadas, terraços ou locais assemelhadas definidos pelas normas ABNT NBR 15688 e ABNT NBR 15992.
+
+\subsection{Medição em tensão secundária de distribuição} 
+% https://assets.new.siemens.com/siemens/assets/api/uuid:16fdb31f-a881-4a42-9f13-3f17b39acd3b/catalogo-tc.pdf
+
+É de responsabilidade da distribuidora escolher os medidores e demais equipamentos de medição como chaves de aferição, transformadores de corrente e de potencial. O fornecimento e instalação desses equipamentos deve ser feito exclusivamente pela distribuidora. A aquisição dos demais acessórios como a caixa de medição, os cabos e os eletrodutos são de responsabilidade do consumidor.
+
+\begin{comment}
+A caixa de medição deve estar a uma altura mínima de 1.5m do chão. A medição será feita no secundário do Transformador por meio de três TCs de 200/5 de acordo com o quadro 1 da norma DIS-NOR-036. O TC deverá seguir as seguintes especificações:
+
+\begin{itemize}
+    \item Modelo: 4NC5122-2DE21;
+    \item Fabricante: Siemens;
+    \item Tamanho: 1;
+    \item Monofásico;
+    \item Classe de exatidão: 0.5;
+    \item Relação de transformação (RTC) de 200/5.
+\end{itemize}
+\end{comment}
+
+\subsection{Transformador} 
+% https://www.weg.net/catalog/weg/BR/pt/Gera%C3%A7%C3%A3o%2C-Transmiss%C3%A3o-e-Distribui%C3%A7%C3%A3o/Transformadores-e-Reatores-a-%C3%93leo/Transformadores-de-Distribui%C3%A7%C3%A3o-a-%C3%93leo/30-a-300-kVA/Transformador-%C3%93leo-112-5kVA-13-8-0-38kV-CST-ONAN/p/14537547
+
+O transformador deve estar ancorado no poste, enquanto que sua isolação será a óleo mineral e refrigeração exclusiva a ar natural (ONAN), classe de 15 kV, primário em delta e secundário em estrela aterrada. Segue a especificação do transformador a ser utilizado e que está de acordo com a tabela 5 da norma DIS-NOR-036:
+
+\begin{itemize}
+    \item Fabricante: WEG;
+    \item Número de série: 20170049191;
+    \item Potência nominal: 112,5 kVA;
+    \item Tensão primária: 13,8 kV;
+    \item Tensão secundária: 380/220 V;
+    \item Data de fabricação: 27/01/2021;
+    \item Corrente de excitação: 2,5\%;
+    \item Perdas em vazio: 390.0 W;
+    \item Perdas em cargas: 1500 W;
+    \item Perdas totais: 1890.0 W;
+    \item Impedância: 0,035 pu;
+    \item Refrigeração: ONAN;
+\end{itemize}
+
+
+O transformador deve ser devidamente ensaiado e com duas vias do laudo entregues à distribuidora. Sendo este transformador a óleo, os laudos devem estar de acordo com a exigências minímas propostas pela norma DIS-NOR-036.
+
+
+
+\subsection{Proteção}
+
+\subsubsection{Chaves fusíveis}
+% http://www.delmar.com.br/PDF/DHC.PDF
+
+Para a proteção geral da subestação contra sobrecorrentes, serão utilizadas 3 chaves fusíveis. Considerando uma instalação de 13.8 kV, a norma DIS-NOR-036 prevê chaves fusíveis com base do tipo C e devem seguir as especificações abaixo para a base e porta-fusível:
+
+\begin{itemize}
+    \item Modelo: DHC-1510011010;
+    \item Fabricante: Hubbell Power Systems, Inc;
+    \item Tensão máxima de operação: $15 kV$;
+    \item Corrente nominal da base: $300 A$; 
+    \item Corrente nominal do porta-fusível: $100 A$;
+    \item Capacidade de interrupção simétrica: $7.1 kA$;
+    \item Capacidade de interrupção assimétrica: $10 kA$;
+    \item NBI: $110 kV$.
+\end{itemize}
+
+% http://hubbellpowersystems.com.br/PDF/ELOS.PDF
+Serão utilizados três elos fusíveis de 6K que coordena com a proteção de retaguarda da Neoenergia baseada em um elo 65K.
+
+\begin{itemize}
+    \item Modelo: DMF6K20;
+    \item Fabricante: Hubbell Power Systems, Inc;
+    \item Corrente nominal: 6A;
+\end{itemize}
+
+Vide em anexo a figura \ref{curva_fusao} que consta as curvas de fusão mínima e máxima para o elo 6K fornecidas no catálogo do fabricante Hubbell.
+
+\subsubsection{Para-raios}
+% https://www.coideasa.com/f_productos/descargador-de-oxido-de-zincpdf.pdf
+
+Para proteção contra sobretensões transitórias serão utilizados para-raios. Devem ser instalados um conjunto de 3 para-raios no mesmo poste do transformador. As características elétricas dos para-raios devem seguir as especificações abaixo:
+
+\begin{itemize}
+    \item Fabricante: Balestro;
+    \item Modelo: PBP 12/ X;
+    \item Número de série: 2016014074;
+    \item Data de fabricação: 15/12/2020;
+    \item Tipo válvula;
+    \item Desligador automático;
+    \item Óxido de Zinco (ZnO) sem centelhador;
+    \item Corpo e suporte em material polimérico (silicone);
+    \item Tensão nominal de fase ($U_r$): $12 kV_{ef}$;
+    \item Máxima tensão de operação contínua ($U_c$ ou MCOV): $10.2 kV_{ef}$;
+    \item Corrente nominal de descarga: $10 kA$;
+    \item Máxima tensão residual para impulso de corrente íngreme: $43.9 kV_{pico}$;
+    \item Máxima tensão residual para corrente de impulso de manobra de $500A$: $32.0 kV_{pico}$;
+    \item Máxima tensão residual para um para-raios de $10 kA$: $39.6 kV$.
+\end{itemize}
+
+
+\subsection{Sistema de aterramento}
+
+Em uma subestação simplificada, o sistema de aterramento é feito com no mínimo 4 hastes interligadas por meio de cabo de cobre nu de seção mínima de $50 mm^2$ (ou aço cobreado 2 AWG).
+

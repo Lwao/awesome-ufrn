@@ -1,0 +1,36 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.75, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-1.5,-0.5) node[ground]{}
+    (opamp.-) to[short, -*] (-2,0.5) to[R, l_=$R_1$] (-5,0.5) to[sV_=$V_{in}$] (-5,-1.5) node[ground]{}
+    (opamp.out) to[short, -*] (1.5,0) 
+    (opamp.up) -- (0,0.5) node[vcc]{+12\,\textnormal{V}}
+    (opamp.down) -- (0,-0.5) node[vee]{-12\,\textnormal{V}}
+    (-2,2.5) -- (-2,-3) 
+    (-2,2.5) to[R, l=$R_2$] (1.5,2.5) to[R, l=$R_4$, *-*] (4,2.5) to[R, l=$R_5$] (7,2.5) 
+    (-2,-3) to[R, l=$R_3$] (1.5,-3) 
+    (1.5,2.5) to[D*, l=1N4148] (1.5,0) to[D*, l=1N4148, -*] (1.5,-3)
+    (1.5,-3.4) node[] {$V_{o1}$}
+    (1.5,-3) -- (4,-3) -- (4,-0.5)
+    (4,0.5) -- (4,2.5)
+    (7,2.5) -- (7,0) to[short, -*] (7.4,0)
+    (7.8,0) node[] {$V_{o}$}
+    ;
+    \draw (5.5,0) node[op amp] (opamp) {}
+    (opamp.+) -- (4,-0.5)
+    (opamp.-) -- (4,0.5)
+    (opamp.out) to[short, -*] (7,0) 
+    (opamp.up) -- (5.5,0.5) node[vcc]{+12\,\textnormal{V}}
+    (opamp.down) -- (5.5,-0.5) node[vee]{-12\,\textnormal{V}}
+    
+    
+    ;
+    
+\end{tikzpicture}
+};
+\end{center}
+\caption{Retificador de onda completa. Onde: $R_2=R_3=R_4=R_5=12k \ohm$ e $R_1=6.8k \ohm$}
+\label{ckt:2} 
+\end{figure}

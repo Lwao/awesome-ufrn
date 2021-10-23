@@ -1,0 +1,119 @@
+% Set Title, Author, and email
+\title{DCO1013 - Material base de revisão}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+\subsection*{\textbf{Conversão de grandezas: linear x dB}}
+
+Relações importantes \cite{ref2}:
+\begin{itemize}
+    \item Para um amplificador, o fator de ganho será a razão entre a potência de saída pela de entrada ($P_{out}/P_{in}$);
+    \item Para um atenuador, o fator de perdas será a razão entre a potência de entrada pela de saída ($P_{in}/P_{out}$);
+    \item $X[dB] = 10 \, log(x)$, escala de medida logarítmica adimensional, comumente utilizada para converter um fator de ganho ou perda (linear) em escala logarítmica;
+    \item $P[dBW] = 10 \, log(P[W])$, para converter de [W] para [dBW];
+    \item $P[dBm] = 10 \, log(P[mW])$, para converter de [mW] para [dBm];
+    \item $P[dBm] = P[dBW] + 30 [dB]$, para converter entre [dBm] e [dBW].
+    %\item O [dBi] representa o ganho de um antena em relação à antena isotrópica (ganho linear unitário e ganho nulo em [dBi]);
+    %\item O [dBd] representa o ganho de uma antena em relação à antena dipolo, que possui ganho linear de 1.64 em relação à antena isotrópica, logo: G = $10 \, log(1.64) &= 2.15 dBi &= 0 dBd$;
+    %\item A unidade [dBd] e [dBi] estão relacionadas por: $G[dBi] = G[dbd] + 2.15$;
+\end{itemize}
+
+Regras para cálculos em escala logarítmica \cite{ref2}:
+
+\begin{itemize}
+    \item A SOMA de potências em [dBm] com [dBm], ou [dBW] com [dBW] só é possível se convertê-las para unidade linear de mW ou W;
+    \item A SUBTRAÇÃO de potências em [dBm] com [dBm], ou [dBW] com [dBW] resulta em um ganho ou atenuação em [dB];
+    \item Caso uma potência de saída seja subtraída por uma potência de entrada (em escala logarítmica) o resultado pode ser um ganho (G>0) ou atenuação (L<0);
+    \item Caso uma potência em [dBm] ou [dBW] seja somada a um ganho/atenuação em [dB], o resultado será dado na unidade de origem da potência;
+\end{itemize}
+
+\subsection*{Transformada de Fourier de tempo contínuo}
+
+Sinais com intervalo de tempo limitado possuem banda que tendem ao infinito. Porém, a maior parte dessa potência é concentrada em componentes frequenciais baixas. Sinais realizáveis na prática, além dessas características, são limitados em amplitude e possuem valores reais e contínuos. \cite{ref3}
+
+Um sinal par é simétrico em relação à origem ($x(t)=x(-t)$) e um sinal ímpar é anti-simétrico em relação à origem ($x(t)=-x(-t)\,$ e $x(0)=0$). Qualquer sinal pode ser representado pela soma de um sinal par com um ímpar. \cite{ref3}
+
+Para que exista a transformada de Fourier, a função deve satisfazer as condições de Dirichlet, ou seja, o valor absoluto do sinal deve ser totalmente integrável. Contudo, a existência física de um sinal é suficiente para garantir a existência da transformada de Fourier, mesmo que o sinal não atenda as condições de Dirichlet. \cite{ref5}
+
+\subsection*{Sinais de energia e sinais de potência}
+
+Sinais não-periódicos possuem energia finita, podendo ser classificados como sinais de energia. Devido a falta de periodicidade, eles não possuem potência. Em contrapartida, sinais periódicos possuem energia infinita, assim podendo ser classificados apenas pela potência, sendo chamados de sinais de potência. \cite{ref4}
+
+Alguns sinais podem não se classificar nem como de energia nem como de potência, como o caso de uma exponencial genérica de crescimento indeterminado ($e^{at} \,$, com $a>0$). \cite{ref4}
+
+\subsection*{Convolução e Teorema da Convolução}
+
+A convolução remete à correlação e auto-correlação, que apesar das semelhanças, possuem diferentes propósitos. Enquanto que a convolução consiste em operações lineares no sinal ou sinais modificadores, já a correlação (produto interno deslizante) consiste em uma medida de similaridade entre dois sinais.
+
+Matematicamente tem-se a integral de convolução e correlação, respectivamente:
+\begin{equation}
+    (g \ast h)(t) = \int_{-\infty}^{\infty} g(\tau)h(t-\tau) d\tau
+\end{equation}
+\begin{equation}
+    (g \star h)(t) = \int_{-\infty}^{\infty} g^*(\tau)h(t+\tau) d\tau
+\end{equation}
+
+A de-convolução é utilizada para reverter os efeitos que uma convolução parasita gerou, i.e, o borrão em uma imagem gerada por uma câmera com operador trêmulo. \cite{ref6}
+
+\subsection*{Fundamentos importantes de Probabilidade \cite{ref7}}
+
+Uma \textbf{variável aleatória} pode assumir um valor aleatório dentro de um conjunto limitado. Ela pode ser contínua ou discreta, ou seja, podendo assumir infinitos valores em um conjunto limitado, ou assumir valores finitos em um conjunto limitado. 
+
+No caso de um evento que conta com o lançamento de duas moedas e uma variável aleatória que representa o número de caras obtidas, diante de todas as possibilidades ($S = {(c,c), (c,k), (k,c), (k,k)}$), a variável aleatória será: 0 para o caso $(k,k)$ de probabilidade $1/4$; 1 para os casos $(c,k)$ e $(k,c)$ de probabilidade $1/2$; e 2 para o caso $(c,c)$ de probabilidade $1/2$.
+
+A \textbf{função densidade de probabilidade} (fdp) indica a probabilidade relativa para a variável aleatória assumir um determinado valor. As particularidades desta função são: para qualquer real, seu valor sempre será positivo; e se integrada em todo o seu intervalo, seu valor sera unitário.
+
+Ao integrar a (fdp) em uma determinada faixa, será obtida a probabilidade de a variável aleatória assumir os valores na faixa oferecida (probabilidade = área sob a curva). Para a variável aleatória contínua $X$ e fdp $f(x)$, tem-se:
+\begin{equation} \label{fdp:1}
+    P(a<X<b) = \int_{a}^{b} f(x) dx
+\end{equation}
+Porém a probabilidade de um valor específico de $X$ ($x_0$), será:
+\begin{equation} \label{fdp:2}
+    P(X=x_0) = \int_{x_0}^{x_0} f(x) dx = 0
+\end{equation}
+Dessa forma, infere-se que, para uma variável aleatória contínua $X$ e $a<b$, tem-se:
+\begin{equation} \label{fdp:2}
+    P(a \leq X \leq b) = P(a \leq X < b) = P(a < X \leq b) = P(a < X < b)
+\end{equation}
+Uma função densidade de probabilidade bastante utilizada é a Gaussiana, pois ela é capaz de modelar o ruído térmico de distribuição normal e média zero ($\mu = 0$). Assim, um processo Gaussiano $n(t)$ é uma função aleatória cujo valor $n$ em um instante de tempo arbitrário $t$ é estatisticamente caracterizado pela fdp Gaussiana de desvio padrão $\sigma$: \cite{ref8}
+\begin{equation} \label{fdp:2}
+    f(n) = \frac{1}{\sigma\sqrt{2\pi}}exp\left[-\frac{1}{2}\left(\frac{n-\mu}{\sigma}\right)^2\right]
+\end{equation}
+
+A \textbf{esperança} matemática (ou valor esperado ou média) de uma variável aleatória é a soma de todos os produtos possíveis da variável aleatória e a sua respectiva probabilidade. Assim, a esperança de uma variável aleatória discreta $X$ é dada pela equação \ref{esp:1} e a esperança para uma variável aleatória contínua $X$ que assume valores $x$ e fdp $f(x)$ é dada pela equação \ref{esp:2}.
+\begin{equation} \label{esp:1}
+    E(X) = \sum_{i=1}^{n} x_iP(x_i)
+\end{equation}
+\begin{equation} \label{esp:2}
+    E(X) = \int_{-\infty}^{\infty} x f(x) dx
+\end{equation}
+Algumas propriedades da esperança ressaltam que:
+\begin{itemize}
+    \item A esperança de uma constante é a própria constante;
+    \item Ao multiplicar uma variável aleatória por uma constante, sua esperança será multiplicada por essa constante;
+    \item A esperança da soma/diferença de duas variáveis aleatória é a soma/diferença das esperanças;
+    \item A soma/subtração de uma constante a uma variável aleatória implica em uma esperança somada/subtraída por esta constante;
+    \item Uma variável aleatória centrada em sua média tem esperança nula;
+    \item A esperança do produto de duas variáveis aleatórias \textbf{independentes} é o produto das esperanças de cada variável;
+\end{itemize}
+
+A \textbf{variância} indica o quão dispersos os valores de um conjunto estão do valor médio ou esperado. Calculado pela média quadrada da distância de cada amostra ao valor esperado. Assim, a variância populacional será dada pela equação \ref{var:pop}.
+\begin{equation} \label{var:pop}
+    \sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}
+\end{equation}
+No que diz respeito a definição de uma variável aleatória, a sua variância será:
+\begin{equation} \label{var:al}
+    var(X) = E(X^2) - |E(X)|^2 = E[(X-\mu)^2]
+\end{equation}
+Em que $E(X) = \sum_{i=1}^{n} x_i^2P(x_i) $, para uma variável aleatória discreta.
+
+Algumas propriedades da variância ressaltam que:
+\begin{itemize}
+    \item A variância de uma constante é zero;
+    \item Ao multiplicar uma variável aleatória por uma constante, sua variância será multiplicada pelo quadrado da constante;
+    \item A variância não se altera ao somar/subtrair uma constante da variável aleatória;
+    \item A variância da soma/subtração de duas variáveis aleatórias \textbf{independentes} é a soma das respectivas variâncias;
+\end{itemize}
+

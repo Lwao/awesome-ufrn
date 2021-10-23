@@ -1,0 +1,13 @@
+a) Nome do empreendimento, endereço, e atividade a ser desenvolvida: Faltou especificar a atividade a ser desenvolvida; (1,5/2,0)
+b) Sugestão da localização do ponto de entrega de energia pela Distribuidora: Forneceu uma rua, mas em um projeto apresenta-se um croqui com a sugestão do poste da concessionária. Fazer isso no próximo projeto; (2,0/2,0)
+c) Descrição básica da entrada de serviço: Descreveu a ramal de entrada em média tensão, mas não informou como seria o ramal de entrada em baixa tensão (1,5/3,0)
+d) Descrição dos principais equipamentos de operação e proteção: 
+1- transformador: Certo (6,0/6,0);
+2- aterramento: Certo.  (3,0/3,0), 
+3- para-raios: Certo.  (4,0/4,0)
+e) Características das estruturas e dos condutores do ramal de ligação: Informou a seção dos condutores do ramal de ligação, mas não informou a estrutura; (2,5/3,0)
+f) Descrição detalhada da:
+1- Medição: Apesar dos equipamentos de medição serem de responsabilidade da concessionária, deveria informar que a medição seria de forma indireta na baixa tensão com o uso de TCs; (1,0/3,0)
+2- Proteção geral de MT: Certo (4,0/4,0).
+
+

@@ -1,0 +1,9 @@
+\textbf{Por que a subamostragem pode causar aliasing?}
+
+Considerando que a subamostragem recebe uma sequência $x_c[n]$ e resulta em uma sequência $y_c[n] = x_c[Mn]$, tal que $M>1$. Em termos do sinal amostrado no tempo, a sequência $y[n]$ será: $y[n] = x_c(MnT_s)$. Dessa forma a sequência resultante da reamostragem pode ser expressa no domínio da frequência de acordo com a equação \ref{eq1:4}, porém com o período de amostragem alterado para $T_s^{'} = MT_s$, resultando em uma frequência de amostragem de $\omega_s^{'} = \frac{2\pi}{T_s^{'}} = \frac{2\pi}{MT_s} = \frac{\omega_s}{M}$. O resultado pode ser expresso alterando a equação \ref{eq1:4}:
+
+\begin{equation} \label{eq8:1}
+    Y(\omega) = \frac{1}{T_s^{'}} \sum_{n=-\infty}^{\infty} X_C(\omega - n\omega_s^{'}) = \frac{1}{MT_s} \sum_{n=-\infty}^{\infty} X_C\left(\omega - n\frac{\omega_s}{M}\right) = Y\left(\frac{\omega_s}{M}\right)
+\end{equation}
+
+Por meio da equação \ref{eq8:1} obtém-se uma versão expandida do espectro em frequência, significando que a frequência de amostragem antes utilizada pode não ser suficiente para amostrar o sinal corretamente, podendo ocorrer \textit{aliasing}.

@@ -1,0 +1,15 @@
+A tarefa da terceira unidade poderá ser feita de dois modos:
+
+A primeira possibilidade será um trabalho individual com uma arguição individual na entrega. O trabalho será sobre estabilidade em sistemas de potência, e deverá conter:
+
+- Equação da barra swing;
+
+- Modelo da máquina síncroa para estudos de estabilidade;
+
+- Estabilidade em estado permanente;
+
+- Estabilidade transitória (método das áreas iguais);
+
+- Aplicação para faltas trifásicas.
+
+*** O trabalho deverá ser entregue até o dia 22 de novembro.

@@ -1,0 +1,62 @@
+\subsection{Rejeição de carga}
+
+Considerando que uma carga possui impedância muito menor que a impedância paralela da linha, em condições normais de operação a linha pode ser simplificada para a parcela de impedância longitudinal, que promove uma queda de tensão do gerador para a carga. Para compensar a queda de tensão na impedância da linha, o gerador deve fornecer uma tensão maior à linha para suprir a demanda da carga.
+
+Porém em situações de rejeição de carga, quando um disjuntor remove a carga da linha, os efeitos da capacitância no final do circuito possuirão relevância e causarão uma sobretensão na tensão terminal. Estudos de compensação fixa e manobrável buscam manter sobretensões sustentadas entre $40\%$ e $50\%$ de acordo com o perfil de operação da linha.
+\begin{comment}
+Estudos de compensação de linha são voltados para permitir sobretensões sustentadas de rejeição de carga entre 1.4-1.5 pu, levando em conta o perfil das sobretensões na energização, rejeição, regime permanente e transitório de emergência. Os estudos permitem dimensionar reatores  fixos e compensação reativa manobrável com capacitores.
+\end{comment}
+
+
+
+\subsection{Comportamento dinâmico da rejeição de carga}
+
+Os reguladores associados ao gerador contribuem para manter uma tensão terminal regulada próxima de valores nominais. Em condições de rejeição, a tendência das tensões terminais do gerador é aumentar, devido à predominância da característica capacitiva da linha. Os reguladores atuam para que essa tensão não se eleve. As tensões internas da máquina não possuem variações instantâneas devido a inércia do fluxo. 
+
+\subsection{Variações de frequência}
+
+A predominância capacitiva da linha durante a rejeição também promove a aceleração do gerador, fazendo com que a frequência da tensão gerada se altere. O aumento da frequência aumenta a impedância longitudinal e reduz a impedância transversal da linha. Esse efeito também provoca sobretensões, pois para o circuito $\pi$ com $s=j\omega$ tem-se:
+\begin{equation} \label{top2:eq:potcc5}
+V_2 = \frac{E}{1-\omega\frac{LC}{2}}
+\end{equation}
+
+\subsection{Efeito da saturação de transformadores}
+
+As sobretensões também podem gerar saturação nos transformadores e reatores em geral, podendo ocorrer ressonância.
+\newpage
+
+
+\section{Curto-circuito}
+
+O único tipo de curto-circuito trabalhado será o monofásico, pois este se associado com fase+terra gera maiores sobretensões. Para facilitar as análises, será considerado apenas as reatâncias e chamando $K = X_0/X_1$ no local do curto. Abaixo, observa-se a fórmula para o fator de sobretensão para as fases não curto-circuitadas pela relação pré-falta e $R<<X$, sendo exata para uma linha sem parcela resistiva.
+\begin{equation} \label{fst}
+    f_{st} = \sqrt{3}\frac{\sqrt{K^2+K+1}}{2+K}
+\end{equation}
+Serão avaliadas três situações de curto-circuito:
+\begin{itemize}
+    \item Curto-circuito em um sistema com relação $K=1$, ($X_0=X_1$)
+    
+    Um sistema que possui essa relação é interpretado como um sistema sem acoplamento mútuo entre as fases, assim, não sendo necessário levar em consideração a influência entre fases, refletindo assim na igualdade da reatância entre todas as componentes de sequência.
+    
+    \item Curto-circuito monofásico em um sistema isolado $X_0 = \infty$
+    
+    Essa relação pode ser obtida a partir de um sistema que é interligado por um transformador com ligação delta e com uma fase aterrada. Desta forma o transformador vai funcionar filtrando as componentes de corrente de sequência zero.
+    
+    \item Curto-circuito em um sistema com relação $X_0/X_1>1$
+    
+    Essa relação é a mais generalista, pois considera a matriz impedância totalmente completa para o sistema com influência entre as fases, refletindo na presença das reatâncias mútuas foram da diagonal principal.
+    
+    Se considerar a matriz de impedância da rede como:
+    
+    \begin{equation}
+        [Z] \,=\, \begin{bmatrix} 
+                      Z & Z_m & Z_m \\ 
+                      Z_m & Z & Z_m  \\
+                      Z_m & Z_m & Z \\  
+                     \end{bmatrix}\,
+    \end{equation}
+    
+    Transformando em componentes simétricas, tem-se: $Z_1 = Z_2 = Z - Z_m$ e $Z_0 = Z + 2Z_m$. Para o caso de uma carga estrela aterrada com impedância $Z_n$ a situação será: $Z_1 = Z_2 = Z$ e $Z_0 = Z + 3Z_n$
+\end{itemize}
+
+\newpage

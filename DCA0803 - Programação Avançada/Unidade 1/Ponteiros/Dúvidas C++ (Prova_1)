@@ -1,0 +1,24 @@
+- Maneira rápida de trabalhar no exemplo 5 (manipulando os dias do mês);
+
+- Como transformar um inteiro/float/double em uma string;
+
+- Manipulação de Strings:
+	* Ler uma string com cin;
+	* Como ler um array de char;
+	* O que é e como é armazenado em cada posição de uma string (letra ou palavra)// Como ficam os endereços, como acessá-los?;
+	* Como contar quantos caracteres existe em uma string;
+	* Como identificar que não é para reduzir a última palavra;
+
+	
+- Abreviador de palavras: 
+	* Tem que possuir um 0 no final da string (Esse zero o usuário ou o programador adiciona?)
+
+
+- Pode usar como parâmetro de uma função, uma outra função que tem outro parâmetro? (Ex.: ab(cd(i)).);
+
+- Como operar um float/double com um inteiro (Ex.: 10.8/3);
+
+- Como fazer o Ex_8, sendo que ao invés de ser void inverte(), ser int inverte(), ou seja, a função retorna o inteiro invertido e não apenas imprimir?
+
+- Prova 17.1.: Pode declarar a função lá em cima e preenche-la abaixo da main? Como faz?
+

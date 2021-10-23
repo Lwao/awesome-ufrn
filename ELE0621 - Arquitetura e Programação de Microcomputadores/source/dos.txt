@@ -1,0 +1,25 @@
+keyb po shift 7
+mount d /ExDos
+d:
+dir
+tasm ex1
+tlink /v ex1
+td ex1
+
+
+td
+
+Ler do buffer talvez ajude ler tecla sem esperar
+
+TAREFA 1 PARA FICHAMENTO
+
+dois vetores
+5 num
+soma dos elementos do vetor
+somando no vetor resultado
+
+soma/subtração de vetor e armazena em outro
+
+tentar interagir com o usuário inserindo os valores do vetor
+
+INT21h função 1 de inserir dados pelo teclado

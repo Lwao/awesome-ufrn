@@ -1,0 +1,16 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture} [ american, ]
+    %shorts
+    \draw (0,0) node[left]{$+10V$} to[R, l=$10k \ohm$, o-] (2,0)
+    (2,0) to[R, l=$15k \ohm - R_p$] (4,0)
+    (4,0) to[R, l=$R_p$] (6,0)
+    (6,0) to[R, l=$10k \ohm$, -o] (8,0) node[right]{$-10V$}
+    (4,0) to[short, *-] (4,-1) node[left]{$V_{in}$}
+    ;
+    
+\end{tikzpicture}
+\end{center}
+\caption{Divisor de tensão da entrada.}
+\label{div} 
+\end{figure}

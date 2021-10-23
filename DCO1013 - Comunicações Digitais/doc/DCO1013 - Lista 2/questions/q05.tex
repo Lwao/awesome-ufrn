@@ -1,0 +1,27 @@
+Dados: $B=3 \, kHz$, $f_s = 1.33\times2B$, $\Delta_{max}/2=0.5\% \, m_p$ 
+
+A frequência de amostragem será $f_s = 8 \, kHz$ de acordo com a banda fornecida. No que diz respeito ao erro de quantização, este é dado pela razão entre a excursão máxima do sinal e a quantidade de níveis de quantização:
+\begin{equation}
+	\Delta_{max} = \frac{2m_p}{L} 
+\end{equation}
+Porém como o erro de quantização máximo é dado como uma função da amplitude máxima do sinal, pode-se encontrar a quantidade de níveis de quantização como:
+\begin{equation}
+	L = \frac{m_p}{\Delta_{max}/2} = \frac{m_p}{0.5\times0.01\times m_p} = 200 
+\end{equation}
+Encontrada a quantidade de níveis, arredonda-se para o próximo valor na base de 2 que é 256 níveis e equivale a $n=8$ bits. Assim a largura de banda mínima requerida para transmissão será:
+\begin{equation}
+	C_{1s} = nf_s = 64 \, kbps 
+\end{equation}
+E para 24 sinais semelhantes:
+\begin{equation}
+	C_{24s} = 24\times C_{1s} = 1536 \, kbps 
+\end{equation}
+
+Assim, como pode-se transmitir até 2 bits/s por hertz de largura de banda, a largura de
+banda mínima de transmissão para ambos os casos será:
+\begin{equation}
+	B_{1s} = \frac{C_{1s}}{2} = 32 \, kHz 
+\end{equation}
+\begin{equation}
+	B_{24s} = \frac{C_{24s}}{2} = 768 \, kHz 
+\end{equation}

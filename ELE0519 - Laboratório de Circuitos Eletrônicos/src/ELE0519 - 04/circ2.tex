@@ -1,0 +1,22 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw (0,3) to[sV_=$V_1$, -*] (0,0)
+    (0,3) to[R,l=$R_1$,-*] (3,3)
+    (3,3) to[R,l=$R_f$,-*] (6,3)
+    (6,3) to[sV_=$-A_{v}V_{i}$, -*] (6,0)
+    (6,3) to[short,*-] (7,3)
+    (0,0) to[short,-*] (3,0)
+    (3,0) to[short,-] (7,0)
+    (0,0) to[short,-] (0,-0.5)
+    (0,-0.5) node[ground]{} 
+    (7,0) to[short,-] (7,-0.5)
+    (7,-0.5) node[ground]{} 
+    (3,3.5)node[left]{$V_{i}$} 
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Circuito simplificado para o amplificador inversor.}
+\end{figure}

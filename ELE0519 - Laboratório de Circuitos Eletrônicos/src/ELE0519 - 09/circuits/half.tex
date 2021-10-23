@@ -1,0 +1,27 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.75, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-1.5,-0.5) node[ground]{}
+    (opamp.-) to[R, l_=$R_1$] (-5,0.5) to[sV_=$V_{in}$] (-5,-1.5) node[ground]{}
+    (opamp.out) to[short, -*] (1.5,0) 
+    (opamp.up) -- (0,0.5) node[vcc]{+12\,\textnormal{V}}
+    (opamp.down) -- (0,-0.5) node[vee]{-12\,\textnormal{V}}
+    (-1.5,0.5) to[short, *-] (-1.5,4)
+    (-1.5,2.5) to[D*, l=1N4148, *-] (1.5,2.5) 
+    (1.5,2.5) to[short, -*] (1.5,0)
+    (-1.5,4) to[R, l=$R_F$] (1.5,4)
+    (1.5,0) to[D*, l=1N4148, -*] (3.5,0) to[short, -*] (4,0) 
+    (3.5,0) to[R, l=$R_2$] (3.5,-2) node[ground]{}
+    (4.2,0) node[right] {$V_o$}
+    (1.5,4) -- (3.5,4) -- (3.5,0)
+    
+    ;
+    
+\end{tikzpicture}
+};
+\end{center}
+\caption{Retificador de meia onda. Onde: $R_1=R_F=1.2k \ohm$ e $R_2=12k \ohm$}
+\label{ckt:1} 
+\end{figure}

@@ -1,0 +1,71 @@
+\setlength{\abovedisplayskip}{-25pt}
+\setlength{\belowdisplayskip}{-25pt}
+
+\section{Análise Teórica}
+
+Como o circuito da figura \ref{ckt:1} é um circuito oscilador harmônico, substituindo o controle não linear de ganho pelo o potenciômetro de $50k\ohm$   já conhecendo os pré-requisitos para a geração de senoide, devemos saber a resistência necessária para que o circuito funcione adequadamente. Primeiramente sabemos que o circuito descrito está de acordo com o critério de estabilidade de Barkhausen, logo podemos calcular a frequência de oscilação do sistema.
+
+
+\begin{equation} \label{freqq}
+f_o = \frac{1}{2\pi \times R \times C} = \frac{1}{2\pi \times 15\times10^3 \times 10\times10^{-9}} = 1,061kHz
+\end{equation}
+
+Para encontrar resistência miníma do potenciômetro necessária para a oscilação devemos perceber que essa resistência será no mínimo o dobro da resistência $R_1$, logo:
+
+\begin{equation} \label{int}
+R_p = 2R_1 = 20K\ohm
+\end{equation}
+
+Neste caso espera-se na saída uma senoide que para valores de $R_p$ inferiores a $20k\ohm$ será atenuada a ganho zero, e para valores maiores que $20k\ohm$ devemos observar um saturação na amplitude do sinal.
+
+Substituindo o potenciômetro pelo o bloco de controle não linear de ganho, o comportamento do circuito é um pouco diferente devido a presença dos diodos. Primeiramente devemos supor que os diodos D1 e D2 estão em corte, logo não passa corrente em $R_3$, teremos na saída então:
+
+\begin{equation} \label{int}
+V_o = (1+\frac{R_2}{R_1})\times V^+
+\end{equation}
+onde:
+$|A| = (1+\frac{R_2}{R_1}) $
+
+Como $R_2$ é $47k\ohm$ ou seja um pouco maior  que $2R_1$, temos que $|A|>3$. Neste caso:
+
+\begin{equation} \label{int}
+V^+ = V^- = \frac{V_o}{1+\frac{R_2}{R_1}} \approx \frac{V_o}{3}
+\end{equation}
+
+Também não haverá corrente em $R_2$, portanto:
+
+A tensão entre o paralelo dos diodos $V_x$ será igual $V^-$, logo:
+
+\begin{equation} \label{int}
+V_x = V^- = \frac{V_o}{3}
+\end{equation}
+
+\begin{itemize}
+    \item D1 irá conduzir para:
+   
+    \begin{center}
+        $V_o - V_x > 0,7$ \\
+        $V_o - \frac{V_o}{3} > 0,7 $\\
+    
+    \end{center}
+    \begin{equation} \label{mai}
+     V_o > 1,05 V
+    \end{equation}
+    
+
+    
+    \item De forma semelhante, D2 irá conduzir para:
+    
+    \begin{equation} \label{men}
+     V_o < - 1,05 V
+    \end{equation}
+    
+\end{itemize}
+
+Dessa forma a Amplitude pico a pico ($A_{pp}$) será:
+
+\begin{equation} \label{int}
+    A_{pp} = 2,10  \hspace{3pt} V_{pp}
+\end{equation}
+
+Desta forma, devemos notar na saída $V_o$ uma senoide com frequência de oscilação $f_o$ e $A_{pp}$. Porém percebe-se que na prática considerar que a tensão de limiar do diodo 0,7V é uma aproximação grosseira, essa discussão será melhor trabalhada na próxima seção, como poderemos ver a seguir.

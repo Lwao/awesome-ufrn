@@ -1,0 +1,24 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture} 
+\begin{axis}[very thick,
+                     samples = 100,
+                     ytick={-10,10},
+                     xlabel = {$V_{in}[V]$},
+                     ylabel = {$V_{o}[V]$},
+                     xmin = -6,
+                     xmax = 6,
+                     ymin = -0.5,
+                     ymax = 5,
+                     axis x line = middle,
+                     axis y line = middle,
+                     ticks = none]
+            \addplot[draw=red, domain=-4:0] plot (\x, {-\x});
+            \addplot[draw=red, domain=0:4] plot (\x, {0});
+            \addplot[mark=none] coordinates {(-2,2)} node[pin=200:{\tiny $\frac{dV_o}{dV_{in}}=-1$}]{};
+        \end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{Característica de transferência para o retificador de meia onda de precisão.}
+\label{graph:1} 
+\end{figure}

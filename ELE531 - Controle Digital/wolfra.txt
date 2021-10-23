@@ -1,0 +1,45 @@
+laplaceinverse(({2e^(-t)-e^(-2t),e^(-t)-e^(-2t)},{-2*(e^(-t)-e^(-2t)),-e^(-t)+2e^(-2t)}))
+
+∫(  2*(e^(-t)-e^(-2t))   )dt from 0 to h
+∫(  2*(-e^(-t)-2*e^(-2t))   )dt from 0 to h
+
+
+
+
+
+
+inv([%s -1 0; 0 %s -1; 4 8 %s+5])
+
+laplaceinverse(1/(s^3+5s^2+8s+4)*({s^2+5s+8,s+5,1},{-4,s^2+5s,s},{-4s,-8s-4,s^2}))
+
+∫(     e^(-2t)*(e^t-4t)   )dt from 0 to h
+
+matrix = ({2e^(-t)-e^(-2t),e^(-t)-e^(-2t)},{-2*(e^(-t)-e^(-2t)), })
+
+laplaceinverse(({1/s,(s+3)/(s^3+3s^2+2s),1/(s^3+3s^2+2s)},{0,(s+3)/(s^2+3s+2),1/(s^2+3s+2)},{0,-2/(s^2+3s+2),s/(s^2+3s+2)}))
+
+∫(     -e^(-2t)*(e^t-2)   )dt from 0 to h
+
+
+
+inv([%s -1 ; 50 %s+1])
+inv([%s -1 ; 25 %s+2])
+inv([%s -1 ; 0 %s+0.5])
+
+
+| (e^(-t) sin(2 sqrt(6) t))/(2 sqrt(6))
+| (e^(-t) (2 sqrt(6) cos(2 sqrt(6) t) - sin(2 sqrt(6) t)))/(2 sqrt(6)))
+
+
+
+∫(-(    e^(-z)*sin(2*sqrt(6)*z)/(2*sqrt(6))    ))dz from t to 0
+
+∫(-(    e^(-z)*(2*sqrt(6)*cos(2*sqrt(6)*z)-sin(2*sqrt(6)*z))/(2*sqrt(6))    ))dz from t to 0
+
+
+
+∫(     e^(-z)*sin(2*sqrt(6)*z)/(2*sqrt(6))   )dz from 0 to t
+∫(     e^(-z)*(2*sqrt(6)*cos(2*sqrt(6)*z)-sin(2*sqrt(6)*z))/(2*sqrt(6))   )dz from 0 to t
+
+
+-(5 e^(-t) (-sqrt(6) w^3 sin(2 sqrt(6) t) + 12 e^t w^2 sin(t w) + 23 sqrt(6) w sin(2 sqrt(6) t) - 300 e^t sin(t w) - 24 w cos(2 sqrt(6) t) + 24 e^t w cos(t w)))/(6 (w^4 - 46 w^2 + 625))

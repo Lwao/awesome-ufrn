@@ -1,0 +1,23 @@
+Esse problema foi resolvido com o auxílio do MATLAB/Octave e suas funções \textit{built-in} \textit{erfc()} e \textit{invercf()}.
+
+Considerando que a probabilidade de erro é dada por:
+
+\begin{center}
+    $P_e = \frac{1}{2} erfc \left[\sqrt{\frac{E_{b1}}{N_0}} \right]$
+\end{center}
+
+Para o primeiro caso em que $P_e = 10^{-6}$, tem-se que o argumento de erfc() é dado por:
+
+\begin{center}
+   $\sqrt{\frac{E_{b1}}{N_0}} = erfcinv(2P_e) = 3.3612$
+\end{center}
+
+Considerando que a energia de bit é uma função de sua amplitude ao quadrado integrada ao longo do tempo de bit, tem-se que para situação inicial $E_{b1} = a^2 T_b$. Porém no segundo caso a taxa de sinalização é dobrada, logo o tempo de bit reduz-se pela metade, resultando na seguinte relação entre as energias: $E_{b2} = a^2 T_b/2 = E_{b1}/2$.
+
+Finalmente o novo valor para a probabilidade média do erro será:
+
+\begin{center}
+   $P_e^{'}= \frac{1}{2} erfc\left[\sqrt{\frac{E_{b2}}{N_0}} \right] = \frac{1}{2} erfc\left[\frac{1}{\sqrt{2}}\sqrt{\frac{E_{b1}}{N_0}} \right] = 0.38 \times 10^{-3} $
+\end{center}
+
+\newpage

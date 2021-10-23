@@ -1,0 +1,187 @@
+$comment
+	File created using the following command:
+		vcd file project3.msim.vcd -direction
+$end
+$date
+	Sat Jun 01 20:13:01 2019
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module project3_vlg_vec_tst $end
+$var reg 5 ! a [4:0] $end
+$var reg 5 " b [4:0] $end
+$var reg 1 # b_op $end
+$var reg 1 $ b_rst $end
+$var reg 1 % clk $end
+$var reg 3 & op_in [2:0] $end
+$var wire 1 ' csig $end
+$var wire 1 ( dis_0 [6] $end
+$var wire 1 ) dis_0 [5] $end
+$var wire 1 * dis_0 [4] $end
+$var wire 1 + dis_0 [3] $end
+$var wire 1 , dis_0 [2] $end
+$var wire 1 - dis_0 [1] $end
+$var wire 1 . dis_0 [0] $end
+$var wire 1 / dis_1 [6] $end
+$var wire 1 0 dis_1 [5] $end
+$var wire 1 1 dis_1 [4] $end
+$var wire 1 2 dis_1 [3] $end
+$var wire 1 3 dis_1 [2] $end
+$var wire 1 4 dis_1 [1] $end
+$var wire 1 5 dis_1 [0] $end
+$var wire 1 6 dis_2 [6] $end
+$var wire 1 7 dis_2 [5] $end
+$var wire 1 8 dis_2 [4] $end
+$var wire 1 9 dis_2 [3] $end
+$var wire 1 : dis_2 [2] $end
+$var wire 1 ; dis_2 [1] $end
+$var wire 1 < dis_2 [0] $end
+$var wire 1 = dis_3 [6] $end
+$var wire 1 > dis_3 [5] $end
+$var wire 1 ? dis_3 [4] $end
+$var wire 1 @ dis_3 [3] $end
+$var wire 1 A dis_3 [2] $end
+$var wire 1 B dis_3 [1] $end
+$var wire 1 C dis_3 [0] $end
+$var wire 1 D dis_4 [6] $end
+$var wire 1 E dis_4 [5] $end
+$var wire 1 F dis_4 [4] $end
+$var wire 1 G dis_4 [3] $end
+$var wire 1 H dis_4 [2] $end
+$var wire 1 I dis_4 [1] $end
+$var wire 1 J dis_4 [0] $end
+$var wire 1 K s [4] $end
+$var wire 1 L s [3] $end
+$var wire 1 M s [2] $end
+$var wire 1 N s [1] $end
+$var wire 1 O s [0] $end
+$var wire 1 P sampler $end
+$scope module i1 $end
+$var wire 1 Q gnd $end
+$var wire 1 R vcc $end
+$var wire 1 S unknown $end
+$var tri1 1 T devclrn $end
+$var tri1 1 U devpor $end
+$var tri1 1 V devoe $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1111 !
+b1111 "
+1#
+0$
+0%
+b0 &
+0'
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+05
+04
+03
+02
+01
+00
+0/
+0<
+0;
+0:
+09
+08
+07
+06
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+0J
+0I
+0H
+0G
+0F
+0E
+0D
+0O
+0N
+0M
+0L
+0K
+xP
+0Q
+1R
+xS
+1T
+1U
+1V
+$end
+#500000
+1%
+0P
+#1000000
+0%
+1P
+#1500000
+1%
+0P
+#2000000
+0%
+1P
+#2500000
+1%
+0P
+#3000000
+0%
+1P
+#3500000
+1%
+0P
+#4000000
+0%
+1P
+#4500000
+1%
+0P
+#5000000
+0%
+1P
+#5500000
+1%
+0P
+#6000000
+0%
+1P
+#6500000
+1%
+0P
+#7000000
+0%
+1P
+#7500000
+1%
+0P
+#8000000
+0%
+1P
+#8500000
+1%
+0P
+#9000000
+0%
+1P
+#9500000
+1%
+0P
+#10000000

@@ -1,0 +1,39 @@
+Para o cálculo da \textbf{probabilidade}, sendo $n$ eventos $X_i$ mutuamente exclusivos ($X_j \cap X_k = \varnothing$, $\forall \, j \neq k$), com $i = 1, 2, ... n$ e considerando $N(X_i)$ o número de ocorrências do evento $X_i$ em um espaço amostral $S$ de tamanho $N$, a probabilidade da união de todos os eventos será:
+
+\begin{equation} \label{lathi:1}
+P\left(\bigcup_{i=1}^{n}X_i \right) = \lim_{N\to\infty} \frac{1}{N}\sum_{i=1}^{n} N(X_i) = \sum_{i=1}^{n} P(X_i)
+\end{equation}
+
+A \textbf{probabilidade condicional} $P(B|A)$ denota a probabilidade de ocorrência do evento $B$ dado que o evento $A$ ocorreu. Considerando um experimento de $N$ repetições, no qual o evento $A$ ocorre $n_1$ vezes, e destas vezes que $A$ ocorreu, $B$ ocorreu $n_2$ vezes, portanto sendo $n_2$ o número de vezes que o evento $A \cap B$ ocorreu. Assim:
+
+\begin{equation} \label{lathi:2}
+P(A \cap B) = \lim_{N\to\infty} \left(\frac{n_2}{N}\right) = \lim_{N\to\infty} \left(\frac{n_1}{N}\right) \left(\frac{n_2}{n_1}\right) = P(A)P(B|A) 
+\end{equation}
+
+Se o evento $B$ for independente de $A$: $P(A \cap B) = P(A)P(B)$, logo $P(B|A)=P(B)$.
+
+O \textbf{teorema da probabilidade total} facilita o cálculo da probabilidade de ocorrência de um evento $Y$ diante de um grande número de resultados a considerar. Assim, para $n$ eventos disjuntos $X_i$ ($X_j \cap X_k = \varnothing$, $\forall \, j \neq k$), com $i = 1, 2, ... n$ , e que formam uma partição do espaço amostral $S$ tal que: $\bigcup_{i=1}^{n}X_i = S$, a probabilidade de ocorrência de $Y$ será:
+
+\begin{equation} \label{lathi:3}
+P(Y) = \sum_{i=1}^{n} P(X_i)P(Y|X_i) 
+\end{equation}
+
+O \textbf{teorema de Bayes} permite determinar a possibilidade de ocorrência de uma causa particular de um evento dentre muitas causas disjuntas possíveis. Para as mesmas considerações do teorema da probabilidade total para $X_i$ e $P(Y)>0$, com $j = 1, 2, ... n$, tem-se:
+
+\begin{equation} \label{lathi:4}
+P(X_j|Y) = \frac{P(Y|X_j)P(X_j)}{\sum_{i=1}^{n} P(Y|X_i)P(X_i)} 
+\end{equation}
+
+A \textbf{correlação} é uma medida da relação entre duas variáveis aleatórias. Ela depende da covariância ($\sigma_{xy} = \overline{(x-\bar{x})(y-\bar{y})}$) e variância ($\sigma_{x} = \overline{(x-\bar{x})^2}$), assim o coeficiente de correlação $\rho_{xy} \in [-1,1]$ será:
+
+\begin{equation} \label{lathi:5}
+\rho_{xy} = \frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}
+\end{equation}
+
+Variáveis aleatórias independentes são descorrelacionadas, mas não necessariamente o contrário é válido. "Existe apenas um caso especial para o qual independência e descorrelação são equivalentes — quando as variáveis $x$ e $y$ são conjuntamente gaussianas. Reparemos que, quando $x$ e $y$ são conjuntamente gaussianas, $x$ e $y$ são individualmente gaussianas."
+
+O \textbf{valor quadrático médio da soma de variáveis descorrelacionadas} $x$ e $y$, com $\sigma_{xy} = 0$ será:
+
+\begin{equation} \label{lathi:6}
+\sigma_{z}^2 = \sigma_{z}^2 + \sigma_{y}^2 + \sigma_{xy} = \sigma_{z}^2 + \sigma_{y}^2 
+\end{equation}

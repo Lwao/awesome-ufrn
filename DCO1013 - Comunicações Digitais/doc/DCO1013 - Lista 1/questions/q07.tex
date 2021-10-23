@@ -1,0 +1,23 @@
+Considerando que um trem de pulsos periódico de período $T_0$ pode ser representado pela série de Fourier, tem-se:
+
+\begin{equation}
+    \delta_{T_0}(t) = \frac{1}{T_0} \sum_{n = -\infty}^{\infty} e^{jn\omega_0t}
+\end{equation}
+
+Assim a representação do sinal amostrado $g(t)$ da questão anterior pode ser expresso como:
+
+\begin{equation}
+     g_{T_0}(t) = \frac{1}{T_0} \sum_{n = -\infty}^{\infty} g(t)e^{jn\omega_0t}
+\end{equation}
+
+Ao aplicar a transformada de Fourier no sinal amostrado, observa-se que se trata de um somatório de um sinal que possui translação em frequência. Sendo a transformada de Fourier do sinal $g(t)$ é $G(f)$, tem-se que:
+
+\begin{equation}
+     G_{T_0}(f) = \frac{1}{T_0} \sum_{n = -\infty}^{\infty} G(f-\frac{n}{T_0})
+\end{equation}
+
+Sendo $f_0=T_0$ e considerando um trem de impulsos deslocados na frequência para representar o espectro periódico do sinal amostrado, finalmente tem:
+
+\begin{equation}
+     G_{T_0}(f) = f_0 \sum_{n = -\infty}^{\infty} G(nf_0)\delta(f-nf_0) 
+\end{equation}

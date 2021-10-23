@@ -1,0 +1,139 @@
+Considerando que a forma do sinal PCM com tempo de bit $T_b$ é:
+
+\begin{equation} \label{q06:1}
+    \centering
+    x(t) = 
+    \left \{
+    \begin{array}{cc}
+    +A+w(t), \, bit=1  \\
+    w(t), \, bit=0  \\
+    \end{array}
+    \right.
+\end{equation}
+
+A saída $y(t)$ do filtro casado assume duas hipóteses de acordo com o bit que foi enviado:
+
+\begin{equation} \label{q06:2}
+    \centering
+    y(t) \, = \, \frac{1}{T_b}\int_{0}^{T_b} x(t) dt \,
+    \left \{
+    \begin{array}{cc}
+    A+\frac{1}{T_b}\int_{0}^{T_b} w(t) dt, \, bit=1  \\
+    \frac{1}{T_b}\int_{0}^{T_b} w(t) dt, \, bit=0  \\
+    \end{array}
+    \right.
+\end{equation}
+
+Uma vez que $w(t)$ é um processo aleatório, não se pode dizer com certeza qual nível será assumido no instante de amostragem. Sendo $w(t)$ um processo aleatório possui distribuição Gaussiana com média zero, a probabilidade pode ser avaliada com a seguinte lei para função densidade de probabilidade:
+
+\begin{equation} \label{q06:3}
+    f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}
+\end{equation}
+
+Como a variável aleatória $W$ que representa o ruído possui média zero, a média de cada hipótese será (o subscrito representa qual bit foi originalmente enviado):
+
+\begin{center}
+    $\mu_0 = E[Y \, | \, bit = 0] = 0$ \\ \vspace{1pt}
+    $\mu_1 = E[Y \, | \, bit = 1] = A$
+\end{center}
+
+Assim, permite-se escrever a função densidade de probabilidade para cada hipótese de bit, sendo a equação \ref{q06:4} representando a fdp para o bit 0 enviado e a equação \ref{q06:5} para o bit 1 enviado.
+
+\begin{equation} \label{q06:4}
+    p_0(y) = \frac{1}{\sigma\sqrt{2\pi}} e^{-y^2/(2\sigma^2)}
+\end{equation}
+
+\begin{equation} \label{q06:5}
+    p_1(y) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(y-A)^2/(2\sigma^2)}
+\end{equation}
+
+Já as probabilidades do erro serão:
+
+\begin{equation} \label{q06:6}
+    P_{e0}(y>\lambda \, | \, bit=0)= \int_{\lambda}^{\infty} p_0(y)dy
+\end{equation}
+
+\begin{equation} \label{q06:7}
+    P_{e1}(y<\lambda \, | \, bit=1)= \int_{-\infty}^{\lambda} p_1(y)dy
+\end{equation}
+
+
+A probabilidade total do erro será dada pelo teorema da probabilidade total e considerando a equiprobabilidade ($p_0 = p_1$):
+
+\begin{center}
+    $P_e = p_0 P_{e0} + p_1 P_{e1} = \frac{1}{2} (P_{e0} + P_{e1})$
+\end{center}
+
+A energia de bit $E_b = A^2T_b$ corresponde o tempo em que o bit 1 é enviado. O sinal não possui energia para o bit 0. Um limiar de detecção ou decisão pode ser definido como a amplitude $A/2$ correspondente à metade dessa energia:
+
+\begin{center}
+    $\lambda = \frac{A}{2} = \frac{1}{2} \sqrt{\frac{E_b}{T_b}}$
+\end{center}
+
+Para esse limiar a soma das duas probabilidades será a mínima de forma que a probabilidade de erros para cada tipo seja igual. Finalmente a probabilidade do erro será:
+
+\begin{equation} \label{q06:8}
+    P_e= \int_{A/2}^{\infty} \frac{1}{\sigma\sqrt{2\pi}} e^{-y^2/(2\sigma^2)}dy
+\end{equation}
+
+Fazendo a substituição de variáveis $z = y/\sigma$, tem-se: $dz = dy/\sigma$ e:
+
+\begin{equation} \label{q06:9}
+    P_e= Q\left(\frac{A}{2\sigma}\right) = \frac{1}{\sqrt{2\pi}} \int_{A/(2\sigma)}^{\infty}  e^{-z^2/2}dz
+\end{equation}
+
+O termo $A/(2\sigma)$ pode ser transformado em função da energia de bit, densidade de energia do ruído e tempo de bit. Sendo $E_b = A^2T_b/2$ e $\sigma^2 = N_0/(2T_b)$, tem-se:
+
+\begin{center}
+    $\frac{A}{2\sigma} = \frac{1}{2} \sqrt{\frac{2E_b}{T_b}\frac{2T_b}{N_0}} = \sqrt{\frac{E_b}{N_0}}$
+\end{center}
+
+Finalmente:
+
+\begin{equation} \label{q06:10}
+    P_e= Q\left(\sqrt{\frac{E_b}{N_0}}\right) 
+\end{equation}
+
+Ainda pode ser rescrito em função da função complementar do erro. Sendo $Q(u) = 1/2 \times erfc(u/\sqrt{2})$, com $u = \sqrt{E_b/N_0}$, tem-se:
+
+\begin{equation} \label{q06:11}
+    P_e=  \frac{1}{2} erfc\left(\sqrt{\frac{E_b}{2N_0}}\right) = \frac{1}{2} erfc\left(\frac{1}{2}\sqrt{\frac{A^2T_b}{N_0}}\right)
+\end{equation}
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+A variância de saída do filtro casado é dada por:
+
+\begin{center} 
+    $\sigma^2_Y = \int_{-\infty}^{\infty} S_Y(f)|H(f)|^2 df$
+\end{center}
+
+A densidade espectral de potência para o ruído é constante em $N_0/2$ e o filtro $H(f)$ é casado com o sinal, logo a integral infinita do seu espectro de amplitude ao quadrado será a energia de um símbolo $E_b$, assim a variância da variável aleatória $Y$ será:
+
+\begin{center}
+    $\sigma^2 = \frac{N_0A^2T_b}{2}$
+\end{center}
+
+Isolando $A/(2\sigma)$:
+
+\begin{center}
+    $\frac{A}{2\sigma} = \sqrt{\frac{1}{2N_0T_b}}$
+\end{center}
+
+Finalmente:
+
+\begin{equation} \label{q06:10}
+    P_e= Q(\frac{A}{2\sigma}) = \frac{1}{\sqrt{2\pi}} \int_{A/(2\sigma)}^{\infty}  e^{-z^2/2}dz
+\end{equation}
+\end{comment}

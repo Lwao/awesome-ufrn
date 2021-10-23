@@ -1,0 +1,41 @@
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture} 
+    %shorts
+    \draw (0,-0.5) node[below]{$-15V$} to[short, o-] (0,0)
+    (0,2) to[R,l=$180\ohm$,*-] (0,0)
+    (0,2) to [Tnpn,n=npn3] (0,3.5)
+    (npn3.E) node[right=3mm, above=5mm]{$Q_3$} 
+    (-1,2.75) to[short, *-] (-0.5,2.75)
+    (-1,2.75) to[/tikz/circuitikz/bipoles/length=1cm,D] node[left]{$1N4148$} (-1,1.375)
+    (-1,1.375) to[/tikz/circuitikz/bipoles/length=1cm,D] (-1,0)
+    (-1,0) to[short, -*] (0,0)
+    (-3,2.75) to[R,l=$3.3\kilo\ohm$] (-1,2.75)
+    (-3,2.75) node[ground]{}
+    (0,3.5) to[short, -*] (0,4)
+    (-1,4) to[short, -] (1,4)
+    (-1,4) to[R,l=$33\ohm$] (-1,6)
+    (1,6) to[R,l=$33\ohm$] (1,4)
+    (1,6) to [Tnpn,n=npn2,mirror] (1,7.5)
+    (npn2.E) node[left=3mm, above=5mm]{$Q_2$}
+    (-1,6) to [Tnpn,n=npn1] (-1,7.5)
+    (npn1.E) node[right=3mm, above=5mm]{$Q_1$}
+    (1,9.5) to[R,l=$4.7\kilo\ohm$] (1,7.5)
+    (-1,7.5) to[R,l=$4.7\kilo\ohm$] (-1,9.5)
+    (-1,9.5) to[short, -] (1,9.5)
+    (0,9.5) to[short, *-o] node[above]{$+15V$} (0,10)
+    (1.5,6.75) to[short, -] (3,6.75)
+    (-3,6.75) to[short, -] (-1.5,6.75)
+    (-3,6.75) to[sV_=$V_1$] (-3,4.75)
+    (3,6.75) to[sV=$V_2$] (3,4.75)
+    (-3,4.75) node[ground]{}
+    (3,4.75) node[ground]{}
+    
+    
+
+    
+    ;
+\end{tikzpicture}
+\end{center}
+\caption{Esquemático do amplificador diferencial.}
+\end{figure}

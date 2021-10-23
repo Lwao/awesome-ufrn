@@ -1,0 +1,121 @@
+|reg_mult
+Q3 <= reg:inst.Q3
+LD_CTRL => ctrl_in:inst4.LD
+SR_CTRL => ctrl_in:inst4.SR
+SL_CTRL => ctrl_in:inst4.SL
+I3 => reg:inst.I3
+I2 => reg:inst.I2
+I1 => reg:inst.I1
+I0 => reg:inst.I0
+SL_IN => reg:inst.SL_IN
+SR_IN => reg:inst.SR_IN
+CLOCK => reg:inst.CLOCK
+VCC => reg:inst.VCC
+Q2 <= reg:inst.Q2
+Q1 <= reg:inst.Q1
+Q0 <= reg:inst.Q0
+
+
+|reg_mult|reg:inst
+Q3 <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+VCC => inst3.ACLR
+VCC => inst6.ACLR
+VCC => inst7.ACLR
+VCC => inst8.ACLR
+VCC => inst8.PRESET
+VCC => inst7.PRESET
+VCC => inst6.PRESET
+VCC => inst3.PRESET
+CLOCK => inst3.CLK
+CLOCK => inst6.CLK
+CLOCK => inst7.CLK
+CLOCK => inst8.CLK
+S1 => mux_4x1:inst.S1
+S1 => mux_4x1:inst1.S1
+S1 => mux_4x1:inst2.S1
+S1 => mux_4x1:inst4.S1
+S0 => mux_4x1:inst.S0
+S0 => mux_4x1:inst1.S0
+S0 => mux_4x1:inst2.S0
+S0 => mux_4x1:inst4.S0
+I3 => mux_4x1:inst.E1
+SR_IN => mux_4x1:inst.E2
+I2 => mux_4x1:inst1.E1
+I1 => mux_4x1:inst2.E1
+I0 => mux_4x1:inst4.E1
+SL_IN => mux_4x1:inst4.E3
+Q2 <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+Q1 <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Q0 <= inst8.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|reg_mult|reg:inst|mux_4x1:inst
+X <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+E0 => inst4.IN0
+S1 => inst.IN0
+S1 => inst10.IN1
+S1 => inst11.IN1
+S0 => inst6.IN0
+S0 => inst11.IN2
+S0 => inst5.IN2
+E2 => inst10.IN0
+E3 => inst11.IN0
+E1 => inst5.IN0
+
+
+|reg_mult|reg:inst|mux_4x1:inst1
+X <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+E0 => inst4.IN0
+S1 => inst.IN0
+S1 => inst10.IN1
+S1 => inst11.IN1
+S0 => inst6.IN0
+S0 => inst11.IN2
+S0 => inst5.IN2
+E2 => inst10.IN0
+E3 => inst11.IN0
+E1 => inst5.IN0
+
+
+|reg_mult|reg:inst|mux_4x1:inst2
+X <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+E0 => inst4.IN0
+S1 => inst.IN0
+S1 => inst10.IN1
+S1 => inst11.IN1
+S0 => inst6.IN0
+S0 => inst11.IN2
+S0 => inst5.IN2
+E2 => inst10.IN0
+E3 => inst11.IN0
+E1 => inst5.IN0
+
+
+|reg_mult|reg:inst|mux_4x1:inst4
+X <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+E0 => inst4.IN0
+S1 => inst.IN0
+S1 => inst10.IN1
+S1 => inst11.IN1
+S0 => inst6.IN0
+S0 => inst11.IN2
+S0 => inst5.IN2
+E2 => inst10.IN0
+E3 => inst11.IN0
+E1 => inst5.IN0
+
+
+|reg_mult|ctrl_in:inst4
+S1 <= inst5.DB_MAX_OUTPUT_PORT_TYPE
+LD => inst9.IN0
+LD => inst4.IN0
+SR => inst1.IN1
+SR => inst2.IN1
+SR => inst8.IN0
+SL => inst7.IN0
+SL => inst2.IN2
+SL => inst.IN2
+SL => inst3.IN2
+S0 <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+
+

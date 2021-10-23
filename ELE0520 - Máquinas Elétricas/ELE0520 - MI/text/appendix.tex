@@ -1,0 +1,108 @@
+\appendix
+
+\section{Scilab \textit{scripts}}
+
+\subsection{Ensaio da MI com rotor em vazio e bloqueado}
+
+\begin{lstlisting}
+// GRANDEZAS MEDIDAS COM ESTATOR EM Y
+
+r_estator = [6.3, 6.3, 6.2]; 
+
+// ensaio com rotor em vazio (u, v, w)
+
+v_vazio = [377.9, 376, 382.5]/sqrt(3); 
+i_vazio = [1.675, 1.537, 1.549];
+p_vazio = [40, 22, 56];
+
+// ensaio com rotor bloqueado
+
+v_bloqueado = [64.5, 64.2, 65.1]/sqrt(3); 
+i_bloqueado = [2.541, 2.513, 2.498];
+p_bloqueado = [65, 64, 65];
+
+// GRANDEZAS OBTIDAS DA PLACA
+
+p_eixo_nominal = 1100;
+n_eixo_nominal = 1715;
+n_estator = 1800;
+polos = 4;
+
+// CÁLCULOS DOS PARÂMETROS
+
+p_estator = r_estator.*i_vazio.^2;
+p_rotacionais = p_vazio - p_estator;
+x1_mais_xphi = sqrt((v_vazio./i_vazio).^2 - r_estator.^2);
+r2 = (p_bloqueado./i_bloqueado.^2) - r_estator;
+x1_mais_x2 = sqrt((v_bloqueado./i_bloqueado).^2 - (r_estator + r2).^2);
+x1 = x1_mais_x2/2;
+x2 = x1;
+xphi = x1_mais_xphi - x1;
+r1 = r_estator;
+
+// CÁLCULO DE GRANDEZAS
+
+Z1 = ((r1+x1*%i).*(xphi*%i))./(r1+(x1+xphi)*%i);
+R1 = real(Z1);
+X1 = imag(Z1);
+Vth = (v_vazio.*xphi*%i)./(r1+(x1+xphi)*%i);
+
+w_eixo_nominal = n_eixo_nominal*(2*%pi/60);
+p_nominal = p_eixo_nominal + p_rotacionais;
+t_eixo_nominal = p_nominal/w_eixo_nominal;
+q1 = 3;
+
+function func = f(x)
+    temp1 = (1-x)/w_eixo_nominal;
+    temp2 = q1*(abs(Vth)'.^2.*r2'./x);
+    temp3 = ((R1'+r2'./x).^2+(X1'+x2').^2);
+    func = ((temp1.*temp2)./(temp3))-t_eixo_nominal';
+endfunction
+
+sn1 = fsolve([0;0;0],f);
+sn2 = fsolve([0.01;0.01;0.01],f);
+sn3 = fsolve([1;1;1],f);
+
+st_max = r2./sqrt(R1.^2+(X1+x2).^2);
+w_sincrono = w_eixo_nominal./(1-sn2);
+s = linspace(0.000001,1,1000);
+for i = 1:3
+    for j = 1:length(s)
+        T(i,j) = (q1*(1/w_sincrono(i))*(abs(Vth(i))^2*r2(i)/s(j)))/((R1(i)+r2(i)/s(j))^2+(X1(i)+x2(i))^2);
+    end
+end
+
+t_max = [max(T(1,:)),max(T(2,:)),max(T(3,:))];
+s_max_idx = [find(T(1,:)==t_max(1)),find(T(2,:)==t_max(2)),find(T(3,:)==t_max(3))];
+s_max = [s(s_max_idx(1)),s(s_max_idx(2)),s(s_max_idx(3))];
+rc = sqrt(R1.^2+(X1+x2).^2)-r2;
+
+for i = 1:3
+    for j = 1:length(s)
+        T_new(i,j) = (q1*(1/w_sincrono(i))*(abs(Vth(i))^2*(r2(i)+rc(i))/s(j)))/((R1(i)+(r2(i)+rc(i))/s(j))^2+(X1(i)+x2(i))^2);
+    end
+end
+
+figure
+plot2d(s,[T(1,:)',T(2,:)',T(3,:)'],[1,2,3]);
+e=gce();
+
+hl=captions(e.children,['Fase u';'Fase v';'Fase w']);
+hl=captions(e.children,['Fase u';'Fase v';'Fase w'],'in_upper_right');
+
+hl.legend_location='in_upper_right'
+hl.fill_mode='on';
+
+figure
+plot2d(s,[T_new(1,:)',T_new(2,:)',T_new(3,:)'],[1,2,3]);
+e=gce();
+
+hl=captions(e.children,['Fase u';'Fase v';'Fase w']);
+hl=captions(e.children,['Fase u';'Fase v';'Fase w'],'in_upper_right');
+
+hl.legend_location='in_upper_right'
+hl.fill_mode='on';
+\end{lstlisting}
+
+
+\pagebreak

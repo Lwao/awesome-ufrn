@@ -1,0 +1,146 @@
+% Set Title, Author, and email
+\title{ELE0646 - Transformadores}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+\textbf{Divisão dos transformadores}
+
+\begin{itemize}
+    \item Finalidade:
+    \begin{itemize}
+        \item TRAFO de distribuição;
+        \item TRAFO de força;
+        \item TP e TC.
+    \end{itemize}
+    \item Quantidade de enrolamentos:
+    \begin{itemize}
+        \item Autotransformador;
+        \item TRAFO de dois ou mais enrolamentos.
+    \end{itemize}
+    \item Formato do núcleo:
+    \begin{itemize}
+        \item Núcleo envolvido;
+        \item Núcleo envolvente;
+    \end{itemize}
+    \item Quantidade de fases:
+    \begin{itemize}
+        \item TRAFO monofásico (MRT - monofásico com retorno pelo terra);
+        \item TRAFO bifásico;
+        \item TRAFO trifásico.
+    \end{itemize}
+    \item Meio isolante:
+    \begin{itemize}
+        \item TRAFO a óleo;
+        \item TRAFO a seco.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Principais conceitos de transformadores}
+
+\begin{itemize}
+    \item Potência nominal;
+    \item Tensão nominal;
+    \item Derivações (\textit{tap});
+    \begin{itemize}
+        \item Comutador sem tensão (CST);
+        \item Comutador de derivação em carga (CDC).
+    \end{itemize}
+    \item Corrente de curto-circuito;
+    \begin{itemize}
+        \item A corrente de curto-circuito de pico afeta o TRAFO em sua estrutura mecânica e a corrente de curto-circuito permanente afeta-o termicamente.
+    \end{itemize}
+    \item Corrente de \textit{inrush};
+    \item Nível básico de isolamento (NBI);
+    \item Defasamento angular (diferença angular entre as tensões de linha ou de fase dos enrolamentos de baixa e alta tensão, ou seja, $V_L = V_l \angle{\text{defasamento}}$;
+    \input{defasamento}
+\end{itemize}
+
+\textbf{Características de desempenho do transformador}
+
+\begin{itemize}
+    \item Perdas;
+    \begin{itemize}
+        \item Perdas magnéticas/perdas no ferro/perdas no núcleo (constantes):
+        \begin{itemize}
+            \item Perdas por efeito da histerese magnética;
+            \item Perdas por correntes parasitas ou correntes de Foucault (usar material ferromagnético de alta resistividade e laminar o núcleo e realizar o isolamento das chapas);
+        \end{itemize}
+        \item Perdas no cobre/perdas nos enrolamentos (variáveis):
+        \begin{itemize}
+            \item Decorrente do efeito Joule;
+        \end{itemize}
+    \end{itemize}
+    \item Rendimento;
+    \begin{itemize}
+        \item Máximo encontra-se quando as perdas no cobre forem iguais às perdas no ferro.
+    \end{itemize}
+    \item Regulação:
+    \begin{itemize}
+        \item Razão entre a diferença entre a \textbf{tensão no secundário em vazio} e a tensão no secundário sob tensão nominal e potência nominal por a tensão tensão nominal:
+        \begin{equation}
+            reg = \frac{|V_2^{v}|-|V_2^{pc}|}{|V_2^{pc}|}
+        \end{equation}
+    \end{itemize}
+\end{itemize}
+
+\textbf{Características construtivas do transformador}
+
+\begin{itemize}
+    \item Parte ativa;
+    \begin{itemize}
+        \item Núcleo;
+        \item Enrolamentos;
+        \item Comutador de derivações.
+    \end{itemize}
+    \item Buchas;
+    \begin{itemize}
+        \item Corpo isolante;
+        \item Condutor passante;
+        \item Terminal;
+        \item Vedação.
+    \end{itemize}
+    \item Tanque;
+    \begin{itemize}
+        \item Selado;
+        \item Com conservador de óleo (tanque de expansão);
+    \end{itemize}
+    \item Radiador;
+    \begin{itemize}
+        \item Tubular;
+        \item Chapa de aço;
+    \end{itemize}
+    \item Líquido isolante e resfriamento;
+    \begin{itemize}
+        \item À óleo;
+        \begin{itemize}
+            \item Garantir isolação;
+            \item Dissipar calor gerado;
+            \item Óleo mineral ou de silicone
+        \end{itemize}
+        \item À seco;
+    \end{itemize}
+    \item Acessórios;
+    \begin{itemize}
+        \item Indicador de nível de óleo;
+        \item Termômetro para indicação da temperatura do óleo;
+        \item Imagem térmica;
+        \item Válvula de alívio de pressão;
+        \item Relé de pressão súbita;
+        \item Relé de gás (Buchholz);
+        \item Secador de ar.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Tipos de resfriamento}
+
+\begin{itemize}
+    \item ONAN: óleo natural, ar natural;
+    \item ONAF: óleo natural, ar forçado;
+    \item OFAN: óleo forçado, ar natural;
+    \item OFAF: óleo forçado, ar forçado;
+    \item OFWF: óleo forçado, água forçada;
+    \item AN: ar natural (destinado a transformadores a seco);
+    \item AF: ar forçado (destinado a transformadores a seco);
+\end{itemize}

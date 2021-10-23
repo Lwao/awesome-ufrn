@@ -1,0 +1,33 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.75, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    %shorts
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-1.5,-0.5)
+    (opamp.-) to[short,-*] (-1.5,0.5) -- (-2.5,0.5) 
+    (opamp.out) to[short, -*] (6.5,0) 
+    (opamp.up) -- (0,0.5) node[vcc]{+10\,\textnormal{V}}
+    (opamp.down) -- (0,-0.5) node[vee]{-10\,\textnormal{V}}
+    (-1.5,-0.5) -- (-1.5,-2) -- (1.5,-2)    
+    (-3,1.5) to[pR, l_=$15k \ohm$] (-3,-0.5)
+    (-3,3.5) to[R, l_=$10k \ohm$, *-] (-3,1.5)
+    (-3,-0.5) to[R, l_=$10k \ohm$, -*] (-3,-2.5) 
+    (-1.5,0.9) node[] {$V_{in}$}
+    (3.5,0) to[R, l=$820 \ohm$, *-] (3.5,-2) to[leD*] (3.5,-4) node[ground]{}
+    (5.5,0) to[R, l=$820 \ohm$, *-] (5.5,-2) 
+    (5.5,-4) to[leD*] (5.5,-2) 
+    (5.5,-4) node[ground]{}
+    (1.5,0) to[R, l=$12k \ohm$, *-] (1.5,-2)
+    (1.5,-2) to[R, l=$1.2k \ohm$, *-] (1.5,-4) node[ground]{}
+    (-3.2,-2.5) node[left] {$-10V$} 
+    (-3.2,3.5) node[left] {$+10V$}
+    (6.6,0) node[right] {$V_{o}$}
+    ;
+    
+\end{tikzpicture}
+};
+\end{center}
+\caption{Comparador regenerativo "Schmitt Trigger".}
+\label{ckt:2} 
+\end{figure}

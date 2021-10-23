@@ -1,0 +1,25 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw (-0.5,0) node[left]{$V_1$} to[short,-] (0,0) 
+    (0,0) to[R,l=$R_1$,-] (2,0)
+    (2,0) to[short,-] (3,0)
+    (3,-2) to[R,l_=$R_i$,v^=$V_{i}$,*-] (3,0)
+    (5,0) to[sV=$A_{v}V_{i}$, -*] (5,-2)
+    (5,0) to[R,l=$R_o$,-] (7,0)
+    (7,0) to[short,-] node[right]{$V_o$} (8,0)
+    (2,0) to[short,*-] (2,1)
+    (7,0) to[short,*-] (7,1)
+    (2,1) to[R,l=$R_f$,-] (7,1)
+    (2,-2) to[short,-] (7,-2)
+    (2,-2) to[short,-] (2,-2.5)
+    (2,-2.5) node[ground]{} 
+    (7,-2) to[short,-] (7,-2.5)
+    (7,-2.5) node[ground]{} 
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Circuito equivalente para amplificador inversor.}
+\end{figure}

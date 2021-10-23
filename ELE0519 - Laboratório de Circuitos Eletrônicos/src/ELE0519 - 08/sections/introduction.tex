@@ -1,0 +1,12 @@
+\section{Introdução}
+
+O presente relatório visa detalhar o experimento laboratorial realizado na disciplina laboratório de circuitos eletrônicos no dia 15 de outubro de 2019 onde o assunto abordado é o circuitos comparadores utilizando amplificadores operacionais (AMPOPs), mais especificamente os do circuito integrado (CI) LM741. Com o objetivo de compreender o funcionamento dos circuitos comparadores simples e com histerese (comparador regenerativo "Schmitt Trigger"). Os esquema dos circuitos analisados são mostradas abaixo.
+
+\input{circuits/comp_simp.tex}
+\input{circuits/comp_reg.tex}
+
+Os circuitos comparadores como o próprio nome já diz, permite comparar 2 tensões de entrada, um valor de referência conhecido e outro a ser comparado $V_{in}$, apresentando uma única saída resultado da comparação.
+
+A atividade nos mostra dois circuitos, um comparador não-inversor simples, figura \ref{ckt:1}, que é apenas um AMPOP com tensão de referência no terra na entrada inversora e tensão $V_{in}$ na entrada não-inversora. O outro circuito é claramente comparador inversor com histerese, figura \ref{ckt:2}, pois apresenta realimentação positiva e $V_{in}$ estar na entrada inversora. A partir desses dois circuitos, foi possível efetuar a medição da tensão limiar de entrada com a tensão de referência dada, ver as tensões de saturação de ambos os circuitos, além de principalmente ver a característica de transferência (CT) para o circuito comparador com histerese. 
+
+Além disso, o osciloscópio e o multímetro digital foram utilizados para medir os valores e as formas de onda na entrada e na saída dos comparadores, como forma de comparar os valores e comprovar os resultados teóricos obtidos. Vale destacar que com a medição da faixa de resistência do potenciômetro com o multímetro, verificou que este possuía um valor máximo de resistência de $15k \ohm$ ao invés de $10k \ohm$, assim justificando as mudanças realizadas nos circuitos da figura \ref{ckt:1} e \ref{ckt:2}.

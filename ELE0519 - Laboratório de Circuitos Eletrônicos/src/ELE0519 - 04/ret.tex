@@ -1,0 +1,17 @@
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw (0,3) to[sV_=$V_g$, -] (0,0)
+    (0,3) to[D, -*] (3,3)
+    (3,3) to[R,l=$10k \ohm$,-] (3,0)
+    (0,0) node[ground]{} 
+    (3,0) node[ground]{} 
+    (3,3) to[short,-*] node[right]{$V_{in}$} (4,3)
+    
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Retificador de meia-onda.}
+\end{figure}

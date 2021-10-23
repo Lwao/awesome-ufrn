@@ -1,0 +1,152 @@
+\section{Propagação de ondas em linhas monofásicas}
+
+Considerando uma análise feita para uma linha semi-infinita com gerador de tensão $f(t)$ e uma distância de interesse de $l$, cuja velocidade da onda é $\nu$ (tempo de deslocamento de 0 a $l$ é $\tau = l/\nu$), tem-se uma onda de tensão de:
+
+\begin{center}
+    $v(0,t) = v^{+}(0,t) = f(t)$, avaliada no ponto $x=0$
+\end{center}
+\begin{center}
+    $v(l,t) = v^{+}(0,t-l/\nu) = f(t-l/\nu)$, avaliada no ponto $x=l$
+\end{center}
+
+Isso mostra que de acordo com que $f(t)$ é deslocado em direção ao ponto $x=l$, este sofre um atraso temporal correspondente ao tempo de trânsito.
+
+Agora a análise da passagem de uma onda no ponto de junção (descontinuidade) do encontro de duas linhas de impedâncias características diferentes. Considera-se que ao transmitir uma onda incidente ($v^{+}$, $i^{+}$), até o ponto de junção, haverá uma parcela da onda que será refletida e outra refratada. 
+
+Assim, para a linha 1, tem-se a onda incidente relacionada por: $i_1^{+}=v_1^{+}/Z_1$. A onda refletida será: $i_1^{-}=-v_1^{-}/Z_1$. E a onda refratada para a linha 2: $i_2^{+}=v_2^{+}/Z_2$. No ponto de conexão deverá haver um equilíbrio das ondas, de forma que as relações abaixo sejam obedecidas:
+
+\begin{center}
+    $v_1^{+} + v_1^{-} = v_2^{+}$ \\ \vspace{1pt}
+    $i_1^{+} + i_1^{-} = i_2^{+}$
+\end{center}
+
+Se as equações acima forem desenvolvidas tendo em vista evidenciar a relação entre impedâncias, a relação abaixo pode ser obtida:
+
+\begin{center}
+    $v_1^{-} = \Gamma_r v_1^{+}$ \\ \vspace{1pt}
+    $v_2^{+} = (1+\Gamma_r) v_1^{+}$ \\ \vspace{1pt}
+    $i_1^{-} = -\Gamma_r i_1^{+}$ \\ \vspace{1pt}
+    $i_2^{+} = (1-\Gamma_r) i_1^{+}$ 
+\end{center}
+
+Essa relação entre onda incidente e refletida é mediada por um coeficiente amplamente conhecido, sendo ele chamado de coeficiente de reflexão e este indica a parcela da onda incidente que foi refletida $\left(\Gamma_r = \frac{Z_2-Z_1}{Z_2+Z_1} \right)$. O coeficiente também pode ser usado para relacionar a onda incidente com a refratada. Comumente é desenvolvido o coeficiente de reflexão como $\Gamma_t=1+\Gamma_r  = \frac{2Z_2}{Z_1+Z_2}$
+
+Este coeficiente mostra que se a impedância característica de ambas as linhas forem iguais, não haverá onda refletida e a onda refratada será integralmente composta pela onda incidente. Qualquer outro valor que faça as impedâncias diferentes, haverá reflexão.
+
+\subsection{Linha com terminal em vazio}
+
+Uma linha com terminal em vazio pode ser modelada como $Z_2\longrightarrow	\infty$, em termos de coeficiente de reflexão e transmissão, tem-se que:
+
+\begin{center}
+    $\Gamma_r = \lim_{Z_2\to\infty} \frac{Z_2-Z_1}{Z_2+Z_1} = 1$ \\ \vspace{1pt}
+    $\Gamma_t = \lim_{Z_2\to\infty}  \frac{2Z_2}{Z_1+Z_2} = 2$
+\end{center}
+
+Isso implica dizer que a onda refletida é exatamente igual à onda incidente e a onda de tensão no fim da linha é o dobro da incidente.
+
+\subsection{Linha com terminal em curto-circuito}
+
+Uma linha com terminal em curto-circuito pode ser modelada como $Z_2\longrightarrow	0$, em termos de coeficiente de reflexão e transmissão, tem-se que:
+
+\begin{center}
+    $\Gamma_r = \lim_{Z_2\to 0} \frac{Z_2-Z_1}{Z_2+Z_1} = -1$ \\ \vspace{1pt}
+    $\Gamma_t = \lim_{Z_2\to 0}  \frac{2Z_2}{Z_1+Z_2} = 0$
+\end{center}
+
+Este resultado mostra que a onda refletida é de igual módulo que a onda incidente, porém com sinal trocado. Já para a onda refratada, esta é inexistente.
+
+\subsection{Linha com terminal resistivo}
+
+Para este tipo de linha o mesmo raciocínio é valido, resultando em coeficientes:
+
+\begin{center}
+    $\Gamma_r = \frac{R-Z_1}{R+Z_1} = -1$ \\ \vspace{1pt}
+    $\Gamma_t = \frac{2R}{Z_1+R} = 0$
+\end{center}
+
+\subsection{Linha com terminal indutivo}
+
+Os resultados ainda são válidos quando se utiliza o domínio de Laplace, para $Z_2(s) = sL$ e $Z_1(s)=Z_1$:
+
+\begin{center}
+    $\Gamma_r = \frac{Z_2(s)-Z_1}{Z_2(s)+Z_1(s)} = -1$ \\ \vspace{1pt}
+    $\Gamma_t = \frac{2Z_2(s)}{Z_1(s)+Z_2(s)} = 0$
+\end{center}
+
+Analisando para um degrau de tensão $E_0/s$ tal que $v_1^{+}=E_0$:
+
+\begin{center}
+    $V_2(s) = \frac{2Z_2(s)}{Z_1(s)+Z_2(s)}\frac{E_0}{s} = \frac{2E_0}{s+\frac{Z_1}{L}}$
+\end{center}
+
+No domínio do tempo:
+
+\begin{center}
+    $v_2(t) = 2E_0e^{-\frac{Z_1}{L}t}$
+\end{center}
+
+Dessa forma permite-se concluir que $v_2(0)=2E_0$ e $v_2(\infty)=0$, resultante do comportamento indutivo.
+
+A onda refletida ainda pode ser encontrada por:
+
+\begin{center}
+    $v_1^{-}(t) = v_2-v_1^{+} = E_0(2e^{-\frac{Z_1}{L}t}-1)$
+\end{center}
+
+
+\subsection{Linha com terminal capacitivo}
+
+Para a mesma análise que o caso anterior, porém com $Z_2(s) = \frac{1}{sC}$, a tensão no terminal pode ser:
+
+\begin{center}
+    $v_2(t) = 2E_0(1-e^{-\frac{t}{CZ_1}})$
+\end{center}
+
+De forma que a tensão avaliada no início tende a ser nula e para um tempo muito grande, $2E_0$
+
+\subsection{Impedância interna de geradores}
+
+Para um gerador de tensão $e_0$ que alimenta uma linha de impedância $Z_1$ por meio de uma resistência $R_{int}$. Por meio de eu circuito equivalente série, permite-se concluir que a tensão enviada à linha é o divisor de tensão.
+
+Trocando a resistência do caso anterior por uma indutância $L_{int}$, que facilmente modela a indutância interna de geradores síncronos. Assim, o mesmo divisor de tensão aplicado a um degrau na entrada resultará na tensão:
+
+\begin{center}
+    $V_1^{+}(s) = \frac{E_0}{s} \frac{Z_1}{Z_1+sL_{int}}$
+\end{center}
+
+No tempo:
+
+\begin{center}
+    $v_1^{+}(t) = E_0(1-e^{-\frac{Z_1}{L_{int}}t})$
+\end{center}
+
+No início da análise essa tensão será nula e em regime permanente tenderá à tensão do gerador.
+
+\subsection{Impedâncias concentradas em série com linhas de transmissão}
+
+Para duas linhas com impedâncias características $Z_1$ e $Z_2$ conectadas por meio de outra impedância $Z(s)$ de natureza genérica, deseja-se verificar inicialmente os efeitos no coeficiente de reflexão visto do ponto 1. Para isso calcula-se o equivalente de impedância visto do ponto 1, que é: $Z_{eq}(s) = Z_2+Z(s)$.
+
+\begin{center}
+    $\Gamma_{r1} = \frac{Z_{eq}(s)-Z_1}{Z_{eq}(s)+Z_1(s)}$ \\ \vspace{1pt}
+    $\Gamma_{t1} = \frac{2Z_{eq}(s)}{Z_1(s)+Z_{eq}(s)}$
+\end{center}
+
+Assim a tensão transmitida será dada pelo divisor de tensão:
+
+\begin{center}
+    $V_2^{+}(s) = \frac{2Z_{eq}(s)}{Z_1+z_{eq}(s)} V_1^{+}(s) \frac{Z_2}{Z_{eq}(s)}$
+\end{center}
+
+Vários modelos de $Z(s)$ como de capacitância ou indutância podem ser experimentados para verificar os efeitos na tensão terminal.
+
+
+\subsection{Propagação de ondas por ramificações}
+
+Esse problema é ilustrado considerando que uma onda se propaga em uma linha de impedância $Z_1$ encontra um nó que ramifica para duas outras linhas de impedâncias $Z_2$ e $Z_3$. Para essa análise utiliza-se uma impedância equivalente ($Z_{eq23}=Z_2//Z_3$) ao paralelo entre as impedâncias depois do nó para o cálculo dos coeficientes de reflexão e transmissão.
+
+\begin{center}
+    $\Gamma_{r} = \frac{Z_{eq23}(s)-Z_1}{Z_{eq23}(s)+Z_1(s)}$ \\ \vspace{1pt}
+    $\Gamma_{t} = \frac{2Z_{eq23}(s)}{Z_1(s)+Z_{eq23}(s)}$
+\end{center}
+
+Como os coeficientes não variam se analisada a onad que vai de 1 para 2 ou de 1 para 3, assim mantendo a simetria, observa-se que as tensões que são transmitidas para as linhas 2 e 3 são as mesmas entre si, respeitando o princípio de que no ponto de junção entre as linhas, a tensão será a mesma. O mesmo raciocínio é válido para ondas trafegando no sentido contrário.

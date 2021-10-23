@@ -1,0 +1,27 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture} [ american, ]
+    \draw (6,-1.75) node[op amp] (opamp3) {}
+    (opamp3.+) -- (4,-2.25)
+    (opamp3.-) -- (4,-1.25)
+    (opamp3.out) --  (7.5,-1.75) node[right] {$V_o$}
+    %(opamp2.up) --++(0,0.005) node[vcc]{15\,\textnormal{V}}
+    %(opamp2.down) --++(0,-0.005) node[vee]{-15\,\textnormal{V}}
+    ;
+
+    \draw (1.5,0) node[left] {$V_2$} to[R,l=$R_1$, o-*] (4,0)
+    (1.5,-3.5) node[left] {$V_1$} to[R,l_=$R_{3}$, o-*] (4,-3.5)
+    (4,0) -- (4,-1.25)
+    (4,-3.5) -- (4,-2.25)
+    (4,0) to[R,l=$R_2$] (7,0)
+    (4,-3.5) to[R,l_=$R_{4}$] (7,-3.5)
+    (7,-3.5) node[ground]{}
+    (7,0) to[short,-*] (7,-1.75)
+    ;
+
+\end{tikzpicture}
+
+\end{center}
+\caption{Amplificador diferencial com AMPOPs.}
+\label{ckt:3} 
+\end{figure}

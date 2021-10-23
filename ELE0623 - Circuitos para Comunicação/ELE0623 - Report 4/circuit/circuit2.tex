@@ -1,0 +1,18 @@
+
+\begin{figure}[H]
+\centering
+
+\tikz \node [scale=0.8, inner sep=0] {
+\begin{tikzpicture} [american]
+    \draw[>=triangle 90, ->] (6.5,0) -- (5.5,0);
+    \node[black] at (7,0) {$V_{noise}$}; 
+    \draw  (4,0) to[R, l=$R_L$, *-] (4,-4) node[ground]{}
+    (2,0) to[R, l=$R_T$, -] (2,-4) node[ground]{}
+    (2,0) -- (5,0)
+    ;
+\end{tikzpicture}
+};
+
+\caption{Circuit setup to measure noisy resistor voltage in a combination of resistors. Source: own.}
+\label{ckt:2} 
+\end{figure}

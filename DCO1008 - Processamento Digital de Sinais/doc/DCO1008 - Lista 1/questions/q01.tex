@@ -1,0 +1,68 @@
+\textbf{Demonstre o teorema da amostragem.}
+
+\begin{mdframed}
+O teorema da amostragem de Nyquist-Shannon enuncia que, considerando um sinal de tempo contínuo $x(t)$, sendo ele limitado em banda $X(\omega)=0, \, \forall \, |\omega|>2\pi B$ e $B$ a banda do sinal em \textit{Hz}.
+
+Então o sinal $x(t)$ pode ser determinado por suas amostras $x[n]=x(nT_s), \, \forall \, n \in \mathbb{Z}$, se este for amostrado a um período constante de $T_s \in \mathbb{R}$, tal que $\frac{1}{T_s} \geq 2B$.
+
+Assim, a frequência $f_s = \frac{1}{T_s}$ é conhecida como frequência de amostragem e $f_N = 2B$ é a frequência de Nyquist.
+\end{mdframed}
+
+Isto pode ser demonstrado ao considerar a amostragem de $x(t)$ por um trem de impulsos. Primeiro define-se o sinal contínuo $x_C(t) = x(t)$ e o sinal resultante da amostragem como $x_D(t)$, assim:
+
+\begin{equation} \label{eq1:1}
+    x_D(t) = x_C(t) \sum_{n=-\infty}^{\infty} \delta(t-nT_s) =  \sum_{n=-\infty}^{\infty} x_C(t) \delta(t-nT_s) = \sum_{n=-\infty}^{\infty} x_C(nT_s) \delta(t-nT_s)
+\end{equation}
+
+Observa-se que $x_C(t)$ pode ser transferido para dentro do somatório, pois este não depende de $n$. Em seguida, apenas as amostras $x_C(nT_s)$ são consideradas, pois para cada valor de $n$ a função impulso retorna valor não nulo apenas para $t=nT_s$, tal que $\delta(nT_s-nT_s=0) = 1$, assim permitindo preservar as amostras de $x_C(t)$ sem distorções na amplitude (e na fase caso for um sinal complexo). Finalmente obtém-se o sinal $x_D(t)$ como o sinal amostrado idealmente.
+
+Uma forma de melhor visualizar a validade do teorema da amostragem é realizar uma análise no domínio da frequência. Desta forma, considerando o trem de impulsos como um sinal periódico, este possui sua representação pela série exponencial de Fourier para $\omega_s = \frac{2\pi}{T_s}$:
+
+\begin{equation} \label{eq1:2}
+    \Bar{\delta}_{T_s}(t) = \sum_{n=-\infty}^{\infty} \delta(t-nT_s) = \frac{1}{T_s} \sum_{n=-\infty}^{\infty} e^{jn\omega_s t}
+\end{equation}
+
+Assim, substituindo a série de Fourier do trem de impulsos de \ref{eq1:2} na representação do sinal amostrado em \ref{eq1:1}, tem-se:
+
+\begin{equation} \label{eq1:3}
+    x_D(t) = \frac{1}{T_s} \sum_{n=-\infty}^{\infty} x_C(t) e^{jn\omega_s t}
+\end{equation}
+
+Observa-se que a equação \ref{eq1:3} representa cópias do sinal $x_C(t)$ deslocadas em frequência por sucessivas exponenciais complexas. Assim, caso a transformada de Fourier do sinal de tempo contínuo seja $x_C(t) \rightleftharpoons X_C(\omega)$ e considerando a propriedade de deslocamento na frequência da transformada de Fourier, tem-se:
+
+\begin{equation} \label{eq1:4}
+    X_D(\omega) = \frac{1}{T_s} \sum_{n=-\infty}^{\infty} X_C(\omega - n\omega_s)
+\end{equation}
+
+A equação \ref{eq1:4} mostra que o espectro de frequência do sinal amostrado $x_D(t)$ constitui-se como consecutivas cópias do espectro do sinal original espaçadas de múltiplos da frequência de amostragem.
+
+Tomando a equação \ref{eq1:4} como referência, o somatório pode ser reescrito separando o termo para $n=0$, resultando em:
+
+\begin{equation} \label{eq1:5}
+    X_D(\omega) = \frac{1}{T_s} X_C(\omega) + \frac{1}{T_s} \sum_{\substack{n=-\infty \\ n \neq 0}}^{\infty} X_C(\omega - n\omega_s)
+\end{equation}
+
+Levando em consideração que o sinal de tempo contínuo é limitado em banda, logo $X_C(\omega)=0, \, \forall \, |\omega|>2\pi B$ e $B$ a banda do sinal em \textit{Hz} -- assim como proposto no enunciado do teorema da amostragem --, observa-se que para o somatório da equação \ref{eq1:5}, para uma frequência de amostragem de $\omega_s = 2(2\pi B)$, as cópias deslocadas serão, por exemplo: $\{X_C(\omega \pm 2\pi B), X_C(\omega \pm 2(2\pi B)), X_C(\omega \pm 3(2\pi B)), ...\}$. Porém estas cópias se localizam fora do limite da banda definido anteriormente, implicando que o resultado do somatório será nulo e a equação \ref{eq1:5} poderá ser simplificada para:
+
+\begin{equation} \label{eq1:6}
+    X_D(\omega) = \frac{1}{T_s} X_C(\omega), \, \text{com} \, -2\pi B<\omega_s < 2\pi B
+\end{equation}
+
+A equação \ref{eq1:6} permite concluir que para um sinal limitado em banda e amostrado a exata frequência de $\omega_s = 2\pi B$, ou seja, duas vezes a banda do sinal, o espectro de frequência do sinal amostrado será igual ao espectro do sinal original escalonado do período de amostragem. 
+
+Se considerar a frequência $2\pi B$ como a frequência de Nyquist, para uma frequência de amostragem maior que ela, o somatório da equação \ref{eq1:5} ainda continuará nulo, pois as cópias estão ainda mais distantes. 
+
+Porém caso a frequência de amostragem seja menor que a de Nyquist, por exemplo, uma frequência de amostragem de $\omega_s = 2\pi W$, tal que $W<B$, as cópias serão, por exemplo: $\{X_C(\omega \pm 2\pi W), X_C(\omega \pm 2(2\pi W)), X_C(\omega \pm 3(2\pi W)), ...\}$, havendo sobreposição de $n-1$ cópias para cada: 
+
+\begin{equation}
+    W = \frac{B}{|n|+\xi}, \: \forall \: n \in \mathbb{Z} \; \; \; \text{e} \; \; \; 0<\xi<1
+\end{equation}
+
+Logo comprometendo a recuperação do sinal original pela equação \ref{eq1:6}.
+
+Assim prova-se que de fato o sinal original pode ser recuperado do sinal amostrado ao obedecer o teorema da amostragem.
+
+\begin{flushright}
+    $\blacksquare$
+\end{flushright}
+

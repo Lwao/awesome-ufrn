@@ -1,0 +1,3 @@
+\textbf{INSS 2014 - 70}
+
+Um sinal de voz com banda 4kHz requer no mínimo 8kHz para a frequência de amostragem. Se codificado a 8 bits, significa dizer que sua taxa de transmissão de bits será de 64kbps ($8000Hz\times8bits$). Empregando-se uma modulação QPSK nesse sinal resulta em uma divisão dessa taxa de bits pela metade, uma vez que esse tipo de modulação permite dois canais, um em fase e outro em quadratura (análise considera apenas a banda base do sinal) resultando em dois canais de 32kbps de taxa de transmissão. A banda mínima será a metade dessa taxa, ou seja, 16kHz. Aplicando uma forma de pulso \textit{raised cosine} com fator de \textit{roll-off} de 0.25 resulta em uma banda total de \textbf{20kHz}.

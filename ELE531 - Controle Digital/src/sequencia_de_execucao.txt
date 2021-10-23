@@ -1,0 +1,3 @@
+SS_estável ou SS_instável
+idx
+gráfico_de_dispersão

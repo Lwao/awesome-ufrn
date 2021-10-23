@@ -1,0 +1,51 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.70, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) node[op amp,yscale=-1] (opamp1) {}
+    (opamp1.-) -- (-1.5,-0.5)
+    (opamp1.+) -- (-1.5,0.5)  
+    (opamp1.out) --  (1.5,0) %node[right] {$V_o$}
+    %(opamp1.up) --++(0,1.005) node[vcc]{15\,\textnormal{V}}
+    %(opamp1.down) --++(0,-1.005) node[vee]{-15\,\textnormal{V}}
+    (-1.5,-0.5) -- (-1.5,-1.5) -- (1.5,-1.5)
+    (1.5,-1.5) to[short,-*] (1.5,0)
+    (-2,0.5)  node[left] {$V_{feedback}$}
+    ;
+    
+    
+    \draw (0,-3.5) node[op amp] (opamp2) {}
+    (opamp2.+) -- (-1.5,-4)  
+    (opamp2.-) -- (-1.5,-3)
+    (opamp2.out) --  (1.5,-3.5) %node[right] {$V_o$}
+    %(opamp2.up) --++(0,0.005) node[vcc]{15\,\textnormal{V}}
+    %(opamp2.down) --++(0,-0.005) node[vee]{-15\,\textnormal{V}}
+    (-1.5,-3) -- (-1.5,-2) -- (1.5,-2)
+    (1.5,-2) to[short,-*] (1.5,-3.5)
+    (-2,-4)  node[left] {$V_{reference}$}
+    ;
+    
+    \draw (6,-1.75) node[op amp] (opamp3) {}
+    (opamp3.+) -- (4,-2.25)
+    (opamp3.-) -- (4,-1.25)
+    (opamp3.out) --  (7.5,-1.75) node[right] {$V_{out}$}
+    %(opamp2.up) --++(0,0.005) node[vcc]{15\,\textnormal{V}}
+    %(opamp2.down) --++(0,-0.005) node[vee]{-15\,\textnormal{V}}
+    ;
+
+    \draw (1.5,0) to[R,l=$R_1$, -*] (4,0)
+    (1.5,-3.5) to[R,l_=$R_3$, -*] (4,-3.5)
+    (4,0) -- (4,-1.25)
+    (4,-3.5) -- (4,-2.25)
+    (4,0) to[R,l=$R_2$] (7,0)
+    (4,-3.5) to[R,l_=$R_4$] (7,-3.5)
+    (7,-3.5) node[ground]{}
+    (7,0) to[short,-*] (7,-1.75)
+    ;
+
+\end{tikzpicture}
+};
+\end{center}
+\caption{Circuito proposto para o subtrator.}
+\label{ckt:subtrator} 
+\end{figure}

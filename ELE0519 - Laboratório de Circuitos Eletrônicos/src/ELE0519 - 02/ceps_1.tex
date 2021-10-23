@@ -1,0 +1,21 @@
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw (-0.5,0) node[left]{$v_i$} to[short,o-] (4,0) 
+    (4,-2) to[short,-] (6,-2)
+    (6,0) to[short, -o] (9.5,0) node[right]{$v_{o1}$} 
+    (0.5,-2) to[short] (2,-2)
+    %components (,) to[] (,){}
+    (0.5,0) to[R,l=$R_2$,*-] (0.5,-2)
+    (2,0) to[R,l=$R_3$,*-] (2,-2)
+    (4,0) to[R,l=$r_{\pi 1}$, v=$v_{\pi1}$] (4,-2)
+    (6,0) to[american controlled current source, l=$g_{m1}v_{\pi1}$, *-] (6,-2)
+    (8.5,0) to[R,l=$R_1$,*-] (8.5,-2)
+    (5,-2) to[R,l=$R_{10}$,*-] (5,-4)
+    %ground
+    (1.25,-2) node[ground]{} node[circ]{}
+    (5,-4) node[ground]{} 
+    (8.5,-2) node[ground]{}
+    ;
+\end{tikzpicture}
+\end{center}

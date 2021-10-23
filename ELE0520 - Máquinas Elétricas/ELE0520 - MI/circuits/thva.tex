@@ -1,0 +1,19 @@
+\begin{figure}[H]
+\begin{center}
+\tikz  {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) -- (8.5,0)
+    (0,3) to[R, f_>=$I_2$, l=$5.78\Omega$] (3,3)
+    (3,3) to[L, l=$j5.38\Omega$] (6,3)
+    (6,3) to[L, l=$j5.32\Omega$] (9,3) -- (9.5,3)
+    (9.5,3) -- (9.5,2.5) 
+    (9.5,1) to[pR, l_=$\frac{3.76}{s}\Omega$] (9.5,2.5) 
+    (9,1.75) -- (8.5,1.75) -- (8.5,0)
+    (0,1.5) node{$209\angle2.77^{\circ}V$}
+    ;
+\end{tikzpicture}
+}
+\end{center}
+\caption{Circuito equivalente de Thévenin para o motor de indução com os valores calculados para a fase u.}
+\label{ckt:6} 
+\end{figure}

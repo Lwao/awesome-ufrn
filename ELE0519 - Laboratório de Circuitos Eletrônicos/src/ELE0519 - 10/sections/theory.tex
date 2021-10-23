@@ -1,0 +1,134 @@
+\setlength{\abovedisplayskip}{-25pt}
+\setlength{\belowdisplayskip}{-25pt}
+
+\section{Análise Teórica}
+
+Para analisar o circuito da figura \ref{ckt:1} é necessário dividir a análise em duas partes. Primeiro analisando a saída do comparador não-inversor com histerese constituído pelo AMPOP A e depois a saída do circuito integrador ideal formado pelo AMPOP B.
+
+\subsection{Análise do comparador}
+
+A saída $V_{oA}$ do AMPOP A só pode assumir os valores de saturação de $\pm 10 V$. Porém a saída do comparador é obtida em $V_{o1}$, de forma que assumirá valores de acordo com os diodos Zeners ligados a esse nó, de forma que:
+
+\begin{equation} \label{vo1+}
+V_{o1} =
+\left \{
+\begin{array}{cc}
++3.4 V, & V_{oA} = +10 V \\
+-3.4 V, & V_{oA} = -10 V \\
+\end{array}
+\right.
+\end{equation}
+
+Assim, para realizar a análise do comparador são necessárias as tensões $V_{A}^{+}$ e $V_{A}^{-}$. Elas podem ser equacionadas em \ref{v+} e \ref{v-}.
+
+\begin{equation} \label{v+}
+V_{A}^{+} = V_{o1} + (V_{o2}-V_{o1}) \times \frac{R_1}{R_1 + R_3}
+\end{equation}
+
+\begin{equation} \label{v-}
+V_{A}^{-} = 0
+\end{equation}
+
+Considerando a entrada do comparador como a saída $V_{o2}$ do integrador, realiza-se as seguintes análise para obter a curva de transferência do comparador não-inversor.
+
+\begin{itemize}
+    \item Para o caso $V_{o1}=3.4 V$, logo $V_{A}^{+}<V_{A}^{-}$\\
+    \begin{center}
+        \begin{equation} \label{+>-}
+            V_{o2} < 2.32 V
+        \end{equation}
+    \end{center}
+    
+    \item Para o caso $V_{o1}=-3.4 V$, logo $V_{A}^{+}<V_{A}^{-}$ \\ 
+    
+    \begin{center}
+        \begin{equation} \label{+<-}
+            V_{o2} > -2.32 V
+        \end{equation}
+    \end{center}
+\end{itemize}
+
+Com esses valores, obtém-se a característica de transferência (CT) da figura \ref{graph:1}.
+
+\input{graph/ct_comp.tex}
+
+\subsection{Análise do integrador}
+
+O integrador montado com o AMPOP B é ideal e possui uma saída que pode ser encontrada pela equação \ref{int}.
+
+\begin{equation} \label{int}
+ V_{o2} = - \frac{1}{R_2 C} \int V_{o1} dt
+\end{equation}
+
+Como $V_{o1}$ só pode assumir um valor constante (positivo ou negativo) para certo intervalo de tempo, a equação \ref{int} pode ser desenvolvida fazendo-se a integração, obtendo-se a equação \ref{nint}
+
+\begin{equation} \label{nint}
+ V_{o2} = - \frac{V_{o1}}{R_2 C} \times t = m \times t
+\end{equation}
+
+O coeficiente angular da função \ref{nint} indicará a inclinação da onda triangular gerada em $V_{o2}$. Esse coeficiente assumirá dois valores, dependendo do valor de $V_{o1}$, assim encontrando a relação obtida em \ref{m}.
+
+\begin{equation} \label{m}
+m = -\frac{V_{o1}}{R_2 C} = 
+\left \{
+\begin{array}{cc}
+- 18847 Vs^{-1}, & V_{o1} = +3.4 V \\
+18847 Vs^{-1}, & V_{o1} = -3.4 V \\
+\end{array}
+\right.
+\end{equation}
+
+\subsection{Análise completa}
+
+Após obtida a CT do comparador não-inversor com histerese e o coeficiente angular da onda triangular obtida na saída, torna-se possível analisar as formas de onda, sendo uma onda quadrada em $V_{o1}$ e uma triangular em $V_{o2}$, determinando a amplitude de cada uma, bem como a frequência.
+
+A figura \ref{graph:2} mostra as formas de onda com as amplitudes que podem ser obtidas pela CT do comparador. Os limites verticais da CT indica os valores de amplitude que a onda quadrada possui, uma vez que ela é obtida na saída do comparador. Já a amplitude da onda triangular é definida pelos limites horizontais da CT, uma vez que esses valores são controlados pela saída do comparador.
+
+\input{graph/waves.tex}
+
+Porém ainda fica a definir a frequência dos sinais, que pode ser facilmente encontrada com base no período da onda triangular e suas inclinações, que podem ser encontradas pela equação \ref{m}.
+
+No primeiro semi-ciclo correspondente a $T_1$ o coeficiente angular é negativo, e no semi-ciclo correspondente a $T_2$ o coeficiente angular é positivo, assim, por meio da equação da reta em \ref{ret} pode-se obter ambos os valores, que somados geram o período total de ambas as ondas e quando invertidos indicam a frequência das ondas geradas.
+
+%\begin{center}
+        \begin{equation} \label{ret}
+            \frac{\Delta V}{\Delta t} = m
+        \end{equation}
+%\end{center}
+
+\begin{itemize}
+    \item Para $T_1$\\
+\end{itemize}
+
+\begin{center}
+    $\frac{-2.32 - 2.32}{T_1} = - 18847$
+\end{center}
+
+\begin{center}
+    \begin{equation} \label{t1}
+    T_1 = 0.2461 ms
+    \end{equation}
+\end{center}
+
+\begin{itemize}
+    \item Para $T_2$\\
+\end{itemize}
+
+\begin{center}
+    $\frac{2.32 - (-2.32)}{T_2} =  18847$
+\end{center}
+
+\begin{center}
+    \begin{equation} \label{t2}
+    T_2 = 0.2461 ms
+    \end{equation}
+\end{center}
+
+
+Com os valores obtidos nas equações \ref{t1} e \ref{t2}, pode-se definir a frequência das ondas pela equação \ref{freq}.
+
+\begin{center}
+    \begin{equation} \label{freq}
+    f = \frac{1}{T_1 + T_2} = 2032.52 Hz
+    \end{equation}
+\end{center}

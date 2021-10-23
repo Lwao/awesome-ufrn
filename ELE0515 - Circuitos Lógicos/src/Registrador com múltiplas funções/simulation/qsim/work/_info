@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\levyg\Desktop\Registrador com múltiplas funções\simulation\qsim
+vreg_mult
+Z1 !s100 Tgb6B5TSY;WoH:I_B<kaA0
+Z2 I_4D5hcb7jDgc0o_aJ[agU3
+Z3 VSQgX2X[a?7MQM]9D?6li>1
+Z4 dC:\Users\levyg\Desktop\Registrador com múltiplas funções\simulation\qsim
+Z5 w1556743956
+Z6 8reg_mult.vo
+Z7 Freg_mult.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|reg_mult.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1556743957.665000
+Z12 !s107 reg_mult.vo|
+!s101 -O0
+vreg_mult_vlg_check_tst
+!i10b 1
+Z13 !s100 ePf]f0R=I7[KLTGIA?]GC1
+Z14 IdcXCzznX2;fhD>52;ZakJ2
+Z15 V[`586iR_z4f5;DZ3::oOd0
+R4
+Z16 w1556743954
+Z17 8reg_mult.vt
+Z18 Freg_mult.vt
+L0 77
+R8
+r1
+!s85 0
+31
+Z19 !s108 1556743957.861000
+Z20 !s107 reg_mult.vt|
+Z21 !s90 -work|work|reg_mult.vt|
+!s101 -O0
+R10
+vreg_mult_vlg_sample_tst
+!i10b 1
+Z22 !s100 EYCifA_i]L0:]lV[nB>813
+Z23 I>c04B@0]BQB0ig6M:l;az1
+Z24 VDjjRYJnMiZQ_ei37<m[nI2
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vreg_mult_vlg_vec_tst
+!i10b 1
+!s100 Ykm7K@GXz6L5XdLKlMD[d3
+IEQcfg9YgKPhJS4WQ65nY=2
+Z25 V1QmUHd7]OPS`Z2]mm5OHK2
+R4
+R16
+R17
+R18
+Z26 L0 253
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

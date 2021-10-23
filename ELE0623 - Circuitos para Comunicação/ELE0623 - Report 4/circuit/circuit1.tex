@@ -1,0 +1,17 @@
+
+\begin{figure}[H]
+\centering
+
+\tikz \node [scale=0.8, inner sep=0] {
+\begin{tikzpicture} [american]
+    \draw[>=triangle 90, ->] (6.5,0) -- (5.5,0);
+    \node[black] at (7,0) {$V_{noise}$}; 
+    \draw (1,0) to[R, l=$R$, -*] (5,0)
+    (1,0) -- (1,-0.2) node[ground]{}
+    ;
+\end{tikzpicture}
+};
+
+\caption{Circuit setup to measure single noisy resistor voltage. Source: own.}
+\label{ckt:1} 
+\end{figure}

@@ -1,0 +1,30 @@
+\begin{quote}
+Consider a pair of wide-sense stationary random processes $X(t)$ and $Y(t)$. Show that the cross-correlation $R_{XY}(\tau)$ and $R_{YX}(\tau)$ of these processes have the following properties.
+\begin{itemize}
+    \item $R_{XY}(\tau) = R_{YX}(-\tau)$;
+    \item $|R_{XY}(\tau)| \leq \frac{1}{2}[R_X(0) + R_Y(0)]$
+\end{itemize}
+\end{quote}
+
+Considerando a correlação cruzada para ambos os processos estacionários no sentido amplo:
+
+\begin{equation} \label{prob:1}
+    R_{XY}(\tau) = E[X(t)Y(t-\tau)]
+\end{equation}
+\begin{equation} \label{prob:2}
+    R_{YX}(\tau) = E[Y(t)X(t-\tau)]
+\end{equation}
+
+Tomando $R_{XY}(\tau)$ avaliado em $\tau = -\tau$ e invertendo $t=t+\tau$ tem-se que seu valor será:
+
+\begin{equation} \label{prob:3}
+    R_{XY}(-\tau) = E[X(t)Y(t+\tau)]= E[X(t+\tau)Y(t)] = E[Y(t)X(t+\tau)] = R_{XY}(\tau) = R_{YX}(-\tau) 
+\end{equation}
+
+No segundo caso, considerando $E[(X(t) \pm Y(t-\tau))^2] \geq 0$ e $R_X(0) = E[X^2(t)]$ e $R_Y(0) = E[Y^2(t)]$, desenvolvendo tem-se:
+
+\begin{center}
+    $E[X^2(t)] \pm 2E[X(t)Y(t-\tau)] + E[Y^2(t-\tau)] \geq 0$\\ \vspace{2pt}
+    $E[X(t)Y(t-\tau)] \leq \frac{1}{2} (E[X^2(t)] + E[Y^2(t-\tau)])$\\ \vspace{2pt}
+    $|R_{XY}(\tau)| \leq \frac{1}{2}(R_X(0) + R_Y(0))$
+\end{center}

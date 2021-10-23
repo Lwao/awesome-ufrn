@@ -1,0 +1,20 @@
+\begin{figure}[H]
+\begin{center}
+\tikz  {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) -- (8.5,0)
+    (0,3) to[R, f_>=$I_1$, l=$r_1$] (3,3)
+    (3,3) to[L, l=$x_1$] (6,3)
+    (6,3) to[L, f_>=$I_2$, l=$x_2$] (9,3) -- (9.5,3)
+    (6,3) to[L, f=$I_{\phi}$, l=$x_{\phi}$] (6,0)
+    (9.5,3) -- (9.5,2.5) 
+    (9.5,1) to[pR, l_=$\frac{r_2}{s}$] (9.5,2.5) 
+    (9,1.75) -- (8.5,1.75) -- (8.5,0)
+    (0,1.5) node{$V_1$}
+    ;
+\end{tikzpicture}
+}
+\end{center}
+\caption{Circuito equivalente para o motor de indução.}
+\label{ckt:1} 
+\end{figure}

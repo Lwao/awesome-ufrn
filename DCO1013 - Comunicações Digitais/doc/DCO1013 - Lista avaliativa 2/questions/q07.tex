@@ -1,0 +1,60 @@
+Para um sinal NRZ a probabilidade média do erro é conhecida como:
+
+\begin{center}
+    $P_e = Q\left(\sqrt{\frac{2E_b}{N_0}}\right)$
+\end{center}
+
+Como a energia de bit é: $E_b = A^2T_b$; e a variância do ruído: $\sigma^2 = \frac{N_0}{2T_b} = 10^{-2} V^2$, tem-se:
+
+\begin{center}
+    $P_e = Q\left(\sqrt{\frac{A^2T_b}{\sigma^2T_b}}\right) = Q\left(\frac{A}{\sigma}\right)$
+\end{center}
+
+Como é desejado que haja $1$ bit errado para cada $10^8$ bits transmitidos, faz-se a probabilidade do erro igual a $P_e=10^{-8}$. O desvio padrão é a raiz quadrada da variância, logo $\sigma = 10^{-1} V$. Fazendo $u = A/\sigma$, e considerando a função \textit{qfuncinv()} do MATLAB/Octave:
+
+\begin{equation} \label{q07:1}
+    \frac{A}{\sigma} = qfuncinv(P_e) = 5.6120
+\end{equation}
+
+Resolvendo $A/\sigma = 5.6120$, implica em $A = 0.5612$.
+
+
+
+
+
+
+
+
+
+\begin{comment}
+Para um sinal NRZ a probabilidade média do erro é conhecida como:
+
+\begin{center}
+    $P_e = \frac{1}{2} erfc\left(\sqrt{\frac{E_b}{N_0}}\right)$
+\end{center}
+
+Como a energia de bit é: $E_b = A^2T_b$; e a variância do ruído: $\sigma^2 = \frac{N_0}{2T_b} = 10^{-2} V^2$, tem-se:
+
+\begin{center}
+    $P_e = \frac{1}{2} erfc\left(\sqrt{\frac{A^2T_b}{2\sigma^2T_b}}\right) = \frac{1}{2} erfc\left(\frac{A}{2\sigma^2}\right)$
+\end{center}
+
+Como é desejado que haja $1$ bit errado para cada $10^8$ bits transmitidos, faz-se a probabilidade do erro igual a $P_e=10^{-8}$. O desvio padrão é a raiz quadrada da variância, logo $\sigma = 10^{-1} V$. Fazendo $u = A/\sigma$, tem-se que:
+
+\begin{equation} \label{q07:1}
+    P_e = \frac{1}{2} erfc(u) = \frac{1}{\sqrt{\pi}} \int_{u}^{\infty} e^{-z^2} dz
+\end{equation}
+
+Como a probabilidade do erro é pequena, pode-se tentar aproximar o resultado a:
+
+\begin{center}
+    $P_e = \frac{e^{-u^2}}{2\sqrt{\pi}u}$
+\end{center}
+
+Resolvendo iterativamente para $u = A/(2\sigma) = 3.97189$, logo $A = 0.794378$.
+\end{comment}
+
+
+
+
+

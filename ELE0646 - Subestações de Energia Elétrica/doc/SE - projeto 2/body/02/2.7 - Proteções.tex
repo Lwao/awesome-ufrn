@@ -1,0 +1,135 @@
+\subsection{Proteções}
+
+\subsubsection{Em alta tensão contra curto-circuito}
+
+% http://www.soltran.com.br/transformadores.asp
+% http://www.soltran.com.br/pdf/SN1.pdf
+% http://www.soltran.com.br/pdf/SN12.pdf
+
+A proteção em alta tensão contra sobre corrente será feito por conjunto relé e disjuntor. O relé utilizado será o PEXTRON URPE 7104P que conta com as funções (50/51/50N/51N).
+
+O disjuntor geral deve ser acionado através de relés de proteção secundários com as funções 50 e 51 nas 3 fases, 50/51N (neutro), 51NS (neutro sensível), 47 (inversão de fases), e 59 (sobretensão).
+
+% https://www.amazon.com.br/Nobreak-Station-Ust1200Bi-SMS-27392/dp/B074JJ67CF/ref=asc_df_B074JJ67CF/?tag=googleshopp00-20&linkCode=df0&hvadid=379739258863&hvpos=&hvnetw=g&hvrand=14415700199729256421&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1031884&hvtargid=pla-834140921194&psc=1
+
+Um sistema de alimentação reserva por no break deve atender o relé para situações de queda de fornecimento de energia pela concessionária. As especificações do nobreak podem atender: SMS Station II 1200VA 220 Vca.
+
+O transformador de corrente para proteção deve seguir as seguintes especificações, segundo a norma DIS-NOR-036:
+
+\begin{itemize}
+    \item Fabricante: Soltran Transformadores;
+    \item Modelo: SN1;
+    \item Número de série: 20170056859;
+    \item Tensão máxima de operação: 15 kV;
+    \item Frequência: 60 Hz;
+    \item Tensão suportável nominal à frequência industrial durante 1 minuto (eficaz): 34 kV;
+    \item NBI: 95 kV;
+    \item Relação de transformação: 15;
+    \item Corrente primária nominal: 75;
+    \item Corrente secundária nominal: 5 A;
+    \item Exatidão para proteção: 10B100;
+    \item Fator térmico: 1.2;
+    \item Corrente térmica nominal: $I_T = 80 \times I_{N,P} = 80 \times 75 = 6kA$;
+    \item Corrente dinâmica nominal: $I_D = 2.5 \times I_{T,P} = 2.5 \times 6000 = 15kA$ ;
+    \item Meio Isolante: sólido (epóxi).
+\end{itemize}
+
+A corrente nominal do primário do TC deve ser maior que a corrente de carga no primário e maior que a corrente de curto-circuito sobre o fator de sobrecorrente ($\frac{I_{CC,máx}}{FS}$) no primário.
+
+Uma vez que a demanda máxima é de 510 kVA, a corrente de carga é $I_{nom} = 21.33 A$. Porém a corrente de curto circuito no primário é de 1,2 kA e para um fator de sobrecorrente de 20 resultaria em 60 A. No primário do TC a corrente nominal deve ser maior que ambas as correntes anteriores, logo $I_{P,TC} > 60 A$.
+
+O burden do TC foi estimado para cerca de $20 \Ohm$.
+
+A corrente dinâmica nominal foi escolhida como 2.5 vezes a corrente térmica nominal.
+
+O transformador de potencial para proteção deve seguir as seguintes especificações, segundo a norma DIS-NOR-036:
+
+\begin{itemize}
+    \item Fabricante: Soltran Transformadores;
+    \item Modelo: SN12;
+    \item Número de série: 20121034010040;
+    \item Classe de tensão: 15 kV;
+    \item Frequência: 60 Hz;
+    \item Tensão suportável nominal à frequência industrial durante 1 minuto (eficaz): 34 kV;
+    \item NBI: 95 kV;
+    \item Tensão primária nominal: 13,8/√3 kV;
+    \item Tensão secundária nominal: 115;
+    \item Relação nominal:  69.28 ;
+    \item Grupo de ligação: 2;
+    \item Exatidão para proteção (classe e carga): 0.3P75;
+    \item Potência térmica nominal: 500 VA;
+    \item Meio Isolante: sólido (epóxi).
+\end{itemize}
+
+O transformador de potencial para proteção escolhido é do grupo de ligação 2 (ligação entre fase e neutro em sistemas diretamente aterrados).
+
+O burden do TP foi estimado para cerca de $0.65 \Ohm$.
+
+\subsubsection{Contra Sobretensão}
+
+A proteção contra sobretensões transitórias é feita por um conjunto de 3 para-raios monofásicos localizados no poste do ponto de entrega. As características elétricas dos para-raios devem seguir as especificações abaixo:
+
+% https://www.coideasa.com/f_productos/descargador-de-oxido-de-zincpdf.pdf
+
+\begin{itemize}
+    \item Fabricante: Balestro;
+    \item Modelo: PBP 12/ X;
+    \item Número de série: 2016014074;
+    \item Data de fabricação: 15/12/2020;
+    \item Tipo válvula;
+    \item Desligador automático;
+    \item Óxido de Zinco (ZnO) sem centelhador;
+    \item Corpo e suporte em material polimérico (silicone);
+    \item Tensão nominal de fase ($U_r$): $12 kV_{ef}$;
+    \item Máxima tensão de operação contínua ($U_c$ ou MCOV): $10.2 kV_{ef}$;
+    \item Corrente nominal de descarga: $10 kA$;
+    \item Máxima tensão residual para impulso de corrente íngreme: $43.9 kV_{pico}$;
+    \item Máxima tensão residual para corrente de impulso de manobra de $500A$: $32.0 kV_{pico}$;
+    \item Máxima tensão residual para um para-raios de $10 kA$: $39.6 kV$.
+\end{itemize}
+
+A proteção contra sobrecorrentes temporárias será realizada a partir de um conjunto de 3 chaves-fusíveis localizadas no poste do ponto de entrega. Para a proteção geral da subestação contra sobrecorrentes, serão utilizadas 3 chaves fusíveis. Considerando uma instalação de 13.8 kV, a norma DIS-NOR-036 prevê chaves fusíveis com base do tipo C e devem seguir as especificações abaixo para a base e porta-fusível:
+
+% http://www.delmar.com.br/PDF/DHC.PDF
+
+\begin{itemize}
+    \item Modelo: DHC-1510011010;
+    \item Fabricante: Hubbell Power Systems, Inc;
+    \item Tensão máxima de operação: $15 kV$;
+    \item Corrente nominal da base: $300 A$; 
+    \item Corrente nominal do porta-fusível: $100 A$;
+    \item Capacidade de interrupção simétrica: $7.1 kA$;
+    \item Capacidade de interrupção assimétrica: $10 kA$;
+    \item NBI: $110 kV$.
+\end{itemize}
+
+% http://hubbellpowersystems.com.br/PDF/ELOS.PDF
+No que diz respeito ao elos fusíveis, considerando a demanda máxima e 510 kVA a uma tensão de linha de 13.8 kV, a corrente primária máxima é da ordem de 21.33 A ($I=S/(\sqrt{3}V)$), assim permitindo escolher elos fusíveis 25K. A coordenação de proteção dos elos fusíveis 25K com a proteção de retaguarda da Neoenergia baseada em um elo 65K é verdadeira até uma corrente de falta de até 2200 A. Uma vez que a corrente de curto-circuito trifásica no local de instalação da subestação é de 1200 A, o elo 25K permitirá a coordenação de proteção. Assim o elo escolhido atende as especificações abaixo:
+
+\begin{itemize}
+    \item Modelo: DMF25K20;
+    \item Fabricante: Hubbell Power Systems, Inc;
+    \item Corrente nominal: 25A;
+\end{itemize}
+
+Vide em anexo a figura \ref{curva_fusao} que consta as curvas de fusão mínima e máxima para o elo 25K fornecidas no catálogo do fabricante Hubbell.
+
+\subsubsection{Em baixa tensão contra sobrecorrente}
+
+% https://www.weg.net/catalog/weg/BR/pt/Automa%C3%A7%C3%A3o-e-Controle-Industrial/Controls/Prote%C3%A7%C3%A3o-de-Circuitos-El%C3%A9tricos/Disjuntores/Caixa-Moldada/Disjuntores-em-Caixa-Moldada-DWP/DISJUNTOR-DWP800L-800-3/p/14256868
+
+A proteção em baixa tensão contra sobrecorrentes será feita por meio de disjuntores termomagnéticos tripolar. O disjuntor geral deve atender a corrente nominal de 770 A (razão entre potência instalada com a tensão do secundário dos transformadores). Assim, a especificação do disjuntor, é:
+
+\begin{itemize}
+    \item Fabricante: WEG;
+    \item Modelo: DWP800L-800-3;
+    \item Número de série: 20131111150200;
+    \item Data de fabricação: 28/02/2021;
+    \item Capacidade de interrupção: 35 kA (400 VCA);
+    \item Tipo de disparador: Magnético e térmico fixo;
+    \item Corrente nominal: 800 A;
+    \item Número de polos: 3 polos;
+    \item Forma de fornecimento: sem acessórios;
+\end{itemize}
+
+Uma vez que os circuitos terminais não foram definidos no momento do projeto da subestação, estes ficarão ao encargo do cliente em futuras expansões. Desta forma ficará definido apenas o disjuntor geral.

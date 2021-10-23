@@ -1,0 +1,38 @@
+Objetivo da avaliação:
+
+- Demonstrar conhecimento dos conceitos fundamentais de POO usando herança entre classes em C++
+
+Conceitos fundamentais:
+
+Herança:
+- Construção incremental de objetos: utiliza corretamente composição e herança
+- Utiliza corretamente dados e herança pública e privada
+- Define os construtores da classe derivada em termos dos construtores da classe base
+- Utiliza corretamente os dados e métodos da classe base na construção dos métodos da classe derivada
+- Não duplica dados da classe base na classe derivada
+- Não reproduz código dos métodos da classe base na classe derivada
+
+NOTAS:
+- Todos os conceitos: >= 7
+- Maior parte dos conceitos : 5-6,9
+- Poucos conceitos: 3-4,9
+- Nenhum conceito: < 3
+
+Erros graves:
+- Utilização de classes independentes (não usou herança): -10pt (todos)
+- Não utilizou classes (definiu todos os dados em variáveis isoladas): -10pt (todos)
+- Tornou públicos dados que poderiam ser privados: -3pt
+- Tornou protegidos dados que poderiam ser privados: -2pt
+
+Erros menos graves:
+- Passou parâmetro por cópia, quando deveria ser por referência: -1pt
+- Não checou validade de parãmetro de entrada de função/método: -0,5pt/ocorrência
+- Não indicou parâmetro ou método como sendo const: -0,5/ocorrência
+
+Algoritmos:
+- Inexistente ou incorreto: -1 a -2 pt
+- Incompleto: -0,5 a 1,0 pt
+
+Sintaxe incorreta: -0,5 pt
+Otimização faltante: -0,2 a 0,5 pt
+

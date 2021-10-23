@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\levyg\Documents\MEGA\project3\simulation\qsim
+vproject3
+Z1 ImKO^D3I?A]_5zQ7JF8=J^3
+Z2 Va:Zz?7ZBCU@nfVjRlHoTa0
+Z3 dC:\Users\levyg\Documents\MEGA\project3\simulation\qsim
+Z4 w1559430778
+Z5 8project3.vo
+Z6 Fproject3.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|project3.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 VIzS9cPZI2LGcY=_S^l8n2
+!s85 0
+Z11 !s108 1559430779.793000
+Z12 !s107 project3.vo|
+!s101 -O0
+vproject3_vlg_check_tst
+!i10b 1
+!s100 <LoQDPADma]b:ha6h7Ia51
+ILZE5k:CS:KJ;1[QzcB=PA3
+Z13 V2_S5fi=jT;mWbJ2H<gcO60
+R3
+Z14 w1559430776
+Z15 8project3.vt
+Z16 Fproject3.vt
+L0 67
+R7
+r1
+!s85 0
+31
+Z17 !s108 1559430780.178000
+Z18 !s107 project3.vt|
+Z19 !s90 -work|work|project3.vt|
+!s101 -O0
+R9
+vproject3_vlg_sample_tst
+!i10b 1
+Z20 !s100 Y:=GJfjX;Z@^9f3JjAlQf1
+Z21 I^n]6k;NRiMD5^a>SDU:hA0
+Z22 VJP8j0`aZnPnbK8:imGcJT0
+R3
+R14
+R15
+R16
+L0 29
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R9
+vproject3_vlg_vec_tst
+!i10b 1
+!s100 ]=nDZbb2?@iM[`Kg9S>f03
+I_0fO;XECl4k=Me_H9QaJ?1
+Z23 VeaW>@>NePgRFDn3JMEIdd3
+R3
+R14
+R15
+R16
+Z24 L0 285
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R9

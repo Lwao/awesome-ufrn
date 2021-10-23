@@ -1,0 +1,23 @@
+Os dados do problema são traduzidos como: PCM com 128 níveis com pulso de sincronização que representa uma amostra do sinal analógico adicionado no fim de cada palavra código ($n = log_2(128) =7$bits); largura do canal de transmissão é de $B_T=12$kHz; sistema PAM quaternário ($M=4$ níveis de amplitude); espectro \textit{raised cosine} de fator  de \textit{roll-off} unitário ($r=1$)
+\begin{subquestion}
+    \item Considerando que a relação entre a taxa de símbolos $C$ e a taxa de bits $C_{bin}$ é ponderada pelo número de níveis $M$ do PAM quaternário da seguinte forma:
+    \begin{center}
+        $C_{bin} = C log_2(M)$
+    \end{center}
+    E a banda total de transmissão considerando a formatação pelo \textit{raised cosine}:
+    \begin{center}
+        $B_T = (1+r)B_m = (1+r)\frac{C}{2}$
+    \end{center}
+    Isolando a taxa de bits:
+    \begin{center}
+        $C_{bin} = \frac{2 log_2(M) B_T}{1+r} = \frac{2 \times log_2(4) \times 12000}{1+1} = 24$kbps
+    \end{center}
+    
+    \item A adição do pulso de sincronização no final de cada palavra código solicita +1 bits acima da quantidade de bits requerida para os 128 níveis, assim a quantidade de bits será $n=8$ bits para cada palavra. Assim, considerando a taxa de transmissão de bits $C_{bin}$ encontrada anteriormente, a frequência de amostragem será:
+    \begin{center}
+        $f_s = \frac{C_{bin}}{n} = \frac{24000}{8} = 3$kHz
+    \end{center}
+    
+    De acordo com o teorema da amostragem de Nyquist, a maior frequência do sinal analógico amostrado deve ser igual a metade da taxa de amostragem. No caso deste problema, essa frequência será de $1.5$kHz.
+\end{subquestion}
+\newpage

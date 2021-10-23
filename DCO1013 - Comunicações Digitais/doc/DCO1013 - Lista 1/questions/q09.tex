@@ -1,0 +1,18 @@
+\begin{comment}
+Para demonstrar a relação da largura do pulso de um sinal pulsado com a banda ocupada, será feita a análise de um trem de pulsos de período $T$ e largura $\tau$, tal que:
+
+\begin{equation}
+    \Pi_T\left(\frac{t}{\tau}\right) = \sum_{n = -\infty}^{\infty} \Pi\left(\frac{t-nT}{\tau}\right)
+\end{equation}
+
+\end{comment}
+
+Considerando o par da transformada de Fourier de um pulso retangular de largura $\tau$ na equação \ref{par_rect}, observa-se que seu espectro é uma função seno cardinal cujo o primeiro nulo ocorre em $|1/\tau|$. 
+
+\begin{equation}\label{par_rect}
+    \Pi\left(\frac{t}{\tau}\right) \rightleftharpoons \tau \, sinc \left(\frac{2\pi f \tau}{2}\right)
+\end{equation}
+
+Considerando que a maior parte da potência do sinal é concentrada até o primeiro nulo da função seno cardinal, uma aproximação grosseira para a banda do sinal seria de $|1/\tau|$[Hz]. 
+
+Isso prova que para um sinal pulsado de largura que aumenta proporcionalmente a $\tau$, sua banda aumentará com a proporção inversa ($1/\tau$)

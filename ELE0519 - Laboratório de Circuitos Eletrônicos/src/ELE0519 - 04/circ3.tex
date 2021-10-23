@@ -1,0 +1,25 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw [-latex] (0,0) -- (0,5);
+    \draw [-latex] (0,5) -- (0,0);
+    \draw [-latex] (2,2.5) -- (2,5);
+    \draw [-latex] (2,5) -- (2,2.5);
+    \draw [-latex] (4.5,0) -- (4.5,2.5);
+    \draw [-latex] (4.5,2.5) -- (4.5,0);
+    \draw (0,2.5)node[left]{$V_{1}$}
+    (2,3.75)node[right]{$V_{i}=0$}
+    (4.5,1.25)node[left]{$V_{1}$}
+    (0,0) -- (4.5,0)
+    (0,5) -- (2,5)
+    (2,0) to[R,l=$R_1$,*-*] (2,2.5)
+    (2,2.5) to[R,l=$R_f$,-] (4.5,2.5)
+    (2,0) -- (2,-0.5)
+    (2,-0.5) node[ground]{} 
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Circuito simplificado para o amplificador não-inversor.}
+\end{figure}

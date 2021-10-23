@@ -1,0 +1,14 @@
+﻿  Assembling main.asm...
+main.asm(1): warning A4015: directive ignored with /coff switch
+main.asm(14): error A2006: undefined symbol : DGROUP
+main.asm(17): error A2074: cannot access label through segment registers
+main.asm(29): error A2074: cannot access label through segment registers
+main.asm(30): error A2074: cannot access label through segment registers
+main.asm(34): error A2074: cannot access label through segment registers
+main.asm(39): error A2074: cannot access label through segment registers
+main.asm(40): error A2074: cannot access label through segment registers
+main.asm(41): error A2074: cannot access label through segment registers
+main.asm(44): error A2074: cannot access label through segment registers
+main.asm(45): error A2074: cannot access label through segment registers
+main.asm(48): warning A4023: with /coff switch, leading underscore required for start address : main
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: O comando "ml.exe /c /nologo /Zi /Fo"Debug\main.obj" /I "C:\Irvine" /W3 /errorReport:prompt  /Tamain.asm" foi finalizado com o código 1.

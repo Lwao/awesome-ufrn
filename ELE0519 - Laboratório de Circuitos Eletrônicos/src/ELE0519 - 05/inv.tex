@@ -1,0 +1,22 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+    %shorts
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-2,-0.5)
+    (opamp.-) -- (-2,0.5)
+    (opamp.out) --  (2,0) node[right] {$V_o$}
+    
+    (-2,-0.5) -- (-2,-1)
+    (-2,-1) node[ground]{} 
+    (-1,0.5) to[R,l_=$R_i$,-*] (-4,0.5) node[left] {$V_{in}$}
+    (-1.5,0.5) to[short,*-] (-1.5,2.5)
+    (1.5,0) to[short,*-] (1.5,2.5)
+    (1.5,2.5) to[R,l_=$R_f$,-] (-1.5,2.5)
+    
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Amplificador inversor.}
+\end{figure}

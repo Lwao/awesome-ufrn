@@ -1,0 +1,25 @@
+A tabela abaixo ilustra um exemplo de codificação e decodificação DPSK. Vale ressaltar que os bits transmitidos são diferentes do exemplo da aula e foram gerados aleatoriamente pelo software computacional MATLAB/Octave (\textit{round(rand(1,10))}).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccccccccccc}
+ Time $k$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \vspace{2pt} \\   \hline
+
+$I_k$ &  & $1$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $1$ & $1$ \\ 
+
+$q_k$ & $0$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $1$ & $0$ \\ 
+
+Line code $a_k$ &  & $1$ & $1$ & $1$ & $-1$ & $-1$ & $-1$ & $-1$ & $-1$ & $1$ & $-1$ \\ 
+
+$\theta_k$ &  & $0$ & $0$ & $0$ & $\pi$ & $\pi$ & $\pi$ & $\pi$ & $\pi$ & $0$ & $\pi$ \\
+
+$|\theta_k-\theta_{k-1}|$ &  & $\pi$ & $0$ & $0$ & $\pi$ & $0$ & $0$ & $0$ & $0$ & $\pi$ & $\pi$  \\
+
+Detected bits &  & $1$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $1$ & $1$  \\ 
+\end{tabular}
+%\caption{Valores medidos de tensão em cada estágio (os valores em questão são de pico-a-pico).}
+\end{table}
+
+Observa-se que a valor atual do bit ($q_k$) é obtido a partir da operação lógica de coincidência (XNOR) com o bit anterior $q_{k-1}$ e o bit da mensagem $I_k$.
+
+A codificação de linha $a_k$ é nada mais que a codificação polar NRZ. A fase $\theta_k$ ilustra o que um simples PSK (BPSK especificamente) apresentaria, enquanto que $|\theta_k-\theta_{k-1}|$ apresenta a fase experimentada pelo DPSK.

@@ -1,0 +1,22 @@
+OPERAÇÕES DO ESTOQUE EM LOJA:
+
+ 0) Inicie o programa, com o estoque da loja vazio
+ 1) Acrescente um CD (0,5pt):
+    Samba Total - $18,15 - 12 faixas
+ 2) Acrescente um livro (0,5pt):
+    O Pequeno Príncipe - $38,00 - Saint Exupery
+ 3) Acrescente um DVD (0,5pt):
+    Queen Live - $23,98 - 127 minutos
+ 4) Imprima em tela o estoque da loja (1,0pt se correto)
+ 5) Acrescente dois CDs (0,5pt):
+    Bebadosamba - $11,36 - 15 faixas
+    Rosa e Carvão - $21,00 - 17 faixas
+ 6) Exclua o CD "Samba Total" (1,0pt)
+ 7) Imprima em tela o estoque da loja (1,0pt se correto) 
+ 8) Salve o estoque no arquivo "loja.txt" (1,0pt)
+ 9) Inicie novamente o programa, com o estoque da loja vazio
+10) Carregue o estoque lendo o seu arquivo "loja.txt" (1,0pt)
+11) Imprima em tela o estoque da loja (1,0pt se correto)
+12) Forneça seu estoque para ser lido e impresso em tela pelo programa de um colega (1,0pt se correto)
+13) Inicie novamente o programa, com o estoque da loja vazio
+14) Leia e imprima em tela com seu programa o estoque de um colega (1,0pt se correto) 

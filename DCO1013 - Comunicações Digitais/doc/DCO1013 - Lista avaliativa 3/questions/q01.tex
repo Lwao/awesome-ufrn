@@ -1,0 +1,18 @@
+Dado um sinal amostrado a $8 kHz$ e com $64$ níveis de representação, ou seja, $6$ bits ($n = log_2(64) = 6$ bits), um sistema PCM possuirá a seguinte taxa de transmissão de bits:
+\begin{center}
+    $C = nf_s = 6 \times 8000 = 48$ kbps
+\end{center}
+Se a onda PCM for transmitida por um canal de banda base que utilizada modulação PAM discreta com três situações de níveis de amplitude: 2, 4 e 8 níveis (ou seja, com $n_1=log_2(2)=1$, $n_2=log_2(4)=2$ e $n_3=log_2(8)=3$ bits), a taxa de transmissão original será escalonada por essa quantidade de níveis, resultando na seguinte sequência de taxas para cada uma das situações do PAM multinível: 
+\begin{center}
+    $C_1 = C/n_1 = 48000 / 1 = 48$ kbauds \\ \vspace{1pt}
+    $C_2 = C/n_2 = 48000 / 2 = 24$ kbauds \\ \vspace{1pt}
+    $C_3 = C/n_3 = 48000 / 3 = 16$ kbauds 
+\end{center}
+Considerando que a banda mínima é dada pela metade da taxa de transmissão ($B=C/2$), a banda ocupada por cada um dos sistemas será:
+
+\begin{center}
+    $B_1 = C_1/2 = 24$ kHz \\ \vspace{1pt}
+    $B_2 = C_2/2 = 12$ kHz \\ \vspace{1pt}
+    $B_3 = C_3/2 = 8$ kHz 
+\end{center}
+\newpage

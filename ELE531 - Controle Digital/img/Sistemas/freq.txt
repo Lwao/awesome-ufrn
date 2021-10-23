@@ -1,0 +1,10 @@
+estável: f=0.5Hz, 10s, u=1
+instável: f=0.15Hz, 30s, u=1
+
+
+Teste de correlação:
+planta instável senoide 0.15Hz
+
+h=0.1	r= 0.9982
+h=1	r= 0.9217
+h=10	r= 0.695545

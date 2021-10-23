@@ -1,0 +1,31 @@
+\textbf{Como a distorção produzida pelo ROZ pode ser mitigata?}
+ 
+ A distorção produzida pelo ROZ pode ser mitigada por uma filtro equalizador. Enquanto que a resposta em frequência do ROZ é (onde $T_p$ é a duração de pulso):
+ 
+ \begin{equation} \label{eq10:1}
+     h_0(t) ) \rightleftharpoons H_0(\omega) = T_p \text{sinc}\left(\frac{\omega T_p}{2}\right) e^{-j\frac{\omega T_p}{2}}
+ \end{equation}
+ 
+ A partir da resposta em frequência, observa-se que o ROZ distorce o sinal por meio de: uma defasagem linear no tempo, proporcionada pela exponencial que depende de $T_p/2$; distorção do sinal de saída na sua banda de passagem; e lóbulos menores vestigiais em frequências múltiplas da frequência de amostragem, permitindo que as cópias não desejadas inerentes ao processo de digitalização possuam magnitude diferente de zero.
+ 
+Esses efeitos podem ser mitigados por meio de um filtro equalizador. Este filtro tenta desfazer as distorções implementadas pelo ROZ, assim sua resposta em frequência pode seguir:
+
+\begin{equation} \label{eq10:2}
+\centering
+E(\omega) =
+\left \{
+\begin{array}{cc}
+T_s/H_0(\omega), & |\omega| \leq 2\pi B \\
+\text{Flexível}, & 2\pi B < |\omega| < (\omega_s - 2\pi B) \\
+0, & |\omega| \geq (\omega_s - 2\pi B)
+\end{array}
+\right.
+\end{equation}
+
+A equação \ref{eq10:2} mostra que a resposta em frequência do equalizador procura desfazer as distorções do ROZ durante toda a banda de passagem do sinal $[-2\pi B, 2\pi B]$. O equalizador possui uma resposta flexível entre a banda de passagem e a próxima cópia, permitindo ajustar a seletividade e definir especificações de \textit{ripple} da banda de corte, seletividade do filtro, etc. Por fim é desejável que além das cópias do espectro do sinal original a resposta seja nula. 
+
+Também é importante manter a resposta da banda de passagem do equalizador realizável. Isto é, outro atraso temporal pode ser adicionado. Trabalhar com pulsos curtos é sempre desejável, pois quanto menor estes mais aproximada a resposta do equalizador será constante, como pode ser visto abaixo para uma pequena largura de pulso $T_p$:
+
+\begin{equation}
+    E(\omega) = T_s \frac{\omega/2}{\text{sin}(\omega T_p/2)} e^{-j\omega t_0} = \frac{T_s}{T_p} e^{-j\omega t_0}
+\end{equation}

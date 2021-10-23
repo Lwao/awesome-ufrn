@@ -1,0 +1,79 @@
+\newcommand{\PR}[1]{\ensuremath{\left[#1\right]}}
+\newcommand{\PC}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\chav}[1]{\ensuremath{\left\{#1\right\}}}
+\pagebreak
+\tableofcontents
+\pagebreak
+\section{Introdução}
+
+\par Tendo em vista a importância do motor de indução trifásico e sua vasta aplicação industrial, além de suas vantagens competitivas em relação aos outros tipos de motores: custo reduzido em relação a um motor CC de mesma potência, manutenção mais simples e mais barata, menor consumo de energia nos processos de aceleração e frenagem. O presente relatório tem como objetivo relatar o experimento realizado no laboratório de eletrotécnica para determinação dos parâmetros de circuito equivalente do motor de indução a partir da realização do ensaio a vazio e em rotor bloqueado. Com isso, a finalidade do relatório consiste em aprofundar e comprovar os estudos teóricos realizados da disciplina de máquinas elétricas.
+
+
+\subsection{Circuito equivalente do motor de indução}
+
+\par A partir da análise dos fenômenos eletromagnéticos que regem o princípio de funcionamento do motor de indução é possível modelar seus efeitos com auxílio de um circuito equivalente, o qual está sendo representado abaixo:
+
+
+\input{circuits/eq.tex}
+
+\par Quando deseja-se enfatizar as relações de conjugado e potência, o circuito da figura \ref{ckt:1} apresenta uma maior complexidade de análise, a qual pode ser simplificada através da aplicação do teorema de Thévenin para substituir o circuito do lado esquerdo do ramo de magnetização pelo circuito equivalente de Thévenin, o qual consiste em uma fonte de tensão em série com uma impedância em série. Após a dedução da tensão e impedância de Thévenin, o circuito de Thévenin equivalente é mostrado na figura a seguir:
+
+\input{circuits/th.tex}
+
+\par As equações para a tensão e impedância equivalentes de Thévenin ficam então:
+
+             $${V}_{TH} = V \PC{\frac{jx_{\phi}}{r_1 + j(x_1 + x_{\phi})}}$$
+             
+             $$Z_{TH} = \frac{jx_{\phi}(r_1+ jx_1)}{r_1 + j(x_1 + x_{\phi})} = R_1 + jX_1$$
+    
+\par Com base no circuito equivalente é possível o cálculo da corrente $I_2$, a qual é dada por 
+
+        $${I}_2 = \frac{V_{TH}}{Z_{TH} + jx_2 + \frac{r_2}{s}}$$
+
+\par E por fim, o conjugado pode ser calculado através da seguinte fórmula:
+
+        $$T_{mec} = \PC{\frac{polos}{2\omega_e}}\PC{\frac{q|V_{TH}|^2(\frac{r_2}{s})}{(R_1 + \frac{r_2}{s})^2 + (X_1 + x_2)^2}}$$
+        
+\par A partir da fórmula acima, percebe-se que o torque mecânico é uma função do escorregamento - o qual é uma função da velocidade do motor.
+
+
+
+\subsection{Ensaio a vazio}
+
+\par Após a determinação do circuito equivalente do motor de indução na subseção anterior é necessário agora a determinação dos parâmetros de tal circuito. O método para o calculo de tais parâmetros são os chamados ensaios a vazio e ensaio de rotor bloqueado e das medidas das resistências CC do estator.
+
+\par O ensaio a vazio do motor é responsável por fornecer as informações relacionadas à corrente de excitação e às perdas a vazio. Para realização do ensaio o motor é alimentado com tensões trifásicas equilibradas na frequência e tensão nominais nos terminais do estator. Durante o ensaio são medidos a tensão e corrente de linha e a potência trifásica total de entrada. Vale ressaltar que tal ensaio ignora as perdas no núcleo e a resistência associada a essas perdas, pois todas as perdas são atribuídas ao atrito e ventilação.
+
+\par Analisando o circuito equivalente durante o funcionamento a vazio, sabe-se que o escorregamento será muito pequeno - próximo a zero. Portanto, a resistência do rotor referida ao estator será muito alta, o que resultará em uma simplificação do circuito, o qual está representado na figura a seguir:
+
+\input{circuits/vz.tex}
+
+\par Portanto, a reatância medida nos terminais do estator será aproximadamente a soma da reatância do estator com a reatância de magnetização. 
+
+        $$x_{vz} \approx x_1 + x_{\phi}$$
+
+\par E o módulo da impedância pode ser calculado através da relação entre tensão e corrente medidos a vazio como $\frac{V_{1, vz}}{I_{1, vz}} = \sqrt{r_1^2 + (x_1 + x_{\phi})^2}$ . Portanto a reatância a vazio $x_vz$ pode ser calculada a partir de:
+
+    $$x_{vz} = (x_1 + x_{\phi}) = \sqrt{ \PC {\frac {V_{1, vz}} {I_{1, vx}}^2 } - r_1^2 }$$
+    
+\subsection{Ensaio de rotor bloqueado}
+
+\par Já o ensaio de rotor bloqueado do motor de indução fornece informações sobre as impedâncias de dispersão. Para execução desse ensaio, o rotor é travado de modo que não possa girar - fazendo com que sua velocidade seja nula de forma a produzir um escorregamento unitário - além dos terminais do estator serem alimentados com uma tensão trifásica equilibrada. As medidas realizadas durante esse ensaio são a tensão de linha $V_{1,bl}$, a corrente nominal $I_{1,bl}$, potência total de entrada $P_{1,bl}$ e utilizando a frequência nominal.
+
+\par Pelo fato do rotor estar com velocidade nula e, em consequência, o escorregamento ser unitário $s=1$, então a resistência do rotor referido ao estator $\frac{r_2}{s}$ será igual a $r_2$. Além disso, pelo circuito equivalente da figura \ref{fig:ckt_eq} e sabendo que os valores de $r_2$ e $x_2$ são muito pequenos se comparados a $x_{\phi}$, então a maior parte da corrente fluirá através delas, ao invés de fluir pela reatância de magnetização. Portanto, o circuito equivalente para o ensaio de rotor bloqueado é representado pela figura a seguir:
+
+\input{circuits/bq.tex}
+
+\par Portanto, pela análise do circuito equivalente acima e das medições realizadas é possível a determinação do parâmetro $r_2$ da seguinte forma:
+        $$r_2 = \frac{P_{1, bl}}{I_{1,bl}^2} - r_1$$
+        
+\par Tendo sido $r_1$ calculado durante o ensaio a vazio ao aplicar uma tensão CC e medir a relação $r_1 = \frac{V_{CC}}{I_{CC}}$. Além disso, considerando uma aproximação tal que $x_1 = x_2 = x$, então pode-se calcular a reatância através de:
+
+    $$ \frac{V_{1,bl}}{I_{1, bl}} = \sqrt{(r_1 + r_2)^2 + 4x^2}$$
+    
+\par Resolvendo para X:
+    $$x = \frac{1}{2}\sqrt{\PC{\frac{V_{1,bl}}{I_{1, bl}}}^2 - (r_1 + r_2)^2}$$
+    
+\par Tendo descoberto o valor de $x_1$ e $x_{vz}$, pode-se calcular $x_{\phi}$ da seguinte forma
+
+    $$x_{\phi} = x_{vz} - x_1$$

@@ -1,0 +1,11 @@
+No início do estudo de amostragem do sinal analógico, foi imposta a condição de que o
+sinal a ser amostrado, embora arbitrário, deve possuir energia finita. Qual a razão para
+esta imposição?
+
+De acordo com a relação de Parseval a energia do sinal pode ser vista do ponto de vista do sinal no tempo e do seu espectro de frequência:
+
+\begin{equation}
+    E_g = \int_{-\infty}^{\infty} |g(t)|^2dt = \int_{-\infty}^{\infty} |G(f)|^2df 
+\end{equation}
+
+Assim, a razão para que o sinal a ser amostrado seja limitado em energia é devido a relação acima. Isso pois caso o sinal possua energia infinita, a densidade espectral de energia também será infinita, ou seja, o espectro se estende infinitamente ao longo do eixo das frequências, não sendo possível ser repetido periodicamente sem que ocorra mascaramento.

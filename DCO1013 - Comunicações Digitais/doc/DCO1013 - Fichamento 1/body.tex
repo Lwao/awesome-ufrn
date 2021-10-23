@@ -1,0 +1,46 @@
+% Set Title, Author, and email
+\title{DCO1013 - Amostragem do sinal analógico}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+\subsubsection*{Lathi, Bhagwandas Pannalal, and Zhi Ding. "Sistemas de comunicações analógicos e digitais modernos." LTC, Rio de Janeiro (2012)}
+
+O resultado de uma amostragem do tipo \textit{sample and hold} é um sinal PAM, pois a saída possui sucessivos pulsos de amplitude modulada. As demais modulações por pulsos (PWM, PPM e PCM) podem ser derivadas do PAM.
+
+O teorema da amostragem é $f_s \geq 2B$ se, e somente se, o sinal não possuir um impulso na banda (como no caso de senoides), caso contrário deverá ser obedecida a inequação: $f_s > 2B$ (TEORICAMENTE). 
+
+Na interpolação prática dos sinais por meio de uma aproximação real dos impulsos, a convolução do sinal pelo trem de impulsos gera uma resposta em frequência do sinal desejado e periódica, porém multiplicada pela resposta do trem de impulsos que não é mais unitária. Uma filtragem final com um equalizador deve ser capaz de manter apenas a banda base do sinal amostrado e remover as bandas periódicas e a resposta do trem de impulsos real e sem distorção. Matematicamente, o sinal recuperado será:
+
+\begin{equation}
+    G(f) = E(f)P(f)\frac{1}{T_s}\sum_n G(f-nf_s)
+\end{equation}
+
+Como o equalizador deve eliminar a resposta em frequência dos pulsos, um deve ser o inverso do outro. Considerando pulsos de reconstrução retangulares e espaçados, quanto menor o espaçamento entre os pulsos, mais fidedigna será a reconstrução e, consequentemente, restando pouca distorção e tornando o equalizador simples ou desnecessário.
+
+Alguns problemas práticos inerentes da amostragem são: 
+
+\begin{itemize}
+    \item Como o espectro do sinal amostrado consiste em repetições do espectro do sinal original, para a recuperação do sinal original no domínio do tempo é necessário um filtro passa-baixas ideal.
+    
+    Um filtro ideal é impraticável, pois para um filtro retangular com inclinação de fase linear, sua resposta ao impulso aplicado em $t=0$ irá resultar em uma resposta no domínio do tempo não causal, portanto não realizável. 
+    
+    \begin{equation}
+        H(f) = \Pi \left(\frac{f}{2B}\right)e^{-j2\pi ft_d} \rightleftharpoons h(t) = 2B \, sinc[2\pi B(t-t_d)]
+    \end{equation}
+    
+    Uma solução é cortar a cauda de $h(t)$ para garantir a causalidade. Porém só será uma boa aproximação quanto maior for o atraso temporal $t_d$. Isso significa que o preço de uma boa aproximação física é um maior atraso na saída. Contudo uma atraso temporal infinito permitiria uma boa aproximação para o filtro ideal ao custo de possuir as amostras do sinal resultante afetadas pelo atraso.
+    
+    Uma solução seria amostrar o sinal a uma taxa bem maior do que a de Nyquist e utilizar um filtro com característica de corte gradual. A única vantagem seria reduzir o atraso temporal, mas o sinal original recuperado nunca será o mesmo.
+
+    \item Sinais práticos são limitados no tempo e ilimitados na frequência. Isso quer dizer que quando amostrados, a banda do sinal vai se sobrepor (\textit{aliasing}) de forma que não será possível recuperar o sinal original no tempo mesmo na teoria.
+    
+    Uma solução para esse problema é aplicar um filtro passa-banda (filtro anti-\textit{aliasing}), que consiste em suprimir as componentes frequenciais de menor potência e que se estendem ao longo de todo espectro, de forma a obter uma banda limitada. Quando o sinal for amostrado, o espectro periódico não sofrerá \textit{aliasing} e será possível reucperar o sinal original no tempo.
+    
+    Esse filtro também contribui para eliminar o ruído em frequências maiores.
+    
+    \item Se considerar a amostragem de um sinal limitado em banda (pode ser por meio de um filtro) na exata frequência de Nyquist, seu espectro periódico poderá ser semelhante ao espectro de um sinal não limitado em banda, mas amostrado a uma taxa sub-Nyquist. Assim, o sinal que é não limitado em banda, poderá ser confundido com um sinal limitado em banda devido à natureza da amostragem (espectro periódico).
+    
+    Curiosamente a amostragem de um sinal $g(t)$ a uma taxa sub­Nyquist gera amostras que podem ser igualmente obtidas da amostragem de um sinal limitado em banda $g_a(t)$ à taxa de Nyquist. Isso significa que tanto faz utilizar o filtro anti aliasing e amostrar a uma taxa igual a de Nyquist ou apenas amostrar a sub-Nyquist? (SEM RUÍDO)
+\end{itemize}

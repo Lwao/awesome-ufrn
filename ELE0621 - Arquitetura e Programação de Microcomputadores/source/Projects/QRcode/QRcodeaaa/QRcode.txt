@@ -1,0 +1,142 @@
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+https://bit.ly/2COLZY5
+HTTPS://BIT.LY/2COLZY5  22 char
+
+1. Error Correction Level
+	H (error correction capability of 30%)
+2. Smallest Version for the Data
+	Version 3 > H > Alphanumeric mode > 35 chars
+3. Mode Indicator
+	Alphanumeric mode > 0010
+4. Character Count Indicator
+	22 chars > 0001 0110
+	Versions 1-9 > Alphanumeric mode > 9 bits
+	4.> 0 0001 0110
+	3+4.> 0010 0 0001 0110
+5. Encode Using the Selected Mode
+	Alphanumeric mode enconding <https://www.thonky.com/qr-code-tutorial/alphanumeric-mode-encoding>
+
+	H-17	S-28	B-11	Y-34	O-24	.-42
+	T-29	:-44	I-18	2-2	Z-35
+	P-25	/-43	L-21	C-12	5-5
+	
+	H-17, T-29, (45*17+29)b
+	a=[17,29,28,43,11,29,21,43,12,21,34];
+	b=[29,25,44,43,18,42,34,2,24,35,5];
+	45*a+b
+	HT TP S: // BI T. LY /2 CO LZ Y5
+
+	0010
+	0 0001 0110
+
+	011 0001 1010
+	101 0011 0010
+	101 0001 1000
+	111 1011 1010
+	010 0000 0001
+	101 0100 0011
+	011 1101 0011
+	111 1001 0001
+	010 0011 0100
+	011 1101 0100
+	101 1111 1111
+	
+6. Break Up into 8-bit Codewords and Add Pad Bytes if Necessary
+
+	3-H > Total Number of Data Codewords for this Version and EC Level > 26*8 = 208bits
+
+	Step 5 = 134 bits
+	Terminator = 0000
+
+	Into bytes plus 6 pads
+	00100000 
+	10110011
+	00011010
+	10100110
+	01010100 
+	01100011 
+	11011101
+	00100000
+	00011010
+	10000110
+	11110100
+	11111100
+	10001010
+	00110100
+	01111010
+	10010111
+	11111100
+	00 + 000000 until here 144 bits
+	11101100
+	00010001
+	11101100
+	00010001
+	11101100
+	00010001
+	11101100
+	00010001 pads added 4 times
+
+	If size is not reached, pad 11101100-236 00010001-17
+
+	22 EC Codewords/block
+	Group 1 > 2 Blocks > each 13 Codewords	
+
+
+00100000 
+10110011
+00011010
+10100110
+01010100 
+01100011 
+11011101
+00100000
+00011010
+10000110
+11110100
+11111100
+10001010
+00110100
+01111010
+10010111
+11111100
+00000000
+11101100
+00010001
+11101100
+00010001
+11101100
+00010001
+11101100
+00010001
+
+32
+179
+26
+166
+84
+99
+221
+32
+26
+134
+244
+252
+138
+52
+122
+151
+252
+0
+236
+17
+236
+17
+236
+17
+236
+17
+
+msg_poly = [32,179,26,166,84,99,221,32,26,134,244,252,138,52,122,151,252,0,236,17,236,17,236,17,236,17];
+msg_poly_b1 = [32, 179, 26, 166, 84, 99, 221, 32, 26, 134, 244, 252, 138];
+msg_poly_b2 = [52, 122, 151, 252, 0, 236, 17, 236, 17, 236, 17, 236, 17];
+gen_pol_exp = [0 210 171 247 242 93 230 14 109 221 53 200 74 8 172 98 80 219 134 160 105 165 231];

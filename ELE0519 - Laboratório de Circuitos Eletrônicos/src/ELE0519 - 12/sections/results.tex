@@ -1,0 +1,75 @@
+\section{Resultados e discussão}
+
+Para encontrar todos os resultados necessários para comprovar a teoria, a prática foi dividida em algumas etapas, sendo elas:
+
+
+\begin{itemize}
+
+    \item Inicialmente foram montados os circuitos da figura \ref{ckt:1} e \ref{ckt:2};
+    
+    \item Para cada um dos circuitos foi utilizada uma senoide de 5V de pico (10V de pico-a-pico) e frequência variável na entrada, de forma que: $V_i(t) = 5sen(2\pi f t)$, para traçar a função de transferência de módulo e de fase para cada um dos circuitos;
+    
+    \item Com a mesma senoide do item anterior a frequência foi variada para encontrar a exata frequência de corte de cada filtro.
+\end{itemize}
+
+Para medir a frequência de corte de cada circuito os critérios de ganho e de fase foram utilizados, de forma que a frequência de corte ocorre na curva de Bode de ganho quando esta possui uma queda de 3dB. O critério de fase diverge para o filtro de 1ª ordem e o filtro de 2ª ordem, sendo que neste a frequência de corte ocorre em -90° e naquele ocorre em -45º na curva de Bode de fase.
+
+Considerando o filtro passa-baixa de 1ª ordem, a frequência da tensão de entrada foi variada de 1Hz a 20kHz, permitindo obter os dados da tabela \ref{table:1}. Com esses dados foi possível montar as curvas de Bode da figura \ref{graph:1}. 
+
+\input{graph/bode_first.tex}
+
+No filtro passa-baixa de 1ª ordem esperava-se que para uma tensão de entrada de 10V de pico-a-pico, a saída fosse de 7.07 V de pico-a-pico e que a defasagem entre a forma de onda de tensão da entrada e da saída fosse de -45°. Isso foi perfeitamente obtido na prática, da forma como foi encontrada na tabela e cujas formas de onda podem ser observadas na figura \ref{fo1}.
+
+\begin{figure}[H] 
+\centering
+\includegraphics[width=7cm]{images/f0_1.png}
+\caption{Formas de onda obtidas no osciloscópio para o filtro passa-baixa de 1ª ordem na frequência de corte, sendo a saída no CH1 e a entrada no CH2.}
+\label{fo1} 
+\end{figure}
+
+A frequência de corte obtida na prática foi de 1105.4Hz, uma vez que a esperada era de 1061Hz, o erro relacionado à frequência é de 4.01\%.
+
+A partir dos dados da tabela \ref{table:1}, se escolher o ganho para a frequência de 2kHz (-6.196 dB) e o ganho uma década depois, ou seja, em 20kHz (-24.324 dB), observa-se um queda de 18.128 dB, um valor bem próximo do esperado pela curva teórica, que é uma atenuação de 20 dB por década, com um erro de 9.36\%. Ao conferir as curvas de Bode da figura \ref{graph:1}, observa-se uma boa concordância com as curvas da figura \ref{fig:3} obtidas no MATLAB.
+
+Para o  filtro passa-baixa de 2ª ordem, a frequência da tensão de entrada também foi variada de 1Hz a 20kHz, permitindo obter os dados da tabela \ref{table:2}. Com esses dados foi possível montar as curvas de Bode da figura \ref{graph:2}. 
+
+\input{graph/bode_second.tex}
+
+No filtro passa-baixa de 2ª ordem, esperava-se que para uma tensão de entrada de 10V de pico-a-pico, a saída fosse de 7.07 V de pico-a-pico e que a defasagem entre a forma de onda de tensão da entrada e da saída fosse de -90°. Isso foi quase que perfeitamente obtido na prática, da forma como foi encontrada na tabela e cujas formas de onda podem ser observadas na figura \ref{fo2}, com uma defasagem de -91° ao invés de 90°, com um erro de 1.09\%.
+
+\begin{figure}[H] 
+\centering
+\includegraphics[width=7cm]{images/f0_2.png}
+\caption{Formas de onda obtidas no osciloscópio para o filtro passa-baixa de 2ª ordem na frequência de corte, sendo a saída no CH1 e a entrada no CH2.}
+\label{fo2} 
+\end{figure}
+
+A frequência de corte obtida na prática foi de 1031Hz, uma vez que a esperada era de 967.51Hz, o erro relacionado à frequência é de 6.15\%.
+
+A partir dos dados da tabela \ref{table:1}, se escolher o ganho para a frequência de 2kHz (-11.843 dB) e o ganho uma década depois, ou seja, em 20kHz (-54.420 dB), observa-se um queda de 42.577 dB, um valor bem próximo do esperado pela curva teórica, que é uma atenuação de 40 dB por década, com um erro de 6.05\%. Ao conferir as curvas de Bode da figura \ref{graph:2}, observa-se uma boa concordância com as curvas da figura \ref{fig:4} obtidas no MATLAB.
+
+Uma medida importante do filtro de 2ª ordem é o seu fator de qualidade (Q). Reconhecendo a forma geral da função de transferência de um filtro de segunda ordem na equação \ref{q1} e os seus polos na equação \ref{q2}, observa-se que a um valor alto de Q permite que a distância dos polos até o eixo $j\omega$ diminua, tornando assim o filtro mais seletivo.
+
+\begin{equation} \label{q1}
+    T(s) = \frac{a_2s^2+a_1s+a_0}{s^2+(\omega/Q)s+\omega^2}
+\end{equation}
+
+\begin{equation} \label{q2}
+    p_1, p_2 = -\frac{\omega}{2Q}\pm j\omega\sqrt{1-(1/4Q)^2}
+\end{equation}
+
+Para o caso do filtro de 2ª ordem implementado na prática, o valor de Q é 0.709, que é um valor próximo de 0.707, cuja resposta obtida para esse fator de qualidade é chamada Butterworth, ou a resposta mais achatada e que foi constatada na prática. Na figura \ref{Q} observa-se que ao diminuir o fator Q da função de transferência do filtro passa-baixa de segunda ordem o filtro se torna menos seletivo e, de acordo com que Q aumenta, a seletividade aumenta, porém a resposta apresenta picos de ressonância na frequência de corte. 
+
+\begin{figure}[H] 
+\centering
+\includegraphics[width=14cm]{images/BodeQ.jpg}
+\caption{Ensaios para valores variáveis de Q na função de transferência do filtro passa-baixas de 2ª ordem.}
+\label{Q} 
+\end{figure}
+
+Por fim a figura \ref{graph:3} mostra a comparação direta das curvas de Bode do filtro passa-baixas de 1ª e 2ª ordem, mostrando que de fato o filtro de 2ª ordem possui uma maior seletividade representada na capacidade de atenuar frequências acima da de corte com um fator 40dB por década, ao passo que o filtro de 1ª ordem só atenua 20dB por década. Porém esta conclusão não tira o mérito do filtro de 1ª ordem, pois ele ainda se apresenta uma alternativa um pouco mais barata ao filtro de 2ª ordem.
+
+\input{graph/comp.tex}
+
+
+%\newpage

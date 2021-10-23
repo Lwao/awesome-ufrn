@@ -1,0 +1,209 @@
+\section{DEVELOPMENT}
+
+\subsection{OFDM transceiver}
+
+The conception of this transceiver is based on the Software Defined Radio (SDR) Experiments proposed at \cite{ece489}.
+
+This transceiver will use a M-QAM modulator/demodulator with 16 levels, i.e. a 16-QAM ($M=16$). The number of data subcarriers was set to 48 ($N=48$), therefore each frame will contain $N\times log_2(M) = 192$ bits. The cyclic prefix has a length of 16 samples ($C=16$).
+
+\subsubsection{Generate information bits}
+
+The information bits are generated randomly with the block \textbf{Bernoulli binary generator} of figure \ref{fig:block1}. Its principal parameters was configured as follows:
+
+\begin{itemize}
+    \item The \textbf{probability of a zero} to be generated was set to 50\%, meaning a equal probability to generate 0's and 1's. This feature could be very important in more complex studies that deal with detection and estimation, but for the sake of simplicity this work will not take this parameter as important; 
+    \item The output of this block is \textbf{frame-based} and value of type \textbf{boolean}, with each \textbf{frame of size} $F_r = N\times log_2(M) = 192$ bits.
+    \item The \textbf{sample time} depends on the frame size $F_r$ and it was choose to obey a bit rate of $192 kbps$, so a sample time of $1/(192\times 10^3)$ seconds.
+\end{itemize}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4cm]{images/block1.png}
+\caption{Bernoulli Binary Generator which marks the begin of the transmission chain and its output it is connected to the M-QAM modulator. Source: own.}
+\label{fig:block1} 
+\end{center}
+\end{figure}
+
+\subsubsection{Map frame bits into a M-QAM constellation}
+
+This section uses a \textbf{rectangular QAM modulator in baseband} to map the incoming frame bits as in ifgure \ref{fig:block2}. It takes boolean balues as input (bit) and it is configured to a \textbf{16-QAM} of $M=16$, so a following gain block to \textbf{normalize} the output should divide modulator output by $\sqrt{M} = \sqrt{16}$. 
+
+In terms of the output dimensions, the 16-QAM modulator takes a frame of 192 bits and map each set of 4 bits into a constellation point, so it outputs a total of 48 symbols of which represent the $N=48$ data subcarriers.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5cm]{images/block2.png}
+\caption{Rectangular QAM Modulator in baseband followed by a negative gain of which outputs to the OFDM transmitter. Source: own.}
+\label{fig:block2} 
+\end{center}
+\end{figure}
+
+\subsubsection{OFDM transmitter}
+
+This block is the most complex of this system and its higher layer is represented by a Simulink subsystem as in figure \ref{fig:block3}. This section will detail each section of this subsystem.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5cm]{images/block3.png}
+\caption{Higher layer from the OFDM transmitter which receive the M-QAM symbols and turn them into OFDM symbols and outputs to the AWGN channel. Source: own.}
+\label{fig:block3} 
+\end{center}
+\end{figure}
+
+The OFDM transmitter architecture is based in the receiving of 48 M-QAM symbols, with each symbol modulating a subcarrier; the insertion of 11 guard bands; the insertion of 1 DC subcarrier; the insertion of 4 pilot subcarriers by pilot signals with fixed values, trying to mimic a known synchronization word to facilitate coherent detection (since synchronization it is not the objective of this work, the pilot signals are arbitrary). The combination of these 64 combined subcarriers demands a IFFT of length 64. Further there is a cyclic prefix of length $C=16$ samples.
+
+The first block to deal with the input is a \textbf{multiport selector}. It is used to address the 48 16-QAM symbols in a particular sequence that allows the alternation of data symbols, pilot symbols and the DC subcarrier. This selector has 6 outputs, with each port giving out a sequence of symbols so:
+
+\begin{itemize}
+    \item Port 1: symbols 1 to 5;
+    \item Port 2: symbols 6 to 18;
+    \item Port 3: symbols 19 to 24;
+    \item Port 4: symbols 25 to 30;
+    \item Port 5: symbols 31 to 43;
+    \item Port 6: symbols 44 to 48;    
+\end{itemize}
+
+Each port connects with a respective port in a block of \textbf{matrix concatenation}, that in figure \ref{fig:ofdm:1} combines in a fashion manner that alternates between pilot subcarriers, data subcarriers and the DC subcarrier.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=7cm]{images/TX1.png}
+\caption{OFDM transmitter first part that deals with the addressing of each subcarrier content. Source: own.}
+\label{fig:ofdm:1} 
+\end{center}
+\end{figure}
+
+It is important to say that the 4 pilot signals alternate between 1 and -1 and the DC subcarrier is modulated by 0. Both of this values are generated over a sample time of $8 \mu s$.
+
+The second part of the transmitter can be seen in the figure \ref{fig:ofdm:2}. The first two blocks consists of a \textbf{Pad} block and a \textbf{Selector}. The pad block with \textbf{pad value} of 0 performs a zero pad to ensure its output to be of size 64 (equals to the size of the IFFT). Since the values are padded at the end of the sequence, the selector block will adjust the indexing with a indexing vector that takes the samples from 27 to 64 and put at the begin and the samples 1 to 26 are put at the end ($[27:64, 1:26]$).
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{images/TX2.png}
+\caption{OFDM transmitter second part that deals with the zero padding for guard bands, IFFT and cyclic prefix. Source: own.}
+\label{fig:ofdm:2} 
+\end{center}
+\end{figure}
+
+After configuring the zero padding, the \textbf{IFFT} is performed. Since the property of conjugate symmetry was not achieved, the output sequence is of type complex, but since the transmission will not have any additional modulation step this does not configure a problem. After the IFFT the \textbf{cyclic prefix}is inserted with the use of \textbf{selector} block that takes the $C=16$ last samples of the IFFT output and put them at the begin, e.g. since the cyclic prefix size is 16 and IFFT length is 64 the samples from 49 to 64 are repeated at the beginning of the block and the samples 1 to 64 are maintained at the end. 
+
+This results in a OFDM symbol with a block of samples of size 80. Since the symbol time was previously set to $8\mu s$, perform the division $80/8 \mu$ results in a total occupied bandpass bandwidth of $10 MHz$ for the OFDM signal (the baseband bandwidth is half the value, i.e. $5 MHz$). This marks the end of the transmitter description.
+
+\subsubsection{Channel}
+
+In the standard OFDM transceiver after the transmitter block there is immediately the channel. The chosen channel was an \textbf{AWGN channel} with a homonymous block. The configuration of this block in very critical, so the output spectrum and, therefore the bit error rate can be measured as expected. The $E_bN_0$ value represents the normalized signal-to-noise-ratio and can be chosen as the designers wish (a higher $E_bN_0$ means a better signal quality and effective detection). THe parameter \textbf{number of bits per symbol} was set to the frame size $F_r = 192$ bits, once the OFDM symbol holds the entire frame. The \textbf{symbol period} was also set to match the sample time inside the transmitter, i.e. $8\mu s$. 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3cm]{images/block4.png}
+\caption{AWGN channel. Source: own.}
+\label{fig:block4} 
+\end{center}
+\end{figure}
+
+In the simulation a spectrum analyzer can be set in the output of the channel block so it tracks the OFDM signal spectrum.
+
+\subsubsection{OFDM receiver}
+
+The receiver objective is to undo all the changes that the transmitter performed in the primordial M-QAM symbols. To simplify the overall diagram a subsystem was used to hold all the receiver blocks. This subsystem is named OFDM receiver and can be seen in figure \ref{fig:block5}.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5cm]{images/block5.png}
+\caption{Higher layer from the OFDM receiver whose input comes from the channel and outputs the original M-QAM symbols. Source: own.}
+\label{fig:block5} 
+\end{center}
+\end{figure}
+
+Inside the subsystem there is the block chain of figure \ref{fig:ofdm:3}. Compared to the transmitter, the receiver is much simpler.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8.5cm]{images/RX1.png}
+\caption{OFDM receiver block chain. Source: own.}
+\label{fig:ofdm:3} 
+\end{center}
+\end{figure}
+
+The first block is a \textbf{remove cyclic prefix}, which is a \textbf{selector} that ignore the cyclic prefix inserted before. Since its size is $C=16$ samples, the first 16 samples are ignored, once those represent the cyclic prefix. The vector index of the selector ranges from 17 to 80. 
+
+The output sequence has a resulting size of 64 samples whose pass through a \textbf{FFT} block of same size. Since the FFT removed the subcarriers influence the symbols can be manipulated freely.
+
+The following block is a \textbf{frame status conversion} that will re-pack the symbols in a \textbf{frame-based} output. The next block is a \textbf{selector} to unpad the zeros added before, but first it need to rearrange the sequence with the following index vector: samples from 39 to 64 at the beginning and samples 1 to 27 at the end. 
+
+Following the last \textbf{multiport selector} is used to extract the data symbols and the pilot symbols. The pilot symbols consisting of the samples 6, 20, 34 and 48 are thrown in a \textbf{terminator} block, since in this application they have no use. The remaining 48 samples are the data symbols (1 to 5, 7 to 19, 21 to 26, 28 to 33, 35 to 47 and 49 to 53) and they are thrown in the output of the subsystem direct to the M-QAM demodulator.
+
+\subsubsection{Demodulate M-QAM symbols into bit frame}
+
+The last section of blocks will demodulate the 48 16-QAM symbols into the original bit frame of 192 bits. The gain will \textbf{denormalize} the symbols multiplying by $\sqrt{M} = \sqrt{16}$ and the block \textbf{rectangular QAM demodulator baseband} will ensure that all modification made by its counterpart is undone.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5cm]{images/block6.png}
+\caption{Rectangular QAM demodulator in baseband preceded by a positive  gain of which outputs to the target application or a error rate calculator. Source: own.}
+\label{fig:block6} 
+\end{center}
+\end{figure}
+
+This marks the end of the standard OFDM transceiver. 
+
+\subsection{FIR filter design}
+
+The design of the FIR filter for the f-OFDM signal will consist in the window function method and with the help of the Simulink block \texttt{fdatool}. The parameters for the f-OFDM signal are as shown in table \ref{table:1} adapted from \cite{cheng2016filtered} and the filter design will depend on its parameters. 
+
+\input{tables/table1}
+
+The window function chosen for the filter was the Blackman-Harris window. The choice is justified by previous analysis of the frequency response of couple window functions. The analysis was made based in Wen (2009) \cite{wen2009hanning}.
+
+The figure \ref{fig:win} is directly extracted from \cite{wen2009hanning} since it compares the magnitude response of 4 different windows of interest: Hamming, Hanning, Blackman and Blackman-Harris.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8.5cm]{images/hbh.png}
+\caption{Magnitude frequency response of various windows function. Source: Wen (2009) \cite{wen2009hanning}.}
+\label{fig:win} 
+\end{center}
+\end{figure}
+
+First comparing the Hamming and Hanning window between themselves, we can observe that the main lobe in each case resembles in terms of bandwidth occupied and amplitude. In terms of side lobes, the low frequency ones in the Hanning window have more significant amplitude, but decay firmly in high frequencies. Despite the high frequency side lobes for the Hamming frequency does not have a rapidly decay in amplitude, the value is reasonable and at low frequencies the side lobes are less influential than the Hanning window. 
+
+Now comparing the Blackman and Blackman-Harris windows we observe that the latter has a higher pass band and the side lobes have low amplitude meaning a higher attenuation. Both have a passband lower than the Hanning and Hamming window and they promote a stronger attenuation in the rejection band.
+
+So the Blackman-Harris window was chosen based primarily in its high attenuation characteristics in the rejection band. Also the use of Blackman-Harris window with a lower pass band compared to the Hamming or Hanning window is justified since the OFDM signal has guard bands. In this application we have 11 additional subcarriers uniformly distributed in each extremity of the signal spectrum. Since the carrier spacing is circa 125 kHz and 5 subcarriers from the guard band results in bandwidth of approximately 625 kHz in the worst scenario, the filter cutoff frequency can be set to a value higher than the subtraction between the 5 MHz of OFDM baseband bandwidth (that relates to a minimum sampling rate of 10 MHz) and the 625 kHz of single sided guard bands, resulting in a minimum cutoff frequency of 4.375 MHz. Therefore the filter cutoff frequency was defined as 4.2 MHz as a metric to compensate the low order of the filter. Further equalization could be implemented in the receiver to adjust the filter and channel distortion in the pass band.
+
+
+\begin{comment}
+After defining the window function, the next step in the filter design is to determine the cutoff frequency and its order. Since the sampling frequency was set to equal the bandpass bandwidth of the f-OFDM signal, which is 10 MHz, the maximum cutoff frequency must be less that half the sampling rate, therefore $< 5MHz$. Since it was reserved some guard bands, it does not configure major problems to filter out some of these. So the cutoff frequency was defined to be $4.5MHz$.
+\end{comment}
+
+Regarding the order of the filter it was chosen to have 96 coefficients. Once the transmitter and receiver filter are equal \cite{al2020improving}, this value denotes the overall delay in the transmission/reception chain. So the total delay provided by both filters combined is 192 samples, which is equivalent to the frame size. 
+
+Also the low order was carefully chosen to not provoke a high forward and backward tail in the time response, since a higher order would require a even larger cyclic prefix, that would result in a high CP overhead \cite{zhang2015filtered}. 
+
+The resulting magnitude response of the designed filter is represented in the figure \ref{fig:filter}. The response of the filter show little ripple in the pass band, ensuring a good flat response. In terms of rejection band, the side lobes are nearly nonexistent and does not present any major problem. Since the filter has a high order the cutoff frequency was respected with little distortion in the transition band.
+
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8.5cm]{images/filter.png}
+\caption{Magnitude response of the designed filter. Source: own.}
+\label{fig:filter} 
+\end{center}
+\end{figure}
+
+As a quick summary to the filter design, now we have:
+\begin{itemize}
+    \item Window function: Blackman-Harris;
+    \item Sampling frequency: 10 MHz;
+    \item Cutoff frequency: 4.2 MHz;
+    \item Order: 96;
+\end{itemize}
+
+\subsection{Adding the filter to the transceiver}
+
+Once the filter is designed with the help of the \texttt{fdatool}, we have to add it in the OFDM transmitter output and before the OFDM receiver input. 
+
+In the transmission the filter will shape de OFDM signal reducing the side lobes bands and providing a waveforms that occupies a more restrict bandwidth. At the receiver the filter will undo the shaping made by it before and will return the OFDM signal as intended in the OFDM transmitter.

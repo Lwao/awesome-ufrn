@@ -1,0 +1,14 @@
+EQUATIONS:
+
+\sum_{i=1}^{N_c} b_i = N_f
+
+\\ 
+N_f = \text{numero de bits no frame} \\
+N_c = \text{numero de canais} \\
+b_i = \text{numero de bits no i-esimo canal{\color{Blue} }}
+
+x_n = \frac{1}{\sqrt{N}} \sum_{k=1}^{2N_c} X_k e^{j2\pi n(k-1)/(2N_c)}
+
+n = 0,1,...,2N_c-1
+
+\{x_n, \, 0 \leq n \leq 2N_c-1\}

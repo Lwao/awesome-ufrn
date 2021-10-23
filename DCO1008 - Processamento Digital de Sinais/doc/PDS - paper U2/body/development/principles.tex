@@ -1,0 +1,71 @@
+\subsection{Basic Principles of OFDM}
+
+\par Two important concepts in terms of OFDM are the orthogonality of waveforms and the relation of the discrete fourier transform with such waveforms. Considering the time-limited complex exponential signals $\{e^{j2\pi f_k t}\}^{N -1}_{k = 0}$, which represents differents subcarries at $f_k = \frac{k}{T_S}$ in the OFDM signal, where $0 \leq t \leq T_{sym}$ and $T_{sym}$ is the symbol period.
+
+\par These signals are defined to be orthogonal if the integral of the product for their common (fundamental) period is zero, that is,
+
+
+\begin{equation} \label{ortho_exp_eq}
+\begin{split}
+ \frac{1}{T_{sym}}\int_{0}^{T_{sym}} e^{j2\pi\frac{k}{T_{sym}}t}e^{-j2\pi\frac{i}{T_{sym}}t}dt = \\
+ = \frac{1}{T_{sym}}\int_{0}^{T_{sym}} e^{j2\pi\frac{k-i}{T_{sym}}t}dt \\
+    = \left\{
+	\begin{array}{ll}
+		1  & \mbox{if } \forall \mbox{ integer } k = i \\
+		0  & \mbox{otherwise. } 
+	\end{array}
+    \right.
+\end{split}
+\end{equation}
+
+\par Taking the discrete samples with the sampling instances at $t = n T_S = n T_{sym}/ N$, $n = 0, 1, 2 \ldots, N-1$, the previous equation \ref{ortho_exp_eq} can be written in the discrete time domain as
+
+\begin{equation} \label{exp_td_eq}
+\begin{split}
+ \frac{1}{N}\sum_{n =0}^{N-1} e^{j2\pi\frac{k}{T_{sym}}\cdot n T_S}e^{-j2\pi\frac{i}{T_{sym}}\cdot n T_S} = \\
+  \frac{1}{N}\sum_{n =0}^{N-1} e^{j2\pi\frac{k-i}{T_{sym}}\cdot \frac{nT_{sym}}{N}} = \\
+ = \frac{1}{N}\sum_{n =0}^{N-1}
+ e^{j2\pi\frac{k-i}{N}n} \\
+ = \left\{
+	\begin{array}{ll}
+		1  & \mbox{if } k-i = mN,  \quad m \in \mathbf{Z} \\
+		0  & \mbox{otherwise. } 
+	\end{array}
+    \right.
+\end{split}
+\end{equation}
+   
+\par Thus, considering this inherent orthogonality of OFDM and that there aren't frequency deviations, there will be no ISI between symbols transmitted on different carriers, therefore will be no ICI.
+
+\par OFDM transmitter maps the message bits into a sequence of PSK and QAM symbols which will be converted into N parallel stream. Each one of the N symbols is carried out by different subcarrier. 
+
+\par Let $X_l[k]$ denote the $l-th$ transmit symbol at the $k-th$ subcarrier, $l = 0,1,2,\ldots, \infty$, $k = 0, 1, 2, \ldots, N -1$. Due to the S/P conversion, the duration of transmission time for N symbols is extended to $NT_S$, which forms a single OFDM symbol with a length of $T_{sym}$. Let $\Psi_{l,k}(t)$ denote the $l-th$ OFDM signal at the $k-th$ subcarrier, which is given as
+
+\begin{equation} \label{ofdm_signal}
+\begin{split}
+ \Psi_{l,k}(t) = \left\{
+	\begin{array}{ll}
+		e^{j2\pi f_k(t - lT_{sym})}  & \mbox{ , } 0 \le t \leq T_{sym} \\
+		0  & \mbox{elsewhere. } 
+	\end{array}
+    \right.
+\end{split}
+\end{equation}
+    
+
+\par Then the OFDM signal in the continuous-time domain can be expressed as:
+
+\begin{equation} \label{ofdm_signal-ct}
+\begin{split}
+ x_l(t) =  \sum_{l=0}^{\infty} \sum_{k=0}^{N-1}X_l[k]e^{j2\pi f_k(t - lT_{sym})}
+\end{split}
+\end{equation}
+
+\par The continuous-time OFDM signal in equantion \ref{ofdm_signal} can be sampled at $t = lT_{sym} + nT_S$ with $T_S = T_{sym} / N$ and $f_k = k / T_{sym}$ to yield the corresponding discrete-time OFDM symbol as
+\begin{equation} \label{ofdm_signal-dt}
+\begin{split}
+ x_l[k] =  \sum_{k=0}^{N-1}X_l[k]e^{j2\pi k n/N} & \mbox{ for } n = 0, 1, 2, \ldots, N -1
+\end{split}
+\end{equation}
+
+\par The equation \ref{ofdm_signal-dt} is the N-point IDFT of PSK or QAM data symbols $\{X_l[k]\}_{k=0}^{N-1}$ and can be computed efficiently using the IFFT algorithm. In addition, considering this inherent orthogonality of OFDM and that there aren't frequency deviations, there will be no ISI between symbols transmitted on different carriers, therefore will be no ICI.

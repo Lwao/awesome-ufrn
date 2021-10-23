@@ -1,0 +1,31 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.75, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    %shorts
+    \draw (0,0) node[op amp,yscale=-1] (opamp) {}
+    (opamp.+) to[short,-*] (-1.5,0.5) -- (-2.5,0.5) 
+    (opamp.-) -- (-1.5,-0.5)
+    (opamp.out) to[short, -*] (5,0)
+    (opamp.down) --(0,0.5) node[vcc]{+10\,\textnormal{V}}
+    (opamp.up) --(0,-0.5) node[vee]{-10\,\textnormal{V}}
+    (-1.5,-0.5) node[ground]{}
+    (-3,1.5) to[pR, l_=$15k \ohm$] (-3,-0.5)
+    (-3,3.5) to[R, l_=$10k \ohm$, *-] (-3,1.5)
+    (-3,-0.5) to[R, l_=$10k \ohm$, -*] (-3,-2.5)
+    (-1.5,0.9) node[] {$V_{in}$}
+    (2,0) to[R, l=$820 \ohm$, *-] (2,-2) to[leD*] (2,-4) node[ground]{}
+    (4,0) to[R, l=$820 \ohm$, *-] (4,-2) 
+    (4,-4) to[leD*] (4,-2) 
+    (4,-4) node[ground]{}
+    (-3.2,-2.5) node[left] {$-10V$} 
+    (-3.2,3.5) node[left] {$+10V$}
+    (5.1,0) node[right] {$V_{o}$}
+    ;
+    
+\end{tikzpicture}
+};
+\end{center}
+\caption{Comparador simples não inversor.}
+\label{ckt:1} 
+\end{figure}

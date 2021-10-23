@@ -1,0 +1,136 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_signed.all;
+
+entity project3 is
+	port(
+		a, b : in std_logic_vector (4 downto 0); -- switch, entradas numéricas +/-
+		
+		b_op : in std_logic; -- button, botão operacional para confirmar a escolha de a, b e operação
+		b_rst: in std_logic; --button, botão que retorna ao estado que recebe a primeira entrada
+
+		op_in : in std_logic_vector (2 downto 0); -- switch, seletores para a escolha da operação
+		-- 1 soma
+		-- 2 subtracao
+		-- 3 comparacao
+		-- 4 and
+		-- 5 or
+		-- 6 not
+		-- 7 xor 
+		-- 8 xnor		
+
+		s : buffer std_logic_vector (4 downto 0); -- out integer, saída para valor inteiro 
+		cout : buffer std_logic; 
+
+		--clk_in, rst : in std_logic; -- clock 50Mhz (FPGA)
+		--clk : buffer std_logic; -- clock 1Hz (FPGA)
+		clk : in std_logic; -- clock (SIMULAÇÃO)
+
+		op_out : out std_logic_vector (6 downto 0); -- disp7, saída para 1disp7 referente à operação (1 a 8)
+		dis_0, dis_1, dis_2 : out std_logic_vector (6 downto 0) -- disp7, saídas para Xdisp7 referentes à 
+	);
+
+end project3; 
+
+architecture procedure of project3 is
+	
+	type state is (init, wait_a, wait_b, wait_o, ALU); --s0, s1, s2, s3, s4, s5, s6, s7
+	signal actual_s, next_s: state;
+	signal a_temp, b_temp: std_logic_vector (4 downto 0) := "00000";
+	signal o_temp: std_logic_vector (2 downto 0) := "000";
+	signal show: integer := 0;
+	
+	signal d2, d1, d0, s: integer range 0 to 255 := 0;
+	signal lt: std_logic;
+	
+	component disp_divider is
+	port(
+		n 					  : in integer range 0 to 255;
+		dis_0, dis_1, dis_2 : out integer range 0 to 255
+		);
+	end component;
+	
+	component BCD27 is
+	port(
+		bcd : in integer range 0 to 255;
+		seg : out std_logic_vector (6 downto 0)
+		);
+	end component;
+		
+	--component ClockDiv is
+   --port(
+	--   clkIn  : in std_logic;
+	--	clkOut : out std_logic
+	--);
+	--end component;
+
+
+
+begin 
+	--clock : ClockDiv port map(clk_in, clk);
+	
+	state_register: process(clk, rst, b_op, b_rst)
+	begin 
+		if (rst='1') then
+			a_temp <= "00000";
+			b_temp <= "00000";
+			o_temp <= "000";
+			show <= 0;
+			actual_s <= i;
+		elsif rising_edge(clk) then
+			case actual_s is 
+				when init =>
+					a_temp <= "00000";
+					b_temp <= "00000";
+					o_temp <= "000";
+					show <= 0;
+					next_s <= wait_a;
+				when wait_a =>
+					if (b_op='1') then
+						next_s <= wait_b;
+						a_temp <= a;
+						show <= 1;
+					else
+						next_s <= wait_a;
+						show <=0;
+					end if;
+				when wait_b =>
+					if (b_op='1') then
+						next_s <= wait_o;
+						o_temp <= op_in;
+						show <= 2;
+					else
+						next_s <= wait_b;
+						show <= 1;
+					end if;
+				when wait_o =>
+					if (b_op='1') then
+						next_s <= wait_ALU;
+						b_temp <= b;
+						show <= 3;
+					else
+						next_s <= wait_b;
+						show <= 2;
+					end if;
+				when ALU =>
+					if (b_rst='0') then
+						next_s <= ALU;
+						show <= 3;
+					else
+						next_s <= init;
+						show <= 0;
+					end if; 
+			end case;
+		end if;
+	end process state_register;
+	
+
+	operacao : BCD27 port map (o_temp, op_out);
+	ALU_procedure : ALU port map (a_temp, b_temp, o_temp, show, s);
+
+	displays : divider
+	disp_ : BCD27 port map (d2, dis_2);
+	p_disp1 : BCD27 port map (d1, dis_1)
+	p_disp0 : BCD27 port map (d0, dis_0);
+end procedure ;

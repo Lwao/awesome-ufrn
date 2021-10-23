@@ -1,0 +1,8 @@
+\textbf{Qual é o efeito de se relaxar as exigências no projeto de filtro antialiasing?}
+
+Dependendo de quão grande for a ordem do filtro \textit{antialiasing}, não haverá necessidade de recorrer a taxas maiores de amostragem. Porém o relaxamento das especificações do filtro \textit{antialiasing} podem prejudicar a amostragem de duas formas principais:
+
+\begin{enumerate}
+    \item Banda de transição muito larga resulta numa seletividade menor do filtro, permitindo que componentes indesejadas de frequência ainda possuam magnitude suficiente para provocar algum nível de \textit{aliasing};
+    \item \textit{Ripple} da faixa de passagem possui amplitude suficiente para distorcer o sinal de entrada, oferecendo ao amostrador uma réplica já distorcida do sinal original. O \textit{ripple} da faixa de rejeição também é prejudicial, pois este permite que componentes de frequência maior possuam algum nível de amplificação indesejado. 
+\end{enumerate}

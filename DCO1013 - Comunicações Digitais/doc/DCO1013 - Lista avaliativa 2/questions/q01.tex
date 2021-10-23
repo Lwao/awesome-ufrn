@@ -1,0 +1,15 @@
+Tomando a seguinte equação como base:
+
+\begin{equation} \label{sum:1}
+    \sum_{n=-\infty}^{\infty} P(f-nR_b) = T_b
+\end{equation}
+
+Considerando que $B>R_b/2$, o somatório \ref{sum:1} possuirá versões deslocadas de $P(f)$ que irão se sobrepor, havendo a possibilidade de manter a igualdade verdadeira.
+
+Porém para $B<R_b/2$ não haverá sobreposições da banda quando suas cópias forem centradas em múltiplos de $R_b$. Assim a sobreposição do espectro de amplitude não será garantido, resultando na desigualdade do somatório \ref{sum:1}.
+
+A condição limite $B=R_b/2$ pode ser alcançada apenas por meio de uma filtragem passa-baixas ideal, mas irrealizável devido à necessidade de um filtro com resposta ao impulso não causal (sinc).
+
+Isso pode ser demonstrado enxergando o somatório \ref{sum:1} com $f_s = R_b$. Para uma situação sem mascaramento $R_b > 2B$ as cópias de $P(f)$ estarão centradas além dos pontos $nR_b$. Com uma frequência de amostragem $f_s$ que está além da frequência de Nyquist e uma banda limitada do sinal, garante-se que não haja sobreposição da banda periódica do sinal.  
+
+\newpage

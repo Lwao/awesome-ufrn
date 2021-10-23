@@ -1,0 +1,232 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage{lipsum}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{graphicx}
+%\usepackage{crimson}
+\usepackage{tcolorbox} % box around text
+\usepackage{mdframed}
+\usepackage[T1]{fontenc}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{titlesec}
+% Level 1
+\titleformat{\section}
+  {\normalfont\fontsize{18}{0}\bfseries}{\thesection}{1em}{}
+% Level 2
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{0}\bfseries}{\thesection}{1em}{}
+% Level 3
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{0}\bfseries}{\thesection}{1em}{}
+% Level 4
+\titleformat{\paragraph}
+  {\normalfont\fontsize{12}{0}\bfseries\itshape}{\theparagraph}{1em}{}
+% Level 5
+\titleformat{\subparagraph}
+  {\normalfont\fontsize{12}{0}\itshape}{\theparagraph}{1em}{}
+% Level 6
+\makeatletter
+\newcounter{subsubparagraph}[subparagraph]
+\renewcommand\thesubsubparagraph{%
+  \thesubparagraph.\@arabic\c@subsubparagraph}
+\newcommand\subsubparagraph{%
+  \@startsection{subsubparagraph}    % counter
+    {6}                              % level
+    {\parindent}                     % indent
+    {12pt} % beforeskip
+    {6pt}                           % afterskip
+    {\normalfont\fontsize{12}{0}}}
+\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+\newcommand{\subsubparagraphmark}[1]{}
+\makeatother
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\titlespacing*{\paragraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subparagraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubparagraph}{0pt}{12pt}{6pt}
+
+% Set caption to correct size and location
+%\usepackage[tableposition=top, figureposition=bottom, font=footnotesize, labelfont=bf]{caption}
+
+
+
+% Overwrite Title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup
+   \begin{center}
+   \textbf{{\fontsize{18pt}{20}\selectfont \@title}}\\
+   \vspace{10pt}
+   {\fontsize{12pt}{0}\selectfont \@author} 
+   \end{center}
+}
+\makeatother
+
+
+\usepackage{float}
+\usepackage{bibentry}
+\nobibliography*
+
+% Custom Quote
+\newenvironment{myquote}[1]%
+  {\list{}{\leftmargin=#1\rightmargin=#1}\item[]}%
+  {\endlist}
+  
+% Create Abstract 
+\renewenvironment{abstract}
+{\vspace*{-.5in}\fontsize{12pt}{12}\begin{myquote}{.5in}
+\noindent \par{\bfseries \abstractname.}}
+{\medskip\noindent
+\end{myquote}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}			% usar gráficos
+\usepackage{multicol,lipsum}	%
+\usepackage[utf8x]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{graphics}           % Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{natbib} 			% citar
+\usepackage{float}				% números em ponto flutuante
+\usepackage[brazil]{babel}		% língua brasileira
+\usepackage{setspace}			% espaçamento entre linhas
+\usepackage{subfigure}          % Permite subfiguras
+\usepackage{pgfplots}           % Realizar plots
+\usepackage{pdfpages}           % Inserir páginas de PDF como figura
+\usepackage{comment}            % Realizar múltiplos comentários
+\usepackage{listings}           % Código fonte
+\usepackage{lipsum}             % Gerador de Lorem Ipsum
+\usepackage{multirow}           % Multilinhas em uma tabela
+\usepackage{mathtools}
+\usepgfplotslibrary{polar}      % Polar axis
+
+\graphicspath{{images/}}        % Caminho das imagens
+\pagenumbering{arabic}          % Numeração das páginas
+\everymath{\displaystyle}       % \frac{}{} tamanho ideal
+
+\usepackage{amsfonts}  % Matemática 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage[amssymb]{SIunits}
+
+
+
+% Outros pacotes
+\usepackage{fullpage}
+\usepackage{euscript}
+\usepackage[colorlinks=true, linkcolor=red, citecolor=blue, filecolor=magenta, urlcolor=cyan, pdfborder={0 0 0}]{hyperref}
+%\usepackage[top=100pt,bottom=100pt,left=68pt,right=66pt]{geometry}
+\usepackage{eurosym} 
+\usepackage[version=3]{mhchem} 
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{setspace}
+\usepackage{pdflscape}
+\usepackage[]{color}
+\usepackage{alltt}
+\usepackage{etoolbox}
+\patchcmd{\abstract}{\null\vfil}{}{}{}
+\raggedbottom
+\usepackage{titlesec}
+\titleformat{\chapter}
+{\normalfont\LARGE\bfseries}{\thechapter.}{1em}{}
+\titlespacing{\chapter}{0pt}{50pt}{2\baselineskip}
+\floatstyle{plaintop}
+\restylefloat{table}
+\usepackage[tableposition=top]{caption}
+\usepackage{hyperref}
+\hypersetup{hidelinks,linkcolor = black}
+\usepackage{alltt}
+\usepackage{etoolbox}
+\usepackage{titlesec}
+\raggedbottom
+
+%----------------------------------------------
+
+
+% Fancy 
+\usepackage{fancyhdr}
+\fancyhf{} 
+\fancyfoot[C]{\rfoot{\thepage}}     % páginas numeradas right-foot
+\renewcommand{\headrulewidth}{0pt}  % retira linha horizontal do fancihdr
+\pagestyle{fancy}
+%-------------------------------------
+% Tikz
+\usepackage{tikz}               
+\usepackage{tikzscale}          
+\usepackage[siunitx,american,cuteinductors,smartlabels]{circuitikz}
+\usepackage{bodegraph}
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{babel,arrows,automata}
+%-------------------------------------
+
+%\usepackage[top=100pt,bottom=100pt,left=68pt,right=66pt]{geometry} % Geometria das folhas
+%\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry} % Geometria das folhas
+
+%\parskip 15pt					% distância entre parágrafos fixa
+%\parindent 30pt					%identação fixa
+
+%----------------------
+% Pacotes para a linha de código
+%----------------------
+\usepackage{xcolor}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0,0.5,0}
+% Configurando layout para mostrar codigos C++
+\usepackage{listings}
+\lstset{
+  language=C,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{verde},
+  commentstyle=\color{red},
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  backgroundcolor=\color{green!10},
+  breakautoindent=true,
+  captionpos=b,
+  xleftmargin=0pt,
+}
+%----------------------
+% Aumentar tamanho do título resumo
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn
+      \section*{\abstractname}%
+    \else %% <- here I've removed \small
+      \begin{center}%
+        {\bfseries \Large\abstractname\vspace{\z@}}%  %% <- here I've added \Large
+      \end{center}%
+      \quotation
+    \fi}
+    {\if@twocolumn\else\endquotation\fi}
+\makeatother
+%----------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{enumitem}
+\newlist{subquestion}{enumerate}{1}
+\setlist[subquestion,1]{label=(\alph*)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{fontspec}
+%\setmainfont{[calibril.ttf]}
+
+\begin{document}
+\input{body}
+\end{document}

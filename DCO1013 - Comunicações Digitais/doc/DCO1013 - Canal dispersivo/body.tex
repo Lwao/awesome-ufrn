@@ -1,0 +1,61 @@
+% Set Title, Author, and email
+\title{DCO1013 - canal dispersivo}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+Segundo as considerações impostas pelo exercício, a saída y(t) do canal será:
+
+\begin{center}
+    $y(t) = g(t) \ast h(t)$
+\end{center}
+
+No domínio tem-se:
+
+\begin{center}
+    $Y(f) = G(f) \ast H(f)$
+\end{center}
+
+Onde $G(f)\rightleftharpoons g(t)$ representa o sinal sujeito ao canal, $H(f)$ o canal e $Y(f)$ a saída do canal. Assim, desenvolvendo a equação baseado na definição do canal:
+
+\begin{center}
+    $Y(f) = G(f)e^{-j2\pi f t_d} + k \, cos(2\pi fT) G(f)e^{-j2\pi f t_d}$
+\end{center}
+
+De acordo com a fórmula de Euler, o cosseno pode ser expresso como uma soma de exponenciais no domínio em questão (no caso da frequência):
+
+\begin{center}
+    $cos(2\pi f T) = \frac{1}{2} (e^{j2\pi f T}   +    e^{-j2\pi f T})$
+\end{center}
+
+Incorporando essa expressão à equação da saída $Y(f)$:
+
+\begin{center}
+    $Y(f) = G(f)e^{-j2\pi f t_d} + \frac{k}{2} \, G(f)   [e^{-j2\pi f (t_d-T)}   +    e^{-j2\pi f (t_d+T)}]$
+\end{center}
+
+Considerando a propriedade de deslocamento no tempo da transformada de Fourier para um deslocamento genérico $x$: $G(f)e^{-j2\pi f x} \rightleftharpoons g(t-x)$. Com isso pode-se determinar a expressão do tempo na saída por meio dessa propriedade considerando valores de atraso para $x$ como $t_d$, $t_d-T$ e $t-d+T$, assim a expressão para a saída será:
+
+\begin{center}
+    $y(t) = g(t-t_d) + \frac{k}{2} [g(t-t_d+T) + g(t-t_d-T)]$
+\end{center}
+
+Outra forma de enxergar essa expressão é fazer $t=t+t_d$:
+
+\begin{center}
+    $y(t+t_d) = g(t) + \frac{k}{2} [g(t+T) + g(t-T)]$
+\end{center}
+
+Isso permite observar que a saída é a ponderação acima baseada na função $g(t)$ atrasada de $t_d$.
+
+Para ilustrar a forma de onda, não será considerada a forma de onda genérica de $g(t)$ como aquela apresentada no problema, mas sim uma forma modificada para facilitar a representação gráfica, como a da figura \ref{graph:1}.
+
+\input{graph1}
+
+Assim, a forma de onda da saída será a seguinte composição:
+
+\input{graph2}
+
+
+

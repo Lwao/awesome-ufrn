@@ -1,0 +1,52 @@
+% Set Title, Author, and email
+\title{DCO1013 - Detecção coerente e não coerente}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+
+Os princípios da detecção coerente e não coerente dependem se a portadora na recepção está em fase ou não com a portadora da transmissão. No caso da detecção coerente a portadora gerada localmente está em fase com portadora da transmissão, de forma que essa configuração permite um melhor desempenho na detecção, porém exige um receptor mais complexo e com altos requisitos técnicos. Em contrapartida a portadora local na detecção não coerente não está em fase com a portadora do transmissor, de forma que o receptor se torna mais simples e de fácil implementação e integração, porém seu desempenho é inferior à coerente. 
+
+A seguir será mostrado matematicamente a diferença entre um sinal tratado em um receptor coerente que promove a recuperação da portadora para a demodulação contra um receptor não coerente que não se preocupa com a recuperação da portadora.
+
+\subsubsection*{Sheng Chen. Notas de Aula. Coherent and Non-coherent Receivers. University of Southampton, School of Electronics and Computer Science. Disponível em: <http://www.ecs.soton.ac.uk/∼qc/EL334/>.}
+
+Considerando o sinal recebido como: $s(t) = A cos(\omega_c t + \varphi) + n(t)$; onde $\omega_c$ é a velocidade angular da portadora e $n(t)$ representa o AWGN. Agora considera-se que a portadora local é: $cos(\omega_c t+ \Bar{\varphi})$, para cada caso ter-se-á (considera-se que :
+
+\begin{itemize}
+    \item Recuperação de portadora para demodulação:
+    
+    Na detecção coerente existe um circuito para recuperação da fase da portadora, como por exemplo um circuito \textit{phase lock loop} (PLL), resultando na seguinte relação entre as fases iniciais da portadora:
+    
+    \begin{equation}
+        \Delta \varphi = \varphi - \Bar{\varphi} \to 0 \, \, \, \, \, \, assim, \, \Bar{\varphi} \to \varphi
+    \end{equation}
+
+    Aplicado o circuito de recuperação de fase no sinal recebido, o sinal banda base demodulado, com $x(t)$ representando o sinal banda base transmitido, será:
+    
+    \begin{equation}
+        y(t) = x(t) + n(t)
+    \end{equation}
+    
+    \item Não recuperação de portadora para demodulação:
+    
+    Na detecção não coerente não haverá um circuito para que alinhe a fase das portadoras, podendo ser aplicada algum algoritmo de estimação da fase da portadora, resultando na seguinte relação entre as fases iniciais da portadora:
+    
+    \begin{equation}
+        \phi = \Delta \varphi = \varphi - \Bar{\varphi} \neq 0 \, \, \, \, \, \, assim, \, \Bar{\varphi} \neq \varphi
+    \end{equation}
+
+    Agora o sinal banda base demodulado, com $x(t)$ representando o sinal banda base transmitido, será corrompido por um desvio de fase que prejudica a amostragem:
+    
+    \begin{equation}
+        y(t) = x(t)e^{j\phi} + n(t)
+    \end{equation}
+\end{itemize}
+
+
+
+\subsubsection*{Lathi, B. P., Ding, Z., "Modern Digital and Analog Communication Systems", 4a edição, Editora Oxford University Press, 2009.}
+
+\input{lathi}
+

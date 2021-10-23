@@ -1,0 +1,61 @@
+A média de um processo aleatório $X(t)$ é a esperança da variável aleatória obtida pela observação do processo ao longo de certo tempo $t$ com fdp $f_{X(t)}(x)$.
+
+\begin{equation} \label{haykin:1}
+\mu_X(t) = E[X(t)] = \int_{-\infty}^{\infty} xf_{X(t)}(x)dx
+\end{equation}
+
+Um processo estocástico é dito como \textbf{estacionário de primeira ordem} se sua função distribuição ou densidade de probabilidade não varia com o tempo, satisfazendo: $f_{X(t_1)}(x) = f_{X(t_2)}(x)$ para qualquer $t$. Isso também implica que seu valor esperado e variância mantém-se constantes.
+
+A \textbf{função autocorrelação} de um processo é definido como o produto de duas variáveis aleatórias obtidas pela observação de um processo estocástico em dois instantes de tempo diferentes, com $f_{X(t_1),X(t_2)}(x_1,x_2)$ representando a fdp conjunta de $X(t_1)$ e $X(t_2)$:
+
+\begin{equation} \label{haykin:2}
+R_X(t_1,t_2) = E[X(t_1)X(t_2)] =  \int_{-\infty}^{\infty}  \int_{-\infty}^{\infty} x_1x_2 f_{X(t_1),X(t_2)}(x_1,x_2)dx_1dx_2
+\end{equation}
+
+Um processo estocástico é dito como \textbf{estacionário de segunda ordem} se sua fdp conjunta depende somente da diferença entre os tempos observados, implicando que a função de autocorrelação também possui essa dependência, ou seja para todo $t$: $R_X(t_1,t_2) = R_X(t_2-t_1)$. Assim, a função auto covariância também dependente apenas da diferença entre os tempos será:
+
+\begin{equation} \label{haykin:3}
+C_X(t_1,t_2) = E[(X(t_1)-\mu_X)(X(t_2)-\mu_X)] = R_X(t_2-t_1) - \mu_X^2
+\end{equation}
+
+Propriedades da função de autocorrelação de um processo estacionário redefinida como $R_X(\tau) = E[X(t+\tau)X(t)]$:
+
+\begin{itemize}
+    \item O valor médio quadrático do processo pode ser obtido da função autocorrelação para $\tau=0$: $R_X(\tau) = E[X^2(t)]$.
+    
+    \item A função autocorrelação é uma função par de $\tau$: $R_X(\tau) = R_X(-\tau) = E[X(t)X(t-\tau)]$.
+    
+    \item O valor máximo da função autocorrelação é dado em $\tau=0$: $|R_X(\tau)| \leq R_X(0)$.
+\end{itemize}
+
+A \textbf{função autocorrelação} possui o sentido físico de descrever a "interdependência" de duas variáveis aleatórias observadas em um processo aleatório e espaçadas de $\tau$ segundos. Assim, quanto mais o processo estocástico varia com o tempo, mais rapidamente a função autocorrelação decresce com o aumento de $\tau$. 
+Considerando um caso mais geral de dois processos estocásticos $X(t)$ e $Y(t)$, com autocorrelações, respectivamente, $R_X(t,u)$ e $R_Y(t,u)$, a \textbf{função correlação cruzada} desses dois processos será:
+
+\begin{equation} \label{haykin:4}
+R_{XY}(t,u) = E[X(t)Y(t)]
+\end{equation}
+
+Essa função em geral não é par em $\tau$ e não possui máximo na origem. Porém obedece certa simetria de forma que (problema 5.12): $R_{XY}(\tau) = R_{YX}(-\tau)$.
+
+Vale destacar se os processos $X$ e $Y$ forem estacionário no sentido amplo e conjunto, a correlação cruzada é re-escrita como: $R_{XY}(t,u)=R_{XY}(\tau)$.
+
+Uma propriedade conhecida como \textbf{ergodicidade} permite que a média do conjunto seja estimada pela média temporal da função amostra.
+
+No que diz respeito à \textbf{densidade espectral de energia} de um processo estocástico $X(t)$ como $S_X(f)$, esta pode ser encontrada a partir da transformada de Furier da função autocorrelação do processo, assim:
+
+\begin{equation} \label{haykin:5}
+S_X(f) = \int_{-\infty}^{\infty} R_X(\tau)e^{-j2\pi f \tau} d\tau
+\end{equation}
+
+Juntamente com a inversa de \ref{haykin:5}, estas equações são chamadas relações Einstein-Wiener-Khintchine. De forma que mostra que, se a autocorrelação ou densidade espectral de potência de um processo são conhecidos, o outro pode ser encontrado.
+
+Propriedades da densidade espectral de potência (PSD) considerando um processo estocástico estacionário em sentido amplo:
+
+\begin{itemize}
+    \item O valor DC da PSD do processo descrito é a área sob o gráfico da função autocorrelação: $S_X(0) = \int_{-\infty}^{\infty} R_X(\tau)d\tau$.
+    \item O valor quadrático médio do processo descrito é a área sob o gráfico da PSD: $E[X^2(t)] = R_X(0) = \int_{-\infty}^{\infty} S_X(f)df$.
+    \item A PSD é sempre positiva, pois $S_X(f) \approx E[|P(f)|^2]$, com $P(f)$ sendo a transformada de Fourier do processo $X(t)$.
+    \item A PSD de um processo de valores reais é uma função par da frequência.
+\end{itemize}
+
+Ao passar um processo aleatório por um filtro estável, linear, invariante no tempo, a PSD de saída será modificada de: $S_Y(f) = H(f)H^*(f)S_X(f) = |H(f)|^2S_X(f)$.

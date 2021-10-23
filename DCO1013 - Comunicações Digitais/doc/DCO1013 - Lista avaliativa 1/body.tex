@@ -1,0 +1,148 @@
+% Set Title, Author, and email
+\title{DCO1013 - Lista avaliativa 1}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+A saída de um filtro casado pode ser replicada pelo uso de um integrador no sinal de entrada. Assim, para demonstrar esse resultado, será explicitada a saída de um filtro casado e depois comparada com a saída do sistema descrito com um integrador.
+
+Considerando que o sinal de entrada no receptor é: $y(t) = \alpha p(t) + n(t)$. Sendo $n(t)$ o processo estocástico referente ao AWGN submetido ao sinal pelo canal e $p(t)$ o sinal pulsado transmitido com nível da informação regulado por $\alpha$, de forma que só pode assumir dois valores ($\alpha = \{-1,1\}$) para um sinal antipodal bipolar.
+
+\large \textbf{Filtro casado}
+\normalsize
+
+\\
+
+Considerando que um filtro casado com o pulso $p(t)$ possui a resposta ao impulse de: $h(t) = p(T_b - t)$, sendo $T_b$ o período de bit, a saída desse filtro será:
+
+\begin{center}
+    $ r(t) = y(t) \ast h(t)$ \\ \vspace{1pt}
+    $ r(t) = [\alpha p(t) + n(t)] \ast p(T_b - t)$ 
+\end{center}
+
+Em termos da integral de convolução, tem-se:
+\begin{center}
+    $ r(t) = \alpha \int_{-\infty}^{\infty} p(\tau)p(\tau+T_b-t) d\tau + \int_{-\infty}^{\infty} n(\tau)p(\tau+T_b-t)d\tau$
+\end{center}
+
+A integral do ruído pode ser considerada como um processo $w(t)$, pois esta parcela não será relevante para extrair resultados sobre o integrador. Finalmente, a saída do filtro casado para um sinal não-causal será dada por:
+
+\begin{equation} \label{MF:out}
+    r(t) = \alpha \int_{0}^{t} p(\tau)p(\tau+T_b-t) d\tau + w(t)
+\end{equation}
+
+Além do mais, considerando $0 \leq t \leq T_b$ e amostrando o sinal de saída em instantes $t=T_b$ ($T_b - t = 0$), ter-se-á:
+
+\begin{equation} \label{SAMP:out}
+    r(T_b) = \alpha \int_{0}^{T_b} p^2(\tau)d\tau + w(T_b)
+\end{equation}
+
+Para um sinal $p(t)$ real, a integral \ref{SAMP:out} vai representar a energia de um bit sinalada por $\alpha$ somado ao ruído. Assim, preparando o sinal para ser analisado pelo dispositivo de decisão.
+
+\begin{equation} \label{THRE:in}
+    r(T_b) = \alpha E_b + w(T_b) 
+\end{equation}
+
+\begin{flushright}
+    $\blacksquare$
+\end{flushright}
+
+\large \textbf{Integrador}
+\normalsize
+
+\\
+
+A saída do integrador será dada por:
+\begin{center}
+    $r(t) = \alpha \int_{0}^{t} y(\tau)p(\tau) d\tau = \int_{0}^{t} p(\tau)p(\tau) d\tau + \int_{0}^{t} n(\tau)p(\tau) d\tau  $
+\end{center}
+
+Dada as as mesmas considerações para $w(t)$:
+
+\begin{equation} \label{INT:out}
+    r(t) = \alpha \int_{0}^{t} p^2(\tau) d\tau + w(t)
+\end{equation}
+
+Além do mais, considerando o mesmo instante de amostragem $t = T_b$, poderá ser encontrado as mesmas condições de energia que o filtro casado na equação \ref{THRE:in}.
+
+\begin{flushright}
+    $\blacksquare$
+\end{flushright}
+
+Essa implementação do integrador geralmente é chamada de correlator, pois este correlaciona a entrada com a formatação do pulso conhecida para identificar o quão semelhante o pulso de entrada é com o pulso gerado pelo receptor, permitindo detectar a forma de onda do sinal imerso em ruído.
+
+Sendo $t = T_b - t$, a integral de autocorrelação de $p(t)$ será:
+
+\begin{center}
+    $R_p(t) =  \alpha p(t) \star p(t) = \alpha \int_{-\infty}^{\infty} p^*(\tau) p(T_b-t+\tau) d\tau$
+\end{center}
+
+Como o sinal é real, o conjugado é irrelevante ($p(t)=p^*(t)$). Restringindo para $t=T_b$, retorna-se à hipótese das análises anteriores:
+
+\begin{equation} \label{corr:1}
+    R_p(t) = \alpha \int_{0}^{T_b} p^2(\tau) d\tau
+\end{equation}
+
+
+\begin{comment}
+A integral de autocorrelação de $p(t)$ pode ser dada em termos da convolução com uma das parcelas conjugadas:
+
+\begin{center}
+    $R_p(t) =  \alpha p(t) \ast p^*(-t) = \alpha \int_{-\infty}^{\infty} p(\tau) p^*(\tau-t) d\tau$
+\end{center}
+
+Como $p(t)$ é real, ter-se-á $p(t) = p^*(t)$. Com $t = t - T_b$:
+
+\begin{center}
+    $R_p(t) = \alpha \int_{-\infty}^{\infty} p(\tau) p(\tau-t+T_b) d\tau$
+\end{center}
+
+Finalmente amostrando a $t=T_b$:
+
+\begin{equation} \label{CORR}
+    R_p(T_b) = \alpha \int_{0}^{T_b} p^2(\tau) d\tau
+\end{equation}
+
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+
+Realizando a análise para a parcela $r_p(t)$ do sinal $r(t)$ referente à influência do sinal $p(t)$, para que a operação realizada pelo integrador possa ser chamada de correlação, a seguinte expressão deve ser válida: $r_p(t) = R_p(t)$, sendo $R_p(t)$ a autocorrelação do sinal $p(t)$.
+
+Da definição de autocorrelação:
+
+\begin{center}
+    $R_p(t) = \alpha \int_{-\infty}^{\infty} p(\tau)p(t+\tau) d\tau$
+\end{center}
+
+Fazendo $t = T_b - t$:
+
+\begin{center}
+    $R_p(t) = \alpha \int_{-\infty}^{\infty} p(\tau)p(T_b-t+\tau) d\tau$
+\end{center}
+
+Limitando o tempo de análise a $0 \leq t \leq T_b$ e com $t=T_b$
+
+\begin{equation} \label{COR}
+    R_p(T_b) = \alpha \int_{0}^{T_b} p^2(\tau) d\tau
+\end{equation}
+
+\begin{flushright}
+    $\blacksquare$
+\end{flushright}
+\end{comment}

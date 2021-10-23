@@ -1,0 +1,590 @@
+Simulator report for lab7
+Sun May 12 13:25:19 2019
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 248 nodes    ;
+; Simulation Coverage         ;      27.42 % ;
+; Total Number of Transitions ; 549          ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                      ;
++--------------------------------------------------------------------------------------------+--------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                    ; Default Value ;
++--------------------------------------------------------------------------------------------+--------------------------------------------+---------------+
+; Simulation mode                                                                            ; Functional                                 ; Timing        ;
+; Start time                                                                                 ; 0 ns                                       ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                        ;               ;
+; Vector input source                                                                        ; C:/Users/aluno/Desktop/Lab_7/Waveform2.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                         ; On            ;
+; Check outputs                                                                              ; Off                                        ; Off           ;
+; Report simulation coverage                                                                 ; On                                         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                         ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                         ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                         ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                        ; Off           ;
+; Detect glitches                                                                            ; Off                                        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                        ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                 ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                       ; Auto          ;
++--------------------------------------------------------------------------------------------+--------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II 32-bit to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      27.42 % ;
+; Total nodes checked                                 ; 248          ;
+; Total output ports checked                          ; 248          ;
+; Total output ports with complete 1/0-value coverage ; 68           ;
+; Total output ports with no 1/0-value coverage       ; 179          ;
+; Total output ports with no 1-value coverage         ; 180          ;
+; Total output ports with no 0-value coverage         ; 179          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                        ;
++--------------------------------+--------------------------------+------------------+
+; Node Name                      ; Output Port Name               ; Output Port Type ;
++--------------------------------+--------------------------------+------------------+
+; |lab7|count~32                 ; |lab7|count~32                 ; out              ;
+; |lab7|count~33                 ; |lab7|count~33                 ; out              ;
+; |lab7|next_s~0                 ; |lab7|next_s~0                 ; out              ;
+; |lab7|count~80                 ; |lab7|count~80                 ; out              ;
+; |lab7|count~81                 ; |lab7|count~81                 ; out              ;
+; |lab7|a~0                      ; |lab7|a~0                      ; out0             ;
+; |lab7|a~1                      ; |lab7|a~1                      ; out0             ;
+; |lab7|a~2                      ; |lab7|a~2                      ; out0             ;
+; |lab7|a~3                      ; |lab7|a~3                      ; out0             ;
+; |lab7|a~4                      ; |lab7|a~4                      ; out0             ;
+; |lab7|next_s.s0~0              ; |lab7|next_s.s0~0              ; out              ;
+; |lab7|next_s.s1~0              ; |lab7|next_s.s1~0              ; out              ;
+; |lab7|next_s.s2~0              ; |lab7|next_s.s2~0              ; out              ;
+; |lab7|next_s.s3~0              ; |lab7|next_s.s3~0              ; out              ;
+; |lab7|next_s.s4~0              ; |lab7|next_s.s4~0              ; out              ;
+; |lab7|\state_register:count[1] ; |lab7|\state_register:count[1] ; regout           ;
+; |lab7|next_s.s5~0              ; |lab7|next_s.s5~0              ; out              ;
+; |lab7|next_s.s6~0              ; |lab7|next_s.s6~0              ; out              ;
+; |lab7|next_s.s6                ; |lab7|next_s.s6                ; regout           ;
+; |lab7|\state_register:count[0] ; |lab7|\state_register:count[0] ; regout           ;
+; |lab7|a[4]~reg0                ; |lab7|a[4]~reg0                ; regout           ;
+; |lab7|a[3]~reg0                ; |lab7|a[3]~reg0                ; regout           ;
+; |lab7|a[2]~reg0                ; |lab7|a[2]~reg0                ; regout           ;
+; |lab7|a[1]~reg0                ; |lab7|a[1]~reg0                ; regout           ;
+; |lab7|a[0]~reg0                ; |lab7|a[0]~reg0                ; regout           ;
+; |lab7|next_s.s0                ; |lab7|next_s.s0                ; regout           ;
+; |lab7|next_s.s1                ; |lab7|next_s.s1                ; regout           ;
+; |lab7|next_s.s2                ; |lab7|next_s.s2                ; regout           ;
+; |lab7|next_s.s3                ; |lab7|next_s.s3                ; regout           ;
+; |lab7|next_s.s4                ; |lab7|next_s.s4                ; regout           ;
+; |lab7|next_s.s5                ; |lab7|next_s.s5                ; regout           ;
+; |lab7|count~94                 ; |lab7|count~94                 ; out              ;
+; |lab7|count~95                 ; |lab7|count~95                 ; out              ;
+; |lab7|next_s~1                 ; |lab7|next_s~1                 ; out              ;
+; |lab7|next_s~2                 ; |lab7|next_s~2                 ; out              ;
+; |lab7|next_s~3                 ; |lab7|next_s~3                 ; out              ;
+; |lab7|next_s~4                 ; |lab7|next_s~4                 ; out              ;
+; |lab7|next_s~5                 ; |lab7|next_s~5                 ; out              ;
+; |lab7|next_s~6                 ; |lab7|next_s~6                 ; out              ;
+; |lab7|next_s~7                 ; |lab7|next_s~7                 ; out              ;
+; |lab7|clk                      ; |lab7|clk                      ; out              ;
+; |lab7|a[0]                     ; |lab7|a[0]                     ; pin_out          ;
+; |lab7|a[1]                     ; |lab7|a[1]                     ; pin_out          ;
+; |lab7|a[2]                     ; |lab7|a[2]                     ; pin_out          ;
+; |lab7|a[3]                     ; |lab7|a[3]                     ; pin_out          ;
+; |lab7|a[4]                     ; |lab7|a[4]                     ; pin_out          ;
+; |lab7|next_s~8                 ; |lab7|next_s~8                 ; out0             ;
+; |lab7|next_s.s0~1              ; |lab7|next_s.s0~1              ; out0             ;
+; |lab7|actual_s.s0              ; |lab7|actual_s.s0              ; out0             ;
+; |lab7|next_s.s1~1              ; |lab7|next_s.s1~1              ; out0             ;
+; |lab7|actual_s.s1              ; |lab7|actual_s.s1              ; out0             ;
+; |lab7|next_s.s2~1              ; |lab7|next_s.s2~1              ; out0             ;
+; |lab7|actual_s.s2              ; |lab7|actual_s.s2              ; out0             ;
+; |lab7|next_s.s3~1              ; |lab7|next_s.s3~1              ; out0             ;
+; |lab7|actual_s.s3              ; |lab7|actual_s.s3              ; out0             ;
+; |lab7|next_s.s4~1              ; |lab7|next_s.s4~1              ; out0             ;
+; |lab7|actual_s.s4              ; |lab7|actual_s.s4              ; out0             ;
+; |lab7|next_s.s5~1              ; |lab7|next_s.s5~1              ; out0             ;
+; |lab7|actual_s.s5              ; |lab7|actual_s.s5              ; out0             ;
+; |lab7|next_s.s6~1              ; |lab7|next_s.s6~1              ; out0             ;
+; |lab7|actual_s.s6              ; |lab7|actual_s.s6              ; out0             ;
+; |lab7|next_s~12                ; |lab7|next_s~12                ; out0             ;
+; |lab7|Selector0~0              ; |lab7|Selector0~0              ; out0             ;
+; |lab7|Selector0~1              ; |lab7|Selector0~1              ; out0             ;
+; |lab7|Add0~0                   ; |lab7|Add0~0                   ; out0             ;
+; |lab7|Add0~1                   ; |lab7|Add0~1                   ; out0             ;
+; |lab7|Add0~2                   ; |lab7|Add0~2                   ; out0             ;
+; |lab7|Equal0~0                 ; |lab7|Equal0~0                 ; out0             ;
++--------------------------------+--------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                             ;
++---------------------------------+---------------------------------+------------------+
+; Node Name                       ; Output Port Name                ; Output Port Type ;
++---------------------------------+---------------------------------+------------------+
+; |lab7|count~0                   ; |lab7|count~0                   ; out              ;
+; |lab7|count~1                   ; |lab7|count~1                   ; out              ;
+; |lab7|count~2                   ; |lab7|count~2                   ; out              ;
+; |lab7|count~3                   ; |lab7|count~3                   ; out              ;
+; |lab7|count~4                   ; |lab7|count~4                   ; out              ;
+; |lab7|count~5                   ; |lab7|count~5                   ; out              ;
+; |lab7|count~6                   ; |lab7|count~6                   ; out              ;
+; |lab7|count~7                   ; |lab7|count~7                   ; out              ;
+; |lab7|count~8                   ; |lab7|count~8                   ; out              ;
+; |lab7|count~9                   ; |lab7|count~9                   ; out              ;
+; |lab7|count~10                  ; |lab7|count~10                  ; out              ;
+; |lab7|count~11                  ; |lab7|count~11                  ; out              ;
+; |lab7|count~12                  ; |lab7|count~12                  ; out              ;
+; |lab7|count~13                  ; |lab7|count~13                  ; out              ;
+; |lab7|count~14                  ; |lab7|count~14                  ; out              ;
+; |lab7|count~15                  ; |lab7|count~15                  ; out              ;
+; |lab7|count~16                  ; |lab7|count~16                  ; out              ;
+; |lab7|count~17                  ; |lab7|count~17                  ; out              ;
+; |lab7|count~18                  ; |lab7|count~18                  ; out              ;
+; |lab7|count~19                  ; |lab7|count~19                  ; out              ;
+; |lab7|count~20                  ; |lab7|count~20                  ; out              ;
+; |lab7|count~21                  ; |lab7|count~21                  ; out              ;
+; |lab7|count~22                  ; |lab7|count~22                  ; out              ;
+; |lab7|count~23                  ; |lab7|count~23                  ; out              ;
+; |lab7|count~24                  ; |lab7|count~24                  ; out              ;
+; |lab7|count~25                  ; |lab7|count~25                  ; out              ;
+; |lab7|count~26                  ; |lab7|count~26                  ; out              ;
+; |lab7|count~27                  ; |lab7|count~27                  ; out              ;
+; |lab7|count~28                  ; |lab7|count~28                  ; out              ;
+; |lab7|count~29                  ; |lab7|count~29                  ; out              ;
+; |lab7|count~30                  ; |lab7|count~30                  ; out              ;
+; |lab7|count~31                  ; |lab7|count~31                  ; out              ;
+; |lab7|count~34                  ; |lab7|count~34                  ; out              ;
+; |lab7|count~35                  ; |lab7|count~35                  ; out              ;
+; |lab7|count~36                  ; |lab7|count~36                  ; out              ;
+; |lab7|count~37                  ; |lab7|count~37                  ; out              ;
+; |lab7|count~38                  ; |lab7|count~38                  ; out              ;
+; |lab7|count~39                  ; |lab7|count~39                  ; out              ;
+; |lab7|count~40                  ; |lab7|count~40                  ; out              ;
+; |lab7|count~41                  ; |lab7|count~41                  ; out              ;
+; |lab7|count~42                  ; |lab7|count~42                  ; out              ;
+; |lab7|count~43                  ; |lab7|count~43                  ; out              ;
+; |lab7|count~44                  ; |lab7|count~44                  ; out              ;
+; |lab7|count~45                  ; |lab7|count~45                  ; out              ;
+; |lab7|count~46                  ; |lab7|count~46                  ; out              ;
+; |lab7|count~47                  ; |lab7|count~47                  ; out              ;
+; |lab7|count~48                  ; |lab7|count~48                  ; out              ;
+; |lab7|count~49                  ; |lab7|count~49                  ; out              ;
+; |lab7|count~50                  ; |lab7|count~50                  ; out              ;
+; |lab7|count~51                  ; |lab7|count~51                  ; out              ;
+; |lab7|count~52                  ; |lab7|count~52                  ; out              ;
+; |lab7|count~53                  ; |lab7|count~53                  ; out              ;
+; |lab7|count~54                  ; |lab7|count~54                  ; out              ;
+; |lab7|count~55                  ; |lab7|count~55                  ; out              ;
+; |lab7|count~56                  ; |lab7|count~56                  ; out              ;
+; |lab7|count~57                  ; |lab7|count~57                  ; out              ;
+; |lab7|count~58                  ; |lab7|count~58                  ; out              ;
+; |lab7|count~59                  ; |lab7|count~59                  ; out              ;
+; |lab7|count~60                  ; |lab7|count~60                  ; out              ;
+; |lab7|count~61                  ; |lab7|count~61                  ; out              ;
+; |lab7|count~62                  ; |lab7|count~62                  ; out              ;
+; |lab7|count~63                  ; |lab7|count~63                  ; out              ;
+; |lab7|count~64                  ; |lab7|count~64                  ; out              ;
+; |lab7|count~65                  ; |lab7|count~65                  ; out              ;
+; |lab7|count~66                  ; |lab7|count~66                  ; out              ;
+; |lab7|count~67                  ; |lab7|count~67                  ; out              ;
+; |lab7|count~68                  ; |lab7|count~68                  ; out              ;
+; |lab7|count~69                  ; |lab7|count~69                  ; out              ;
+; |lab7|count~70                  ; |lab7|count~70                  ; out              ;
+; |lab7|count~71                  ; |lab7|count~71                  ; out              ;
+; |lab7|count~72                  ; |lab7|count~72                  ; out              ;
+; |lab7|count~73                  ; |lab7|count~73                  ; out              ;
+; |lab7|count~74                  ; |lab7|count~74                  ; out              ;
+; |lab7|count~75                  ; |lab7|count~75                  ; out              ;
+; |lab7|count~76                  ; |lab7|count~76                  ; out              ;
+; |lab7|count~77                  ; |lab7|count~77                  ; out              ;
+; |lab7|count~78                  ; |lab7|count~78                  ; out              ;
+; |lab7|count~79                  ; |lab7|count~79                  ; out              ;
+; |lab7|count~82                  ; |lab7|count~82                  ; out              ;
+; |lab7|count~83                  ; |lab7|count~83                  ; out              ;
+; |lab7|\state_register:count[31] ; |lab7|\state_register:count[31] ; regout           ;
+; |lab7|\state_register:count[30] ; |lab7|\state_register:count[30] ; regout           ;
+; |lab7|\state_register:count[29] ; |lab7|\state_register:count[29] ; regout           ;
+; |lab7|\state_register:count[28] ; |lab7|\state_register:count[28] ; regout           ;
+; |lab7|\state_register:count[27] ; |lab7|\state_register:count[27] ; regout           ;
+; |lab7|\state_register:count[26] ; |lab7|\state_register:count[26] ; regout           ;
+; |lab7|\state_register:count[25] ; |lab7|\state_register:count[25] ; regout           ;
+; |lab7|\state_register:count[24] ; |lab7|\state_register:count[24] ; regout           ;
+; |lab7|\state_register:count[23] ; |lab7|\state_register:count[23] ; regout           ;
+; |lab7|\state_register:count[22] ; |lab7|\state_register:count[22] ; regout           ;
+; |lab7|\state_register:count[21] ; |lab7|\state_register:count[21] ; regout           ;
+; |lab7|\state_register:count[20] ; |lab7|\state_register:count[20] ; regout           ;
+; |lab7|\state_register:count[19] ; |lab7|\state_register:count[19] ; regout           ;
+; |lab7|\state_register:count[18] ; |lab7|\state_register:count[18] ; regout           ;
+; |lab7|\state_register:count[17] ; |lab7|\state_register:count[17] ; regout           ;
+; |lab7|\state_register:count[16] ; |lab7|\state_register:count[16] ; regout           ;
+; |lab7|\state_register:count[15] ; |lab7|\state_register:count[15] ; regout           ;
+; |lab7|\state_register:count[14] ; |lab7|\state_register:count[14] ; regout           ;
+; |lab7|\state_register:count[13] ; |lab7|\state_register:count[13] ; regout           ;
+; |lab7|\state_register:count[12] ; |lab7|\state_register:count[12] ; regout           ;
+; |lab7|\state_register:count[11] ; |lab7|\state_register:count[11] ; regout           ;
+; |lab7|\state_register:count[10] ; |lab7|\state_register:count[10] ; regout           ;
+; |lab7|\state_register:count[9]  ; |lab7|\state_register:count[9]  ; regout           ;
+; |lab7|\state_register:count[8]  ; |lab7|\state_register:count[8]  ; regout           ;
+; |lab7|\state_register:count[7]  ; |lab7|\state_register:count[7]  ; regout           ;
+; |lab7|\state_register:count[6]  ; |lab7|\state_register:count[6]  ; regout           ;
+; |lab7|\state_register:count[5]  ; |lab7|\state_register:count[5]  ; regout           ;
+; |lab7|\state_register:count[4]  ; |lab7|\state_register:count[4]  ; regout           ;
+; |lab7|\state_register:count[3]  ; |lab7|\state_register:count[3]  ; regout           ;
+; |lab7|\state_register:count[2]  ; |lab7|\state_register:count[2]  ; regout           ;
+; |lab7|count~84                  ; |lab7|count~84                  ; out              ;
+; |lab7|count~85                  ; |lab7|count~85                  ; out              ;
+; |lab7|count~86                  ; |lab7|count~86                  ; out              ;
+; |lab7|count~87                  ; |lab7|count~87                  ; out              ;
+; |lab7|count~88                  ; |lab7|count~88                  ; out              ;
+; |lab7|count~89                  ; |lab7|count~89                  ; out              ;
+; |lab7|count~90                  ; |lab7|count~90                  ; out              ;
+; |lab7|count~91                  ; |lab7|count~91                  ; out              ;
+; |lab7|count~92                  ; |lab7|count~92                  ; out              ;
+; |lab7|count~93                  ; |lab7|count~93                  ; out              ;
+; |lab7|h                         ; |lab7|h                         ; out              ;
+; |lab7|rst                       ; |lab7|rst                       ; out              ;
+; |lab7|Add0~3                    ; |lab7|Add0~3                    ; out0             ;
+; |lab7|Add0~4                    ; |lab7|Add0~4                    ; out0             ;
+; |lab7|Add0~5                    ; |lab7|Add0~5                    ; out0             ;
+; |lab7|Add0~6                    ; |lab7|Add0~6                    ; out0             ;
+; |lab7|Add0~7                    ; |lab7|Add0~7                    ; out0             ;
+; |lab7|Add0~8                    ; |lab7|Add0~8                    ; out0             ;
+; |lab7|Add0~9                    ; |lab7|Add0~9                    ; out0             ;
+; |lab7|Add0~10                   ; |lab7|Add0~10                   ; out0             ;
+; |lab7|Add0~11                   ; |lab7|Add0~11                   ; out0             ;
+; |lab7|Add0~12                   ; |lab7|Add0~12                   ; out0             ;
+; |lab7|Add0~13                   ; |lab7|Add0~13                   ; out0             ;
+; |lab7|Add0~14                   ; |lab7|Add0~14                   ; out0             ;
+; |lab7|Add0~15                   ; |lab7|Add0~15                   ; out0             ;
+; |lab7|Add0~16                   ; |lab7|Add0~16                   ; out0             ;
+; |lab7|Add0~17                   ; |lab7|Add0~17                   ; out0             ;
+; |lab7|Add0~18                   ; |lab7|Add0~18                   ; out0             ;
+; |lab7|Add0~19                   ; |lab7|Add0~19                   ; out0             ;
+; |lab7|Add0~20                   ; |lab7|Add0~20                   ; out0             ;
+; |lab7|Add0~21                   ; |lab7|Add0~21                   ; out0             ;
+; |lab7|Add0~22                   ; |lab7|Add0~22                   ; out0             ;
+; |lab7|Add0~23                   ; |lab7|Add0~23                   ; out0             ;
+; |lab7|Add0~24                   ; |lab7|Add0~24                   ; out0             ;
+; |lab7|Add0~25                   ; |lab7|Add0~25                   ; out0             ;
+; |lab7|Add0~26                   ; |lab7|Add0~26                   ; out0             ;
+; |lab7|Add0~27                   ; |lab7|Add0~27                   ; out0             ;
+; |lab7|Add0~28                   ; |lab7|Add0~28                   ; out0             ;
+; |lab7|Add0~29                   ; |lab7|Add0~29                   ; out0             ;
+; |lab7|Add0~30                   ; |lab7|Add0~30                   ; out0             ;
+; |lab7|Add0~31                   ; |lab7|Add0~31                   ; out0             ;
+; |lab7|Add0~32                   ; |lab7|Add0~32                   ; out0             ;
+; |lab7|Add0~33                   ; |lab7|Add0~33                   ; out0             ;
+; |lab7|Add0~34                   ; |lab7|Add0~34                   ; out0             ;
+; |lab7|Add0~35                   ; |lab7|Add0~35                   ; out0             ;
+; |lab7|Add0~36                   ; |lab7|Add0~36                   ; out0             ;
+; |lab7|Add0~37                   ; |lab7|Add0~37                   ; out0             ;
+; |lab7|Add0~38                   ; |lab7|Add0~38                   ; out0             ;
+; |lab7|Add0~39                   ; |lab7|Add0~39                   ; out0             ;
+; |lab7|Add0~40                   ; |lab7|Add0~40                   ; out0             ;
+; |lab7|Add0~41                   ; |lab7|Add0~41                   ; out0             ;
+; |lab7|Add0~42                   ; |lab7|Add0~42                   ; out0             ;
+; |lab7|Add0~43                   ; |lab7|Add0~43                   ; out0             ;
+; |lab7|Add0~44                   ; |lab7|Add0~44                   ; out0             ;
+; |lab7|Add0~45                   ; |lab7|Add0~45                   ; out0             ;
+; |lab7|Add0~46                   ; |lab7|Add0~46                   ; out0             ;
+; |lab7|Add0~47                   ; |lab7|Add0~47                   ; out0             ;
+; |lab7|Add0~48                   ; |lab7|Add0~48                   ; out0             ;
+; |lab7|Add0~49                   ; |lab7|Add0~49                   ; out0             ;
+; |lab7|Add0~50                   ; |lab7|Add0~50                   ; out0             ;
+; |lab7|Add0~51                   ; |lab7|Add0~51                   ; out0             ;
+; |lab7|Add0~52                   ; |lab7|Add0~52                   ; out0             ;
+; |lab7|Add0~53                   ; |lab7|Add0~53                   ; out0             ;
+; |lab7|Add0~54                   ; |lab7|Add0~54                   ; out0             ;
+; |lab7|Add0~55                   ; |lab7|Add0~55                   ; out0             ;
+; |lab7|Add0~56                   ; |lab7|Add0~56                   ; out0             ;
+; |lab7|Add0~57                   ; |lab7|Add0~57                   ; out0             ;
+; |lab7|Add0~58                   ; |lab7|Add0~58                   ; out0             ;
+; |lab7|Add0~59                   ; |lab7|Add0~59                   ; out0             ;
+; |lab7|Add0~60                   ; |lab7|Add0~60                   ; out0             ;
++---------------------------------+---------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                             ;
++---------------------------------+---------------------------------+------------------+
+; Node Name                       ; Output Port Name                ; Output Port Type ;
++---------------------------------+---------------------------------+------------------+
+; |lab7|count~0                   ; |lab7|count~0                   ; out              ;
+; |lab7|count~1                   ; |lab7|count~1                   ; out              ;
+; |lab7|count~2                   ; |lab7|count~2                   ; out              ;
+; |lab7|count~3                   ; |lab7|count~3                   ; out              ;
+; |lab7|count~4                   ; |lab7|count~4                   ; out              ;
+; |lab7|count~5                   ; |lab7|count~5                   ; out              ;
+; |lab7|count~6                   ; |lab7|count~6                   ; out              ;
+; |lab7|count~7                   ; |lab7|count~7                   ; out              ;
+; |lab7|count~8                   ; |lab7|count~8                   ; out              ;
+; |lab7|count~9                   ; |lab7|count~9                   ; out              ;
+; |lab7|count~10                  ; |lab7|count~10                  ; out              ;
+; |lab7|count~11                  ; |lab7|count~11                  ; out              ;
+; |lab7|count~12                  ; |lab7|count~12                  ; out              ;
+; |lab7|count~13                  ; |lab7|count~13                  ; out              ;
+; |lab7|count~14                  ; |lab7|count~14                  ; out              ;
+; |lab7|count~15                  ; |lab7|count~15                  ; out              ;
+; |lab7|count~16                  ; |lab7|count~16                  ; out              ;
+; |lab7|count~17                  ; |lab7|count~17                  ; out              ;
+; |lab7|count~18                  ; |lab7|count~18                  ; out              ;
+; |lab7|count~19                  ; |lab7|count~19                  ; out              ;
+; |lab7|count~20                  ; |lab7|count~20                  ; out              ;
+; |lab7|count~21                  ; |lab7|count~21                  ; out              ;
+; |lab7|count~22                  ; |lab7|count~22                  ; out              ;
+; |lab7|count~23                  ; |lab7|count~23                  ; out              ;
+; |lab7|count~24                  ; |lab7|count~24                  ; out              ;
+; |lab7|count~25                  ; |lab7|count~25                  ; out              ;
+; |lab7|count~26                  ; |lab7|count~26                  ; out              ;
+; |lab7|count~27                  ; |lab7|count~27                  ; out              ;
+; |lab7|count~28                  ; |lab7|count~28                  ; out              ;
+; |lab7|count~29                  ; |lab7|count~29                  ; out              ;
+; |lab7|count~30                  ; |lab7|count~30                  ; out              ;
+; |lab7|count~31                  ; |lab7|count~31                  ; out              ;
+; |lab7|count~34                  ; |lab7|count~34                  ; out              ;
+; |lab7|count~35                  ; |lab7|count~35                  ; out              ;
+; |lab7|count~36                  ; |lab7|count~36                  ; out              ;
+; |lab7|count~37                  ; |lab7|count~37                  ; out              ;
+; |lab7|count~38                  ; |lab7|count~38                  ; out              ;
+; |lab7|count~39                  ; |lab7|count~39                  ; out              ;
+; |lab7|count~40                  ; |lab7|count~40                  ; out              ;
+; |lab7|count~41                  ; |lab7|count~41                  ; out              ;
+; |lab7|count~42                  ; |lab7|count~42                  ; out              ;
+; |lab7|count~43                  ; |lab7|count~43                  ; out              ;
+; |lab7|count~44                  ; |lab7|count~44                  ; out              ;
+; |lab7|count~45                  ; |lab7|count~45                  ; out              ;
+; |lab7|count~46                  ; |lab7|count~46                  ; out              ;
+; |lab7|count~47                  ; |lab7|count~47                  ; out              ;
+; |lab7|count~48                  ; |lab7|count~48                  ; out              ;
+; |lab7|count~49                  ; |lab7|count~49                  ; out              ;
+; |lab7|count~50                  ; |lab7|count~50                  ; out              ;
+; |lab7|count~51                  ; |lab7|count~51                  ; out              ;
+; |lab7|count~52                  ; |lab7|count~52                  ; out              ;
+; |lab7|count~53                  ; |lab7|count~53                  ; out              ;
+; |lab7|count~54                  ; |lab7|count~54                  ; out              ;
+; |lab7|count~55                  ; |lab7|count~55                  ; out              ;
+; |lab7|count~56                  ; |lab7|count~56                  ; out              ;
+; |lab7|count~57                  ; |lab7|count~57                  ; out              ;
+; |lab7|count~58                  ; |lab7|count~58                  ; out              ;
+; |lab7|count~59                  ; |lab7|count~59                  ; out              ;
+; |lab7|count~60                  ; |lab7|count~60                  ; out              ;
+; |lab7|count~61                  ; |lab7|count~61                  ; out              ;
+; |lab7|count~62                  ; |lab7|count~62                  ; out              ;
+; |lab7|count~63                  ; |lab7|count~63                  ; out              ;
+; |lab7|count~64                  ; |lab7|count~64                  ; out              ;
+; |lab7|count~65                  ; |lab7|count~65                  ; out              ;
+; |lab7|count~66                  ; |lab7|count~66                  ; out              ;
+; |lab7|count~67                  ; |lab7|count~67                  ; out              ;
+; |lab7|count~68                  ; |lab7|count~68                  ; out              ;
+; |lab7|count~69                  ; |lab7|count~69                  ; out              ;
+; |lab7|count~70                  ; |lab7|count~70                  ; out              ;
+; |lab7|count~71                  ; |lab7|count~71                  ; out              ;
+; |lab7|count~72                  ; |lab7|count~72                  ; out              ;
+; |lab7|count~73                  ; |lab7|count~73                  ; out              ;
+; |lab7|count~74                  ; |lab7|count~74                  ; out              ;
+; |lab7|count~75                  ; |lab7|count~75                  ; out              ;
+; |lab7|count~76                  ; |lab7|count~76                  ; out              ;
+; |lab7|count~77                  ; |lab7|count~77                  ; out              ;
+; |lab7|count~78                  ; |lab7|count~78                  ; out              ;
+; |lab7|count~79                  ; |lab7|count~79                  ; out              ;
+; |lab7|count~82                  ; |lab7|count~82                  ; out              ;
+; |lab7|count~83                  ; |lab7|count~83                  ; out              ;
+; |lab7|\state_register:count[31] ; |lab7|\state_register:count[31] ; regout           ;
+; |lab7|\state_register:count[30] ; |lab7|\state_register:count[30] ; regout           ;
+; |lab7|\state_register:count[29] ; |lab7|\state_register:count[29] ; regout           ;
+; |lab7|\state_register:count[28] ; |lab7|\state_register:count[28] ; regout           ;
+; |lab7|\state_register:count[27] ; |lab7|\state_register:count[27] ; regout           ;
+; |lab7|\state_register:count[26] ; |lab7|\state_register:count[26] ; regout           ;
+; |lab7|\state_register:count[25] ; |lab7|\state_register:count[25] ; regout           ;
+; |lab7|\state_register:count[24] ; |lab7|\state_register:count[24] ; regout           ;
+; |lab7|\state_register:count[23] ; |lab7|\state_register:count[23] ; regout           ;
+; |lab7|\state_register:count[22] ; |lab7|\state_register:count[22] ; regout           ;
+; |lab7|\state_register:count[21] ; |lab7|\state_register:count[21] ; regout           ;
+; |lab7|\state_register:count[20] ; |lab7|\state_register:count[20] ; regout           ;
+; |lab7|\state_register:count[19] ; |lab7|\state_register:count[19] ; regout           ;
+; |lab7|\state_register:count[18] ; |lab7|\state_register:count[18] ; regout           ;
+; |lab7|\state_register:count[17] ; |lab7|\state_register:count[17] ; regout           ;
+; |lab7|\state_register:count[16] ; |lab7|\state_register:count[16] ; regout           ;
+; |lab7|\state_register:count[15] ; |lab7|\state_register:count[15] ; regout           ;
+; |lab7|\state_register:count[14] ; |lab7|\state_register:count[14] ; regout           ;
+; |lab7|\state_register:count[13] ; |lab7|\state_register:count[13] ; regout           ;
+; |lab7|\state_register:count[12] ; |lab7|\state_register:count[12] ; regout           ;
+; |lab7|\state_register:count[11] ; |lab7|\state_register:count[11] ; regout           ;
+; |lab7|\state_register:count[10] ; |lab7|\state_register:count[10] ; regout           ;
+; |lab7|\state_register:count[9]  ; |lab7|\state_register:count[9]  ; regout           ;
+; |lab7|\state_register:count[8]  ; |lab7|\state_register:count[8]  ; regout           ;
+; |lab7|\state_register:count[7]  ; |lab7|\state_register:count[7]  ; regout           ;
+; |lab7|\state_register:count[6]  ; |lab7|\state_register:count[6]  ; regout           ;
+; |lab7|\state_register:count[5]  ; |lab7|\state_register:count[5]  ; regout           ;
+; |lab7|\state_register:count[4]  ; |lab7|\state_register:count[4]  ; regout           ;
+; |lab7|\state_register:count[3]  ; |lab7|\state_register:count[3]  ; regout           ;
+; |lab7|\state_register:count[2]  ; |lab7|\state_register:count[2]  ; regout           ;
+; |lab7|count~84                  ; |lab7|count~84                  ; out              ;
+; |lab7|count~85                  ; |lab7|count~85                  ; out              ;
+; |lab7|count~86                  ; |lab7|count~86                  ; out              ;
+; |lab7|count~87                  ; |lab7|count~87                  ; out              ;
+; |lab7|count~88                  ; |lab7|count~88                  ; out              ;
+; |lab7|count~89                  ; |lab7|count~89                  ; out              ;
+; |lab7|count~90                  ; |lab7|count~90                  ; out              ;
+; |lab7|count~91                  ; |lab7|count~91                  ; out              ;
+; |lab7|count~92                  ; |lab7|count~92                  ; out              ;
+; |lab7|count~93                  ; |lab7|count~93                  ; out              ;
+; |lab7|rst                       ; |lab7|rst                       ; out              ;
+; |lab7|Add0~3                    ; |lab7|Add0~3                    ; out0             ;
+; |lab7|Add0~4                    ; |lab7|Add0~4                    ; out0             ;
+; |lab7|Add0~5                    ; |lab7|Add0~5                    ; out0             ;
+; |lab7|Add0~6                    ; |lab7|Add0~6                    ; out0             ;
+; |lab7|Add0~7                    ; |lab7|Add0~7                    ; out0             ;
+; |lab7|Add0~8                    ; |lab7|Add0~8                    ; out0             ;
+; |lab7|Add0~9                    ; |lab7|Add0~9                    ; out0             ;
+; |lab7|Add0~10                   ; |lab7|Add0~10                   ; out0             ;
+; |lab7|Add0~11                   ; |lab7|Add0~11                   ; out0             ;
+; |lab7|Add0~12                   ; |lab7|Add0~12                   ; out0             ;
+; |lab7|Add0~13                   ; |lab7|Add0~13                   ; out0             ;
+; |lab7|Add0~14                   ; |lab7|Add0~14                   ; out0             ;
+; |lab7|Add0~15                   ; |lab7|Add0~15                   ; out0             ;
+; |lab7|Add0~16                   ; |lab7|Add0~16                   ; out0             ;
+; |lab7|Add0~17                   ; |lab7|Add0~17                   ; out0             ;
+; |lab7|Add0~18                   ; |lab7|Add0~18                   ; out0             ;
+; |lab7|Add0~19                   ; |lab7|Add0~19                   ; out0             ;
+; |lab7|Add0~20                   ; |lab7|Add0~20                   ; out0             ;
+; |lab7|Add0~21                   ; |lab7|Add0~21                   ; out0             ;
+; |lab7|Add0~22                   ; |lab7|Add0~22                   ; out0             ;
+; |lab7|Add0~23                   ; |lab7|Add0~23                   ; out0             ;
+; |lab7|Add0~24                   ; |lab7|Add0~24                   ; out0             ;
+; |lab7|Add0~25                   ; |lab7|Add0~25                   ; out0             ;
+; |lab7|Add0~26                   ; |lab7|Add0~26                   ; out0             ;
+; |lab7|Add0~27                   ; |lab7|Add0~27                   ; out0             ;
+; |lab7|Add0~28                   ; |lab7|Add0~28                   ; out0             ;
+; |lab7|Add0~29                   ; |lab7|Add0~29                   ; out0             ;
+; |lab7|Add0~30                   ; |lab7|Add0~30                   ; out0             ;
+; |lab7|Add0~31                   ; |lab7|Add0~31                   ; out0             ;
+; |lab7|Add0~32                   ; |lab7|Add0~32                   ; out0             ;
+; |lab7|Add0~33                   ; |lab7|Add0~33                   ; out0             ;
+; |lab7|Add0~34                   ; |lab7|Add0~34                   ; out0             ;
+; |lab7|Add0~35                   ; |lab7|Add0~35                   ; out0             ;
+; |lab7|Add0~36                   ; |lab7|Add0~36                   ; out0             ;
+; |lab7|Add0~37                   ; |lab7|Add0~37                   ; out0             ;
+; |lab7|Add0~38                   ; |lab7|Add0~38                   ; out0             ;
+; |lab7|Add0~39                   ; |lab7|Add0~39                   ; out0             ;
+; |lab7|Add0~40                   ; |lab7|Add0~40                   ; out0             ;
+; |lab7|Add0~41                   ; |lab7|Add0~41                   ; out0             ;
+; |lab7|Add0~42                   ; |lab7|Add0~42                   ; out0             ;
+; |lab7|Add0~43                   ; |lab7|Add0~43                   ; out0             ;
+; |lab7|Add0~44                   ; |lab7|Add0~44                   ; out0             ;
+; |lab7|Add0~45                   ; |lab7|Add0~45                   ; out0             ;
+; |lab7|Add0~46                   ; |lab7|Add0~46                   ; out0             ;
+; |lab7|Add0~47                   ; |lab7|Add0~47                   ; out0             ;
+; |lab7|Add0~48                   ; |lab7|Add0~48                   ; out0             ;
+; |lab7|Add0~49                   ; |lab7|Add0~49                   ; out0             ;
+; |lab7|Add0~50                   ; |lab7|Add0~50                   ; out0             ;
+; |lab7|Add0~51                   ; |lab7|Add0~51                   ; out0             ;
+; |lab7|Add0~52                   ; |lab7|Add0~52                   ; out0             ;
+; |lab7|Add0~53                   ; |lab7|Add0~53                   ; out0             ;
+; |lab7|Add0~54                   ; |lab7|Add0~54                   ; out0             ;
+; |lab7|Add0~55                   ; |lab7|Add0~55                   ; out0             ;
+; |lab7|Add0~56                   ; |lab7|Add0~56                   ; out0             ;
+; |lab7|Add0~57                   ; |lab7|Add0~57                   ; out0             ;
+; |lab7|Add0~58                   ; |lab7|Add0~58                   ; out0             ;
+; |lab7|Add0~59                   ; |lab7|Add0~59                   ; out0             ;
+; |lab7|Add0~60                   ; |lab7|Add0~60                   ; out0             ;
++---------------------------------+---------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Simulator
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun May 12 13:25:18 2019
+Info: Command: quartus_sim --simulation_results_format=VWF lab7 -c lab7
+Info (324025): Using vector source file "C:/Users/aluno/Desktop/Lab_7/Waveform2.vwf"
+Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info (310002): Simulation partitioned into 1 sub-simulations
+Info (328053): Simulation coverage is      27.42 %
+Info (328052): Number of transitions in simulation is 549
+Info (324045): Vector file lab7.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Warning (292006): Can't contact license server "1800@LASIC.UFRN.BR" -- this server will be ignored
+Info: Quartus II 32-bit Simulator was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 257 megabytes
+    Info: Processing ended: Sun May 12 13:25:20 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

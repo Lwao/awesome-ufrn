@@ -1,0 +1,23 @@
+\section{INTRODUCTION}
+
+Orthogonal Frequency Division Multiplexing (OFDM) has become a key modulation scheme in modern wireless communications e.g. some radio interfaces of wireless LAN (WLAN), 4G Long-Term Evolution (LTE), terrestrial digital and mobile TV systems, and lately, a powerful candidate for 5G.
+
+The OFDM combines multiples M-QAM symbols transmitted at the same time span but separated in frequency, with each M-QAM symbol been modulated by a different carrier. This results in a larger symbol period, that is more robust to intersymbol interference (ISI).
+
+The main aspect that differs OFDM from Frequency Division Multiplexing (FDM) is that OFDM does not need a high guard band between subchannels, since its subcarriers obey the principle of orthogonality and they can be closely separated and even partially overlapping. This feature causes a natural efficient use of the available spectrum and reliability to intercarrier interference (ICI).
+
+Despite OFDM advantages it can not meet the heterogeneous criteria that 5G demands, because its high side lobes in frequency once its spectrum decays slowly out of the pass band, also a large peak-to-average power ratio (PAPR) and only supports one kind of waveform in the whole bandwidth \cite{abdoli2015filtered, cheng2016filtered}. 
+
+The solution is to implement a new kind of OFDM that retain its advantages and overcome the drawbacks, which is named filtered-OFDM (f-OFDM). The f-OFDM consists in a subband-based splitting and filtering by different filters to shape different waveforms to attend diverse application scenarios \cite{cheng2016filtered, zhang2015filtered, zhang2017filtered}.
+
+Therefore this work implements a f-OFDM transceiver in Mathwork Simulink based in the approach of \cite{cheng2016filtered}, whose use FIR filters designed by the window function method. The remaining theoretical basis relies on the studies of \cite{ abdoli2015filtered, zhang2015filtered, zhang2017filtered, de2019comparing, al2020improving} whose supports the development of f-OFDM technology.
+
+This paper will be divided in the following parts:
+
+\begin{itemize}
+    \item Design of an OFDM transceiver in Mathworks Simulink;
+    \item Design of a FIR filter by the window function method;
+    \item Incorporate the FIR filter to transform the OFDM transceiver in an f-OFDM transceiver;
+    \item Check the resulting waveforms and compare them;
+    \item Make final comments on the results.
+\end{itemize}

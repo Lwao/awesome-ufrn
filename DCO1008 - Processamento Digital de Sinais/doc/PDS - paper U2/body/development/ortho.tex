@@ -1,0 +1,29 @@
+\subsection{Orthogonality and Discrete Fourier Transform}
+
+Two important concepts in terms of OFDM are the orthogonality of waveforms and the relation of the discrete fourier transform with such waveforms. 
+
+\par Extending the inner product between vectors of linear algebra it is possible to define the concept of orthogonality between two real signals $\phi_1(t)$ and $\phi_2(t)$ as follows:
+
+\begin{equation} \label{eq:ortho_eq}
+    \int_{-\infty}^{\infty} \phi_1(t)\phi_2(t)dt = 0
+\end{equation}
+
+\par From the definition in equation \ref{eq:ortho_eq} it's possible demonstrate the orthogonality between the set of complex exponentials pairwise. 
+
+\begin{equation} \label{eq:ortho_exp_eq}
+    \frac{1}{N}\sum_{n = 0}^{N-1} e^{j(2\pi/N)(k-r)n} =
+    \left\{
+	\begin{array}{ll}
+		1  & \mbox{if } k-r = mN,  \quad m \in \mathbf{Z} \\
+		0  & \mbox{otherwise. } 
+	\end{array}
+\right.
+\end{equation}
+
+
+\par A simple way to visualize this result is looking in a time period, each subcarrier experiments a integer number of cycles and remembering that in such case the area over the curve is zero. 
+
+\par This inherent orthogonality of OFDM can also be observed in the frequency domain, since each OFDM symbol is the convolution of N impulses with a rectangular pulse of amplitude 1 and duration of $T_N$ and, therefore, the spectrum of an OFDM symbol is a set of N $sinc_i(\pi f_i T_N)$ functions whose zeros intersect the centers of each other  $sinc_j(\pi f_j T_N)$ when $i \neq j$.
+
+\par Thus, considering that there aren't frequency deviations, there will be no ISI between symbols transmitted on different carriers, therefore will be no ICI.
+

@@ -1,0 +1,39 @@
+Um processo estocástico é dito \textbf{estacionário de ordem $n$} quando sua função densidade de probabilidade de ordem $n$ não varia com deslocamentos no tempo. Ele também é estacionário para qualquer $k<n$.
+
+Um processo estocástico é dito \textbf{estacionário no sentido restrito} quando ele é estacionário de ordem $n$ para qualquer $n \in \mathbb{Z}$.
+
+Um processo estocástico $X(t)$ é dito \textbf{estacionário no sentido amplo} se sua média for constante e sua função de autocorrelação depender da diferença $t_2-t_1$:
+
+\begin{equation}\label{alb:1}
+\mu_X(t) = \mu_X \, ; \, \forall t
+\end{equation}
+\begin{equation}\label{alb:2}
+R_X(t_1,t_2) = R_X(\tau) , ; \, \tau = t_2-t_1
+\end{equation}
+
+\textbf{Processos ergódicos} são aqueles cujas estatísticas de processos como a média e a função de autocorrelação podem ser determinadas por uma função-amostra do processo. Nesses processos os valores médios e momentos podem ser determinados por médias temporais.
+
+A \textbf{função densidade espectral de potência} (PSD) para um sinal determinístico $x(t)$ será: $S_x(f) = \lim_{T\to\infty} |X_T(f)|^2$/T. Com a finalidade de generalizar para processos estocásticos, calcula-se a média estatística ao longo do ensemble do processo, resultando em:
+
+\begin{equation}\label{alb:3}
+S_X(f) = \lim_{T\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \int_{-\frac{T}{2}}^{\frac{T}{2}} R_X(t_1,t_2)e^{-j2\pi f(t_1-t_2)dt_1dt_2}
+\end{equation}
+
+No caso de um processo estocástico estacionário no sentido amplo ($R_X(t_1,t_2) = R_X(t_1-t_2)$), assim:
+
+\begin{equation}\label{alb:4}
+S_X(f) = \lim_{T\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \int_{-\frac{T}{2}}^{\frac{T}{2}} R_X(t_1-t_2)e^{-j2\pi f(t_1-t_2)dt_1dt_2} = \int_{-\infty}^{\infty} R_X(\tau) e^{-j2\pi f \tau}d\tau
+\end{equation}
+
+A \textbf{potência média} em um intervalo de frequências $[f_1,f_2]$, considerando componentes frequenciais negativas, pode ser encontrada como:
+
+\begin{equation}\label{alb:5}
+P_{X_{[f_1,f_2]}} = \int_{-f_2}^{-f_1} S_X(f)df + \int_{f_1}^{f_2} S_X(f)df
+\end{equation}
+
+Para a potência total basta integrar com $f_1=0$ e $f_2=\infty$. Se o processo estocástico for estacionário no sentido amplo a potência pode ser escrita como: $P_X = R_X(0) = E[X(t)^2]$.
+
+O ruído branco pode ser considerado como um processo estocástico estacionário no sentido amplo, PSD constante. Dessa forma, se $S_X(f) = C$, logo $R_X(\tau) = C \delta (\tau)$.
+
+
+

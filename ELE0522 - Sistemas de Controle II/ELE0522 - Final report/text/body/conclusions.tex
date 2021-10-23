@@ -1,0 +1,18 @@
+\section{Conclusões}
+À vista do que foi apresentado durante o trabalho, foi construída uma tabela com todos os parâmetros de desempenho, elencando os valores obtidos em cada fase do projeto, sendo que a tabela \ref{table:1} traça um comparativo entre os resultados e projeto do controlador PD e o controlador por realimentação de estados.
+
+\begin{table}[h]
+\centering
+\caption{Comparativo entre os parâmetros simulados e obtidos nos resultados para os controladores em malha fechada com a planta. }\label{table:1}
+\begin{tabular}{c|cccc}
+ - & MF (graus) & $T_{s2\%}(s)$ & Overshoot (\%) & e.r  \\ \hline
+Simulação para \textit{negative feedback} & 74.75 & 2.5 & 3 & 0  \\
+Resultado para \textit{negative feedback} & 71.98 & 2.2 & 3.84 & 0  \\
+Simulação para \textit{state feedback} & 71.56 & 4 & 5 & 0  \\
+Resultado para \textit{state feedback} & 73.14 & 3.44 & 2 & 0 \\ \hline
+\end{tabular}
+\end{table}
+
+Dessarte, faz-se evidente que o sistema controlado, tanto com o controlador PD como através da realimentação de estados, atende aos parâmetros solicitados para projetos. Destaca-se ainda a conformidade entre os resultados das simulações e da implementação, onde a diferença ocorre uma vez que os componentes passivos possuem uma margem de tolerância, logo seus valores divergem do teórico.
+
+\pagebreak

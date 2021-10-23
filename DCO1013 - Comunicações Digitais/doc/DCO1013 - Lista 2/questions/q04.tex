@@ -1,0 +1,7 @@
+\begin{subquestion}
+    \item O PCM convencional é um sistema ineficiente por gerar muitos bits e requerer grande largura de banda. O DPCM procura atacar o problema do número excessivo de bits, enviando apenas a diferença entre as amostras, de forma que a amplitude do sinal quantizado é menor, implicando no aumento da SNR por conta da redução do ruído de quantização.
+    \item O DPCM é implementado pela premissa de que amostras consecutivas guardam relação entre si. Desta forma o quantizador é alimentado com a diferença entre a amostra atual da mensagem com a predição da amostra anterior quantizada. Ao enviar a diferença, o receptor será capaz de realizar a mesma predição da amostra anterior quantizada e recuperar a amostra atual quantizada.
+    \item A predição do valor seguinte a partir dos anteriores é baseado na série de Taylor, assim quanto mais valores forem utilizados para a ponderação, melhor será a estimação. A diferença entre valores sucessivos representa uma aproximação de primeira ordem para o preditor, sendo assim apenas um atraso temporal, implicando na redução da precisão.
+    
+    Outro motivo é que ao usar o valor atual predito, a amplitude da diferença terá amplitude menor do que no caso se utilizar a diferença entre valores anteriores.
+\end{subquestion}

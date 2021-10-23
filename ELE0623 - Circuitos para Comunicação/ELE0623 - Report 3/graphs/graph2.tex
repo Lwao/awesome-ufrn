@@ -1,0 +1,32 @@
+
+\begin{figure}[H]
+\centering
+\tikz \node [scale=0.8, inner sep=0] {
+\begin{tikzpicture} 
+    \draw[black, very thick] (-2,3) -- (0,3);
+    \draw[black, very thick] (0,3) -- (0,0);
+    \draw[black, very thick] (0,0) -- (2,0);
+    \node[blue] at (-2.4,3) {$R_{in}$};  
+    \node[red] at (2.4,0) {$R_{L}$};  
+    \node[black] at (1,1.5) {$1+Q_s^2$};  
+    \draw[>=latex, <->] (0.2,0) -- (0.2,3);
+    \node[black] at (0,-0.5) {(a)};
+\end{tikzpicture}
+};
+\hspace{1cm}
+\tikz \node [scale=0.8, inner sep=0] {
+\begin{tikzpicture} [american]
+    \draw[>=triangle 90, ->] (-0.5,0) -- (0.5,0);
+    \draw[>=triangle 90, ->] (6.5,0) -- (5.5,0);
+    \node[black] at (-0.9,0) {$R_{in}$}; 
+    \node[black] at (6.9,0) {$R_L$}; 
+    \node[black] at (3,-4) {(b)};
+    \draw (1,0) to[L, l=$L$, *-*] (5,0)
+    (2,0) to[C, l=$C$, *-] (2,-3) node[ground]{}
+    ;
+\end{tikzpicture}
+};
+
+\caption{(a) Desired effect of impedance gain(b) L matching network for a serial to parallel transformation of load impedance. Source: own.}
+\label{graph:2} 
+\end{figure}

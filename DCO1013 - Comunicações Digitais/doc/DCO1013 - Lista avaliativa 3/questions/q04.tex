@@ -1,0 +1,49 @@
+Uma vez que a probabilidade do erro é:
+
+\begin{center}
+    $P_e = 2\left(1-\frac{1}{M}\right) Q\left(\frac{A}{2\sigma}\right)$
+\end{center}
+
+Fazendo $u = A/(2\sigma)$ e considerando a função do MATLAB/Octave \textit{qfuncinv()} para computar a inversa da função Q, tem-se:
+\begin{equation} \label{q04:1}
+    u = qfuncinv\left(\frac{P_e}{2}\left(1-\frac{1}{M}\right)^{-1} \right)
+\end{equation}
+Sendo a energia do pulso de amplitude $A/2$ dada por $E_p = A^2/4$, a energia média do pulso será:
+\begin{center}
+    $E_{média} = \frac{M^2-1}{3}E_p = \frac{M^2-1}{3} \frac{A^2}{4} = \frac{M^2-1}{12} A^2$
+\end{center}
+Substituindo na expressão da SNR:
+\begin{center}
+    $SNR = \frac{E_{média}}{\sigma^2} = \left(\frac{A}{\sigma}\right)^2\frac{M^2-1}{12}$
+\end{center}
+Relembrando o valor de $u$ definido anteriormente, tem-se:
+\begin{center}
+    $SNR =  (2u)^2\frac{M^2-1}{12} =u^2\frac{M^2-1}{3}$ 
+\end{center}
+
+Resolvendo a equação \ref{q04:1} para valores de $M$ na base 2 e $P_e=10^{-6}$, obtém-se valores crescentes para $u$, de acordo com a tabela abaixo:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\cline{1-2} M & u \\
+\cline{1-2} 2 & 4.7534 \\
+\cline{1-2} 4 & 4.8347 \\
+\cline{1-2} 8 & 4.8653 \\
+\cline{1-2} 16 & 4.8789 \\
+\cline{1-2} 32 & 4.8854 \\
+\cline{1-2} 64 & 4.8885 \\ \cline{1-2} 
+\end{tabular}
+\end{table}
+
+De acordo com a tabela, conclui-se que um valor crescente de níveis de amplitude gera maiores valores para $u$. Assim, para minimizar a SNR pode-se truncar o valor de $u$ para $M=4$ (primeiro valor que garante um PAM M-ário), resultando em uma SNR mínima de aproximadamente:
+
+\begin{center}
+    $SNR_{min} \approx 7.8(M^2-1)$
+\end{center}
+
+
+
+
+
+\newpage

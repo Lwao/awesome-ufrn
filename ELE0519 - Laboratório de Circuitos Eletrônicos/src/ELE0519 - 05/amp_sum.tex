@@ -1,0 +1,23 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) node[op amp] (opamp) {}
+    (opamp.+) -- (-2,-0.5) %node[left] {$V_{in}$}
+    (opamp.-) -- (-2.5,0.5)
+    (opamp.out) --  (2,0) node[right] {$V_o$}
+    (opamp.up) --++(0,0.25) node[vcc]{15\,\textnormal{V}}
+    (opamp.down) --++(0,-0.25) node[vee]{-15\,\textnormal{V}}
+    (-2.5,0.5) to[short,-] (-2.5,2.5)
+    (1.5,0) to[short,*-] (1.5,2.5)
+    (-2.5,2.5) to[R,l=$R_3$] (1.5,2.5)
+    (-2,-3) node[ground]{} to[R, l=$R_4$] (-2,-0.5)
+    (-5,0.5) node[left] {$V_1$} to[R, l=$R_1$, *-*] (-2.5,0.5)
+    (-5,-1) node[left] {$V_2$} to[R,l=$R_2$,*-] (-2.5,-1)
+    (-2.5,0.5) -- (-2.5,-1)
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Amplificador somador inversor.}
+\label{ckt:1} 
+\end{figure}

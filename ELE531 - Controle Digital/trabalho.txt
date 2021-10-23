@@ -1,0 +1,28 @@
+O QUE FALTA:
+- Comparação com dead beat
+
+
+
+DONE 1 - Escolher uma planta ESTAVEL de 2a ordem e uma INSTAVEL de 2a ordem continuas. 
+
+DONE 1 - Discretizar ambas utilidando ZOH (justificar a escolha do periodo de amostragem). 
+
+DONE 1 - Analisar suas saídas discrets e comparar com as saídas respectivas contínuas (utilizar 2 entradas: degrau e senoise com frequencia adequada). 
+
+DONE 2 - Analisar transitório, regime permanente e estabilidade (discretos) para ambas as plantas. 
+
+DONE 2 - Representar ambas em espaço de estados e respostas em frequencia. 
+
+DEAD BEAT 2 - Projetar um controlador para ambas as plantas. (o projeto é livre, mas precisa ser detalhado e explicado). Comparar com o controledor Dead Beat. 
+
+DONE 3 - Simular os sistema continuos (método a escolhe do aluno) e utilizar os dados simulados para identificar a planta discreta. (a entrada deve ser escolhida adequadamente). 
+
+DONE 3 - Analisar controlabilidade e observabilidade das plantas discretas. Escrever suas formas canonicas controlavel e observavel. 
+
+DONE 3 - Projetar um observador de estado para ambas as plantas discretas.
+
+Obs.: Justificar e escrever sobre todos os items, explicando as escolhas e descrevendo e comentando os resultados.
+
+ 
+
+Entrega: 23/07

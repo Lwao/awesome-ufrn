@@ -1,0 +1,47 @@
+\begin{subquestion}
+    \item Como para o primeiro critério o pulso $p(t)$ era especificado como:
+    
+    \begin{equation} \label{crit:1}
+    \centering
+    p(nT_b) = 
+    \left \{
+    \begin{array}{cc}
+    1, \, n=0 \\
+    0, \, n\neq 0 \\
+    \end{array}
+    \right.
+    \end{equation}
+    
+    Isso indica que o sinal amostrado por um trem de impulsos será: $\bar{p}(t) = p(t) \delta_{T_b}(t) = \delta(t)$, cujo espectro de amplitude será unitário:
+    
+    \begin{center}
+        $R_b |\sum_{n=-\infty}^{\infty} P(f-nR_b)| = 1$
+    \end{center}
+    
+    Enquanto que para o segundo critério o pulso especificado é:
+    
+    \begin{equation} \label{crit:1}
+    \centering
+    p(nT_b) = 
+    \left \{
+    \begin{array}{cc}
+    1, \, n=0 \, e\, n=1 \\
+    0, \, n\neq 0 \, e\, n\neq 1  \\
+    \end{array}
+    \right.
+    \end{equation}
+    
+    Em relação ao sinal amostrado: $\bar{p}(t) = p(t) \delta_{T_b}(t) = \delta(t) + \delta(t-T_b)$, cujo espectro de amplitude será:
+    
+    \begin{center}
+        $R_b |\sum_{n=-\infty}^{\infty} P(f-nR_b)| = 2$
+    \end{center}
+    
+    O novo pulso agora retorna para zero apenas em $t=-T_b$ e $t=2T_b$, enquanto que o anterior retornava a zero na metade do tempo. Isso resulta em uma escalonação do tempo de pulso e estreitamento da banda.
+    
+    \item Enquanto que um exemplo de pulso que atende o primeiro critério pode ser uma sinc ($sinc(\pi R_b t)$), um pulso que atende o segundo critério é uma sinc modificada $\left(\frac{sinc(\pi R_b t)}{1-R_b t}\right )$. Isso mostra que enquanto que o pulso do primeiro critério apenas decai com $1/t$, o pulso do segundo critério decai com $1/t^2$.
+    
+    \item Como esse tipo de pulso permite uma flexibilização do efeitos nocivos da ISI, ele se torna muito vantajoso em casos em que o sinal é binário, ou seja, que pode assumir apenas dois níveis e de sinais opostos.
+\end{subquestion}
+
+\newpage

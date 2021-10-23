@@ -1,0 +1,63 @@
+\documentclass[12pt]{article} 
+\usepackage[main=portuguese, dutch, english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{fullpage}
+\usepackage{euscript}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[amssymb]{SIunits}
+\usepackage[pdftex]{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage{eurosym} 
+\usepackage[version=3]{mhchem} 
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{babel,arrows,automata}
+\usepackage{listings} 
+\everymath{\displaystyle} % \frac{}{} tamanho ideal
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage[siunitx,american,cuteinductors,smartlabels]{circuitikz}
+
+
+ \usepackage[a4paper,left=2cm,right=3cm,top=3cm, bottom = 2cm]{geometry}
+%\title{}
+
+\makeatletter
+%\let\thetitle\@title
+\makeatother
+
+
+\newcommand{\hoofding}[6]{ 
+\begin{flushleft}
+\includegraphics[height=3cm]{ufrn.png} 
+\end{flushleft}
+\vspace{-3.3cm} 
+\hspace{3cm} 
+\parbox{10cm}{#1\\#2\\#3\\#4\\#5\\#6} 
+\vspace{-0.6cm}
+\hspace{1cm}   
+
+{\parindent=0pt \hrulefill} 
+\vspace{0mm}}
+
+\newcommand{\figuur}[2]{\includegraphics[width=#1]{#2}} 
+\setlength{\parindent}{25pt}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+\begin{document}
+
+
+\hoofding {Universidade Federal do Rio Grande do Norte}{Centro de Tecnologia}{Departamento de Engenharia Elétrica}{ELE0519 - Laboratório de Circuitos Eletrônicos - 2019.2}{Componentes: Bruno Matias e Levy Gabriel}
+
+\onehalfspacing 
+
+\input{corpo.tex}
+
+\end{document} 
+

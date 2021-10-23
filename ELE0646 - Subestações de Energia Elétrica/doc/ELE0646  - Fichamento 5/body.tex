@@ -1,0 +1,110 @@
+% Set Title, Author, and email
+\title{ELE0646 - Para-raios}
+\author{Levy Gabriel da S. G. \\ Engenharia elétrica - UFRN}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{itemize}
+    \item Sobretensão temporária (sustentadas):
+    \begin{itemize}
+        \item Frequência fundamental;
+        \item Baixa amplitude ($<1.5 \, p.u$);
+        \item Duração relativamente longa;
+        \item Fracamente amortecida ou não amortecida;
+        \item Causas:
+        \begin{itemize}
+            \item Defeitos monopolares: curto-circuito monofásico que provoca a elevação da tensão das fases sãs;
+            \item Perda de carga: redução na corrente provocará redução na queda de tensão em cargas à montante de onde ocorreu a perda;
+            \item Efeito ferranti: quando disjuntores terminais de uma linha são abertos, as capacitâncias \textit{shunt} re-injetam a potência reativa acumulada, resultando em uma tensão no início da linha inferior à tensão no final da linha ($V_1<V_2$).
+        \end{itemize}
+    \end{itemize}
+    \item Sobretensão transitória:
+    \begin{itemize}
+        \item Sobretensão de curta duração (milissegundos);
+        \item Natureza oscilatória;
+        \item Fortemente amortecida;
+        \item Causas:
+        \begin{itemize}
+            \item Sobretensões de manobra:
+            \begin{itemize}
+                \item Energização/desenergização de elementos reativos;
+                \item Interrupção de correntes elevadas de curto-circuito através de disjuntores;
+                \item Energização ou desligamento de linhas de transmissão ou distribuição;
+                \item Energização de transformadores.
+            \end{itemize}
+            \item Sobretensões atmosféricas (forma de onda tem características de um pulso de sentido único):
+            \begin{itemize}
+                \item \textbf{Sobretensão por descarga atmosférica direta}:
+                \begin{itemize}
+                    \item Descarga atmosférica atinge a rede elétrica;
+                    \item Pode haver rompimento da rigidez dielétrica imposta pela cadeia de isoladores;
+                    \item Dano pode ser imposto a equipamentos elétricos caso a sobretensão alcance-os;
+                    \item Em LTs, uma descarga sobre um cabo guarda é o \textit{backflashover} e uma descarga sobre um condutor é um \textit{flashover}.
+                \end{itemize}
+                \item \textbf{Sobretensão por descarga atmosférica indireta}:
+                \begin{itemize}
+                    \item A descarga não atinge a LT ou equipamento diretamente, mas provoca sobretensões induzidas nestes, podendo comprometer seus isolamentos e danificá-los;
+                    \item A onda de corrente é 10x menor do que uma descarga direta.
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\textbf{Dispositivos de proteção contra sobretensões}
+
+\begin{itemize}
+    \item Proteção contra sobretensões temporárias: conjunto relé de proteção, disjuntor e transformador de potencial;
+    \item Proteção contra sobretensões transitórias na média ou alta tensão: para-raios;
+    \item Proteção contra sobretensões na baixa tensão: dispositivos de proteção contra surtos (DPS).
+\end{itemize}
+
+\textbf{Para-raios}
+
+Locais de instalação:
+\begin{itemize}
+    \item Em linhas de transmissão, em paralelo com isoladores;
+    \item Entrada e saída de linha de subestações de concessionárias;
+    \item Entrada de subestações abrigadas de consumidor de média tensão de distribuição;
+    \item Transformadores de distribuição.
+\end{itemize}
+
+Ensaios nos para-raios
+\begin{itemize}
+    \item Tensão de impulso atmosférico normalizada ($1.2/50 \mu s$) (tempo do valor de crista/metade do valor de tensão)
+    \item Corrente de descarga nominal normalizada ($8/20 \mu s$) (tempo do valor de crista/metade do valor de corrente).
+\end{itemize}
+
+Tipos de para-raios
+\begin{itemize}
+    \item Varistor a carboneto de silício (SiC): seu uso vem diminuindo:
+    \begin{itemize}
+        \item Resistores não-lineares: em tensão nominal os resistores de SiC conduziriam uma elevada corrente; 
+        \item Centelhador série: instalados em série com os resistores para assegurar a \textbf{disrupção regular e extinguir a corrente subsequente do para-raios};
+        \item Desligador automático: desligar do sistema um para-raios defeituoso (em curto-circuito permanente) através da auto-explosão, indicando visualmente o defeito no para-raios;
+        \item Conceitos:
+        \begin{itemize}
+            \item Tensão nominal: máximo valor eficaz de tensão na frequência industrial que pode ser permanentemente aplicado ao para-raios para que este opere adequadamente;
+            \item Tensão disruptiva: valor de crista de uma tensão de ensaio aplicada aos terminais de um para-raios e que provoca a sua disrupção;
+            \item Tensão disruptiva a impulso: maior tensão de impulso atingido antes da disrupção;
+            \item Tensão residual: tensão de crista durante a passagem da corrente de descarga, ou seja, durante a descarga disruptiva dos centelhadores;
+            \item Corrente de descarga: corrente de impulso que flui através do para-raios imediatamente após a disrupção dos centelhadores em série;
+            \item Corrente subsequente: cresta de corrente após a passagem da corrente de descarga e deve ser extinta pelos centelhadores série na primeira passagem pelo zero.
+        \end{itemize}
+    \end{itemize}
+    \item Varistor a oxido metálico (MOV): é usado o óxido de zinco (ZnO):
+    \begin{itemize}
+        \item Região 1: tem-se a máxima tensão de operação contínua do para-raios (MCOV), operando a baixa corrente ($<1mA$);
+        \item Região 2: conhecida como região de TOV (\textit{transient over voltage}) e surto de chaveamento e ocorre que uma pequena variação de tensão resulta em uma grande variação de corrente (operação por mais de 10 segundos, a temperatura das pastilhas de óxido de zinco elevará, podendo danificar o para-raios);
+        \item Região 3: proteção contra descargas atmosféricas, com corrente variando de 1-100kA e possui relação aproximadamente linear com a tensão;
+        \item Conceitos:
+        \begin{itemize}
+            \item Tensão nominal: valor eficaz da tensão a frequência fundamental aplicado aos terminais do para-raios e para qual ele deve funcionar corretamente;
+            \item Máxima Tensão Contínua de Operação (MCOV): máxima tensão eficaz a frequência fundamental que permite que o para-raios funcione continuamente, sem alterações nas suas propriedades térmicas e elétricas. A máxima tensão contínua de operação situa-se entre 80 e 90\% da tensão nominal do para-raios;
+            \item Corrente de descarga nominal: valor de crista da corrente de descarga com impulso de forma $8/20 \mu s$;
+            \item Tensão residual: tensão de crista que aparece nos terminais do para-raios durante a passagem da corrente de descarga;
+            \item Capacidade de absorção de energia:  máxima quantidade de energia que um para-raios é capaz de absorver durante uma sobretensão (temporária ou transitória) e dissipá-la, mantendo a sua estabilidade térmica e sem alterar suas propriedades térmicas e elétricas.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}

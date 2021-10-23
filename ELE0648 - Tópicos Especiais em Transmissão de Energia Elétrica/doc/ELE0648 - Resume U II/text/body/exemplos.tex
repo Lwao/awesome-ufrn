@@ -1,0 +1,171 @@
+\section{Exemplos}
+
+
+Os problemas serão resolvidos com o auxílio do MATLAB/Octave para agilizar os cálculos e manter um registro das soluções para a posteridade para fins de adaptação em aplicações reais.
+
+\subsubsection*{Exemplo 7}
+
+O exemplo 7 solicita as tensões na fase aberta de uma linha de transmissão com matrizes de admitâncias trifásicas $G_1$ e $G_2$ fornecidas para uma linha de $l = 100 km$ e tensão nominal trifásica de $V_n= 230 kV$. Os dados são:
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=1, lastline=18]{text/matlab/exemplo_7.m}
+
+A matriz de admitâncias da linha pode ser calculada pela expressão \ref{slide:4}. Assim as correntes podem ser calculadas como $I = Y_{linha} V$, sendo $I$ e $V$ os vetores corrente e tensão, porém com as tensões da fase \textit{a} para ambos os circuitos desconhecidas e correntes da fase \textit{a} para ambos os circuitos nula, devido à abertura da fase.
+
+Para calcular as tensões na fase aberta, será necessário comparar as equações do sistema de equações que igualem às correntes nulas. Para isso extrai-se o produto que refere apenas à primeira e quarta linha da matriz, resultando em outra equação matricial com duas equações. 
+
+Porém os termos a serem computados ($V_{1a}$ e $V_{2a}$) estarão na primeira e quarta linha do vetor tensão. A solução para esse problema será ilustrado abaixo de uma forma genérica.
+
+Considerando o sistema matricial:
+
+\begin{center}
+    $\begin{bmatrix} a & b & c \\ d & e & f \end{bmatrix} \, \begin{bmatrix} x  \\ y \\ z \end{bmatrix} = \begin{bmatrix} 0  \\ 0 \end{bmatrix}$
+\end{center}
+
+Se $y$ for a componente genérica desconhecida, a equação matricial pode ser reescrita como:
+
+\begin{center}
+    $\begin{bmatrix} a  & c \\ d & f \end{bmatrix} \, \begin{bmatrix} x \\ z \end{bmatrix} = -\begin{bmatrix} b  \\ e \end{bmatrix}y$
+\end{center}
+
+Assim demonstrado, pode-se isolar as parcelas que multiplicam as tensões em outra matriz que multiplica o vetor de duas componentes, sendo estas as tensões desconhecidas. Por fim, basta multiplicar o sistema matricial pela inversa da matriz que multiplica os termos desconhecidos e, resolvendo o sistema as tensões nas fases abertas para os dois circuitos serão encontradas. O código em MATLAB/Octave abaixo direciona os passos para resolver o problema com bases nos dados mostrados anteriormente.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=20, lastline=38]{text/matlab/exemplo_7.m}
+
+Assim os resultados em $kV$ e ângulo em graus para as tensões da fase \textit{a} no circuito 1 e 2, respectivamente, serão:
+
+\begin{lstlisting}[language=Matlab,style=consolestyle]
+>> Va = 1e4*[-1.4699 - 1.3731i; -1.8098 - 0.6439i]; abs(Va) = [20.1149; 19.2096]; angle(Va)*180/pi = [-136.9514; -160.4149];
+\end{lstlisting}
+
+\subsubsection*{Exemplo 8}
+
+Este exemplo trata tensões nas extremidades dos circuitos iguais ($1a \equiv 2a$, $1c \equiv 2c$ e $1c \equiv 2c$). Isso quer dizer que não haverá circulação de corrente pela linha, restando apenas as componentes capacitivas da linha dada pela matriz $G2$, tornando a matriz de admitâncias da linha como $Y_{linha} = 2G_2$. 
+
+Para encontrar a tensão na fase \textit{a} basta fazer o equacionamento $I = Y_{linha} V$. Porém só leva em conta a primeira linha da matriz e o primeiro vetor de tensão que está relacionado à corrente nula. 
+
+Considerando os dados do exemplo anterior, a tensão na fase aberta será: $V_{1a} = V_{2a} = 19.3256 \angle -143.4088$ kV. Encontrado a partir de:
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=11, lastline=18]{text/matlab/exemplo_8.m}
+
+\begin{lstlisting}[language=Matlab,style=consolestyle]
+>> V1a = -15.5167 -11.5200i; abs(V1a) = 19.3256; angle(V1a)*180/pi = -143.4088;
+\end{lstlisting}
+
+Esse resultado se mostra bem aproximado aos resultados obtidos anteriormente ao possuir diferença de tensão entre as extremidades da linha. Esse exemplo mostra que, essa aproximação pode ser válida em problemas que exigem maior esforço computacional, pois o exemplo anterior demanda de operações mais complexas como a inversão de matrizes. Porém, devido à dimensionalidade das matrizes, o esforço não será tão grande como em outros problemas.
+
+\subsubsection*{Exemplo 9}
+
+Este exemplo apenas solicita que o exemplo anterior seja refeito ao considerar a linha perfeitamente transposta e compensada por um reator de $10 Mvar$ a $230 kV$, rigidamente aterrado.
+
+Para isso utiliza-se a matriz $Y_{linha}$ transposta dada no exemplo (código em MATLAB/Octave). Sendo as tensões nas fases sãs as mesmas que as anteriores.
+
+Assim considerando a corrente na fase a nula e a equação matricial $I = Y_{linha} V$ e a primeira equação do sistema para encontrar $V_{1a} = -17.581 kV$
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=1, lastline=15]{text/matlab/exemplo_9.m}
+
+Agora para a compensação, utiliza os dados do problema para encontrar a matriz admitância dos reatores a partir da matriz diagonal composta por: $y = -j Q/V_n^2$.
+
+A matriz admitância resultante agora será a soma da matriz dos reatores com a da linha: $Y_a = Y_{linha} + 2Y_r$. 
+
+Finalmente calcula-se da mesma forma que anteriormente a tensão da fase desativada: $V_{1a} = 70.49 kV$
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=16, lastline=25]{text/matlab/exemplo_9.m}
+
+\subsubsection*{Exemplo 11}
+
+Para uma linha transposta de tensão de linha $V_n = 500kV$ com: $l=200 km$ e capacitâncias dos circuitos de sequência de $C_1^{'} 13.3 nF/km$ e $C_0^{'} = 8 nF/km$.
+
+(a) O primeiro item solicita a tensão na fase aberta para uma compensação reativa de $40\%$. Como a potência devido ao acoplamento capacitivo de sequência positiva é $Q_{c1} = V_n^2\times 2\pi f \times C_1$, a compensação reativa será tal que $Q_{r1} = 0.4\times Q_{c1}$. A reatância $X_1$ pode ser encontrada pela equação posterior a \ref{slide2:x1} que relaciona tensão e reatância com potência a $Q_{r1}$.
+
+A tensão de fase aberta é dada pela equação \ref{slide2:va}. Resta encontrar as impedâncias $Z_0$ e $Z$ a partir da expansão de \ref{slide2:z0} com $X_1=X_0$, para assim determinar a tensão na fase pelo divisor de tensão. Assim resultando em uma tensão $V_a = 82.21kV$:
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=1, lastline=18]{text/matlab/exemplo_11.m}
+
+(b) Para a corrente de arco secundário aplica-se a equação \ref{slide2:is} para a tensão nominal, resultando em cerca de $I_S = 38.6 A$.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=19, lastline=20]{text/matlab/exemplo_11.m}
+
+(c) Solicita-se a tensão para um reator de neutro com $k=1.7$ e grau de compensação de $40\%$. De acordo com o valor de $k$ a reatância de sequência zero se altera para $X_0 = kX_1$. O reator de neutro ainda será: $3X_n = X_0-X_1$. A tensão será calculada da mesma forma que anteriormente, resultando em $V_a = 43.28kV$
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=21, lastline=27]{text/matlab/exemplo_11.m}
+
+(d) Neste momento solicita-se o reator de neutro ideal para anular a corrente de arco secundário. Desta forma será utilizada a equação \ref{slide2:xn}. O valor ideal é um valor bastante grande, podendo até ser considera um circuito aberto: $X_n = 220.2175 k \Omega$.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=28, lastline=29]{text/matlab/exemplo_11.m}
+
+(e) Para a compensação da linha em $60\%$, retorna-se às diretrizes do item (a), resultando em uma compensação de $X_1 = 1662 \Omega$, $X_1 = 4948 \Omega$ ($k=2.97$) e $X_n = 1095 \Omega$.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=30, lastline=35]{text/matlab/exemplo_11.m}
+
+Apesar de o valor de $X_n$ ser baixo em relação ao item (d), ele ainda se constitui como um valor alto para a prática. Os autores orientam usar relações de $k$ de 1.7 a 2.
+
+
+
+
+
+\subsubsection*{Exemplo 12}
+
+O exemplo considera um circuito duplo de 440 kV e solicita as tensões induzidas no circuito 2, que está em aberto, com o circuito 1 operante de sequência positiva sem reator. Logo após verificar as condições ressonantes e calcular as tensões induzidas para um nível de compensação reativa de $60\%$. Os dados são apresentados no código abaixo:
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=1, lastline=18]{text/matlab/exemplo_12.m}
+
+Uma vez que o circuito 1 está operante, sua tensão de seq. positiva será: $V_{11} = V_n/\sqrt{3}$. Assim a tensão de mesma seq. e induzida no circuito 2 será dada pela fórmula anteriormente discutida para $y_r=0$:
+
+\begin{center}
+    $V_{21} = -\frac{-j\omega C_{m1}}{j\omega C_1} V_{11}$
+\end{center}
+
+Assim, resultando em: $V_{21} = 7.258 kV$.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=20, lastline=22]{text/matlab/exemplo_12.m}
+
+Agora ao inserir a compensação reativa trabalhando com os circuitos de sequência positiva, calcula-se, inicialmente a potência reativa capacitiva e em seguida aplica a porcentagem de $60\%$ em cima dessa potência para encontrar a potência de compensação reativa. Dado este valor, encontra-se a admitância do reator e a aplica somando ao denominador da fórmula anterior, resultando em uma tensão induzida $V_{21} = 18.145kV$.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=23, lastline=27]{text/matlab/exemplo_12.m}
+
+\subsubsection*{Exemplo 13}
+
+Este exemplo solicita novamente as tensões induzidas em um circuito duplo, porém sem transposição, os dados são;
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=1, lastline=19]{text/matlab/exemplo_13.m}
+
+Dessarte o vetor tensões do circuito 1 ($\Bar{V_1}$) podem ser encontradas pela equação matricial com a matriz Y nas condições de corrente nula para todo o circuito 1: $[\Bar{0} \, \Bar{I_2}] = Y [\Bar{V_1} \, \Bar{V_2}]$. 
+
+Assim, com um raciocínio semelhante ao aplicado no exemplo 7, encontra-se o vetor de tensões do circuito 1, considerando apenas as três primeiras linhas e reaplicando as três primeira colunas como a inversa: $V_{1a} = 14.014 \angle 54.46 kV$, $V_{1b} = 20.909 \angle 97.05 kV$ e $V_{1c} = 9.177 \angle 77.93 kV$.
+
+\lstinputlisting[language=Matlab,style=mystyle, firstline=21, lastline=37]{text/matlab/exemplo_13.m}
+
+
+\subsubsection*{Exemplo 14}
+
+Este exemplo considera uma linha de transmissão em vazio com uma tensão harmônica injetada no início da linha. Assim solicita-se a tensão no fim da linha e o cálculo da constante A do quadripolo e indutância constante. Os dados são:
+
+\lstinputlisting[language=Matlab,style=mystyle]{text/matlab/exemplo_14.m}
+
+\begin{lstlisting}[language=Matlab,style=consolestyle]
+>> A = 0.4281   -0.1216   -0.9491   -0.6909    0.3576    0.9971    0.4960    0.0314
+>> h = 2     3     5     7     9    11    13    25
+\end{lstlisting}
+
+De acordo com o cálculo da constante generalizada A para cada harmônica e a relação entre a tensão de entrada e saída $V_2=V_1/A$, observa-se que as componentes harmônicas da tensão de saída aumentam, principalmente para $h=25$. Mas também observa-se que aA sempre estará limitado por $[-1,1]$ devido ao seu comportamento senoidal.
+
+\subsubsection*{Exemplo 16}
+
+Este exemplo considera um conversor CC conectado na rede CA. O objetivo é projetar um filtro para limitar a tensão de harmônica $h=11$ gerada pelo conversor CC. Os dados são: corrente fundamental $I_1 = 1400 A$ a $60 Hz$ e corrente de décima primeira harmônica de $I_{11} = 0.046I_1$. 
+
+Também é oferecido o comportamento de $Z(\omega)$, que para a frequência fundamental possui valor $Z(11\times \omega) = 620 \angle 82$.
+
+Com essa configuração desconsiderando qualquer filtro de harmônica o módulo das tensões serão: $V_1 = 224.54 kV$ e $V_{11} = 39.928 kV$. Isso gera uma porcentagem de $17.78\%$ da tensão fundamental para a tensão de harmônica 11. O filtro deve ser projetado para corrigir essa porcentagem para $2\%$, ou seja, uma tensão de harmônica 11 correspondente a $V_{11} = 4490.7 kV$.
+
+O projeto do filtro obedece a equação \ref{slide4:filter} que pode ser adaptada para:
+
+\begin{center}
+    $\frac{1}{Z_{11f}} = \frac{I_{11}}{V_{11}} - \frac{1}{Z_{11}}$
+\end{center}
+
+Finalmente a impedância do filtro em paralelo será $Z_{11f} = 0.0021 \angle 0.852$.
+
+\lstinputlisting[language=Matlab,style=mystyle]{text/matlab/exemplo_16.m}
+
+\newpage
+

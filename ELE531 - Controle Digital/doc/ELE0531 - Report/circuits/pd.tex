@@ -1,0 +1,29 @@
+\begin{figure}[H]
+\begin{center}
+\tikz \node [scale=0.70, inner sep=0] {
+\begin{tikzpicture} [ american, ]
+    \draw (0,0) node[op amp] (opamp1) {}
+    (opamp1.+) -- (-1.5,-0.5) node[ground]{}
+    (opamp1.-) to[R, l_=$R_1$, -*] (-6,0.5) 
+    (opamp1.out) 
+    ;
+    \draw (6,-0.5) node[op amp] (opamp2) {}
+    (opamp2.+) -- (4.5,-1) node[ground]{}
+    (opamp2.-)  to[R, l_=$R_3$]  (opamp1.out)
+    (opamp2.out) to[short, -*] (8,-0.5)
+    ;
+    \draw (-6.5,0.5) node[left]{$V_{in}$}
+    (8.5,-0.5) node[right]{$V_{out}$}
+    (-1.5,0.5) to[short, *-] (-1.5,2) to[R, l=$R_2$] (1.5,2) to[short, -*] (1.5,0)
+    (4.5,0) to[short, *-] (4.5,2) 
+    (7.5,2) to[short, -*] (7.5,-0.5) 
+    (4.5,2) to[R, l=$R_4$] (7.5,2)
+    (-4.75,0.5) to[short, *-] (-4.75,2) to[C, l=$C_1$] (-2.5,2) to[short, -*] (-2.5,0.5)
+    ;
+    
+\end{tikzpicture}
+};
+\end{center}
+\caption{Circuito proposto para o PD.}
+\label{ckt:pd} 
+\end{figure}

@@ -1,0 +1,21 @@
+
+
+\paragraph{Detecção coerente}
+
+Durante a detecção coerente, para alcançar o mesmo padrão de probabilidade de erro, o ASK deve ter 3dB a mais na potência do PSK para que possuam o mesmo desempenho. Dito isso, em termos de detecção coerente, prefere-se usar o PSK ao invés de ASK, pois uma vez que será investido em complexidade do receptor, que ao menos economize a metade da potência.
+
+Para os esquemas de modulação ASK e PSK, a detecção coerente pode ser implementada de duas formas junto ao filtro casado: uma considera um filtro casado ajustado à forma de pulso em RF, recebendo diretamente o sinal com a portadora; a outra, que é equivalente à anterior, considera a demodulação coerente do sinal RF primeiramente multiplicando pela portadora, de forma que o produto resultante em banda base é encaminhado para o filtro casado.
+
+\paragraph{Detecção não coerente}
+
+Na detecção coerente o PSK é mais preferível que o ASK. Porém, como a detecção não coerente não pode ser aplicada no PSK, pois a informação reside na fase (e esta não possui sincronismo na detecção não coerente), o ASK se torna um esquema de modulação útil nesse cenário (e.g. comunicações óticas).
+
+No caso da demodulação em um detector não coerente e modulação ASK, esta pode ser realizada por meio de um filtro casado para a RF desconsiderando a fase, porém com amplitude máxima divergindo do instante de amostragem. Apesar disso a amplitude estará perto do máximo no instante de amostragem e a saída do filtro casado pode ser tratada por um detector de envoltória.
+
+No caso do FSK deverá haver filtro casados para os pulsos de RF, detectores de envoltória, amostragem e dispositivo comparador para tomada de decisão.
+
+Do ponto de vista prático, o FSK é mais preferível que o ASK, pois: FSK possui limiar ótimo fixo enquanto que este limiar  no ASK depende da energia do sinal; como FSK modula em frequência, este é menos suscetível a desvanecimento que o ASK que possui informação na amplitude; como o FSK realiza a comparação entre os conteúdos em diferentes frequências, estes estarão igualmente degradados pelo canal, assim não prejudicando a detecção.
+
+Porém junto aos benefícios do FSK sobre o ASK, também existe uma desvantagem, que é a maior largura de banda que o FSK ocupa. 
+
+Anteriormente foi dito que o PSK só permite detecção coerente, porém existe um esquema PSK, chamado DPSK, que permite que seja aplicada a detecção não coerente. Isso, pois a informação modulada no DPSK não mais carrega o conteúdo de fase, mas sim sua variação.

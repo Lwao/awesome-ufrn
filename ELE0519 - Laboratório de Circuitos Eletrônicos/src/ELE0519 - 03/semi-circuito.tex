@@ -1,0 +1,25 @@
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}
+    \draw (2,0) to[R,l=$33\ohm$] (2,2)
+    (2,2) to [Tnpn,n=npn2,mirror] (2,3.5)
+    (npn2.E) node[left=3mm, above=5mm]{$Q_2$}
+    (-2,0) to[R,l_=$33\ohm$] (-2,2)
+    (-2,2) to [Tnpn,n=npn1] (-2,3.5)
+    (npn1.E) node[right=3mm, above=5mm]{$Q_1$}
+    (-2,0) node[ground]{}
+    (2,0) node[ground]{}
+    (3.2,2.75) node[]{$v_{i2}$}
+    (-3.2,2.75) node[]{$v_{i1}$}
+    (2,3.5) to[R,l=$4.7\kilo\ohm$] (2,5.5)
+    (-2,3.5) to[R,l_=$4.7\kilo\ohm$] (-2,5.5)
+    (-3,5.5) node[ground]{}
+    (3,5.5) node[ground]{}
+    (3,5.5) to[short, -] (2,5.5)
+    (-3,5.5) to[short, -] (-2,5.5)
+    ;
+\end{tikzpicture}
+
+\end{center}
+\caption{Circuito equivalente através do teorema do semi-circuito.}
+\end{figure}

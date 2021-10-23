@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\levyg\Desktop\Somador 4bits\simulation\qsim
+vadder_4B
+Z1 !s100 liVA`eGX8B3Vn>69G?Eeh1
+Z2 I8WlI;gijWFVRZNg::ch`T1
+Z3 VlLf2ZIln6CH237`]J1L]41
+Z4 dC:\Users\levyg\Desktop\Somador 4bits\simulation\qsim
+Z5 w1556742731
+Z6 8adder_4B.vo
+Z7 Fadder_4B.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|adder_4B.vo|
+Z10 o-work work -O0
+Z11 nadder_4@b
+!i10b 1
+!s85 0
+Z12 !s108 1556742732.431000
+Z13 !s107 adder_4B.vo|
+!s101 -O0
+vadder_4B_vlg_check_tst
+!i10b 1
+Z14 !s100 g]]WBN3MFDiRBOog@L:8W1
+Z15 IiGfJB^aJ3nza6n>dMGHlA1
+Z16 V?K>MbU_mCA^1GN5AJIoC23
+R4
+Z17 w1556742729
+Z18 8adder_4B.vt
+Z19 Fadder_4B.vt
+L0 73
+R8
+r1
+!s85 0
+31
+Z20 !s108 1556742732.806000
+Z21 !s107 adder_4B.vt|
+Z22 !s90 -work|work|adder_4B.vt|
+!s101 -O0
+R10
+Z23 nadder_4@b_vlg_check_tst
+vadder_4B_vlg_sample_tst
+!i10b 1
+Z24 !s100 2H]YndZ@EoP0Vl@TPZehI3
+Z25 IJF0O`ncWEm;d2L^e^Zl]d2
+Z26 V>3P201R`hDDXBR_`YNmaO3
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 nadder_4@b_vlg_sample_tst
+vadder_4B_vlg_vec_tst
+!i10b 1
+!s100 YD?Te<<=jTILGKaEIilbG2
+I?e6NX_C?eZUZikiZca^^?1
+Z28 VQjeWUZmk[ITk0gYh8[IlS0
+R4
+R17
+R18
+R19
+Z29 L0 276
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z30 nadder_4@b_vlg_vec_tst
