@@ -1,0 +1,67 @@
+PROGRAM sim1
+  VAR_INPUT
+    S_L : BOOL;
+    S_H : BOOL;
+  END_VAR
+  VAR_OUTPUT
+    V_A : BOOL;
+    V_B : BOOL;
+    V_C : BOOL;
+    V_D : BOOL;
+    V_S : BOOL;
+    B : BOOL;
+    A : BOOL;
+  END_VAR
+
+  INITIAL_STEP E0:
+  END_STEP
+
+  TRANSITION FROM E0 TO (E1, E2, E3)
+    := S_L;
+  END_TRANSITION
+
+  STEP E1:
+    V_A(N);
+  END_STEP
+
+  TRANSITION FROM (E1, E2, E3) TO E4
+    := S_H;
+  END_TRANSITION
+
+  STEP E4:
+    V_S(N);
+  END_STEP
+
+  TRANSITION FROM E4 TO E5
+    := not S_H;
+  END_TRANSITION
+
+  STEP E5:
+    V_D(L, t#1s);
+    A(D, t#1s);
+    B(D, t#1s);
+    V_A(N);
+  END_STEP
+
+  TRANSITION FROM E5 TO E0
+    := S_L;
+  END_TRANSITION
+
+  STEP E2:
+    V_B(N);
+  END_STEP
+
+  STEP E3:
+    V_C(N);
+  END_STEP
+
+END_PROGRAM
+
+
+CONFIGURATION Config0
+
+  RESOURCE Res0 ON PLC
+    TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
+    PROGRAM instance0 WITH task0 : sim1;
+  END_RESOURCE
+END_CONFIGURATION

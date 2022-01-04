@@ -1,0 +1,156 @@
+TYPE
+  LOGLEVEL : (CRITICAL, WARNING, INFO, DEBUG) := INFO;
+END_TYPE
+
+FUNCTION_BLOCK LOGGER
+  VAR_INPUT
+    TRIG : BOOL;
+    MSG : STRING;
+    LEVEL : LOGLEVEL := INFO;
+  END_VAR
+  VAR
+    TRIG0 : BOOL;
+  END_VAR
+
+  IF TRIG AND NOT TRIG0 THEN
+  {{
+   LogMessage(GetFbVar(LEVEL),(char*)GetFbVar(MSG, .body),GetFbVar(MSG, .len));
+  }}
+  END_IF;
+  TRIG0:=TRIG;
+END_FUNCTION_BLOCK
+
+
+
+FUNCTION_BLOCK python_eval
+  VAR_INPUT
+    TRIG : BOOL;
+    CODE : STRING;
+  END_VAR
+  VAR_OUTPUT
+    ACK : BOOL;
+    RESULT : STRING;
+  END_VAR
+  VAR
+    STATE : DWORD;
+    BUFFER : STRING;
+    PREBUFFER : STRING;
+    TRIGM1 : BOOL;
+    TRIGGED : BOOL;
+  END_VAR
+
+  {extern void __PythonEvalFB(int, PYTHON_EVAL*);__PythonEvalFB(0, data__);}
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK python_poll
+  VAR_INPUT
+    TRIG : BOOL;
+    CODE : STRING;
+  END_VAR
+  VAR_OUTPUT
+    ACK : BOOL;
+    RESULT : STRING;
+  END_VAR
+  VAR
+    STATE : DWORD;
+    BUFFER : STRING;
+    PREBUFFER : STRING;
+    TRIGM1 : BOOL;
+    TRIGGED : BOOL;
+  END_VAR
+
+  {extern void __PythonEvalFB(int, PYTHON_EVAL*);__PythonEvalFB(1,(PYTHON_EVAL*)(void*)data__);}
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK python_gear
+  VAR_INPUT
+    N : UINT;
+    TRIG : BOOL;
+    CODE : STRING;
+  END_VAR
+  VAR_OUTPUT
+    ACK : BOOL;
+    RESULT : STRING;
+  END_VAR
+  VAR
+    py_eval : python_eval;
+    COUNTER : UINT;
+    ADD10_OUT : UINT;
+    EQ13_OUT : BOOL;
+    SEL15_OUT : UINT;
+    AND7_OUT : BOOL;
+  END_VAR
+
+  ADD10_OUT := ADD(COUNTER, 1);
+  EQ13_OUT := EQ(N, ADD10_OUT);
+  SEL15_OUT := SEL(EQ13_OUT, ADD10_OUT, 0);
+  COUNTER := SEL15_OUT;
+  AND7_OUT := AND(EQ13_OUT, TRIG);
+  py_eval(TRIG := AND7_OUT, CODE := CODE);
+  ACK := py_eval.ACK;
+  RESULT := py_eval.RESULT;
+END_FUNCTION_BLOCK
+
+
+PROGRAM sim1
+  VAR_INPUT
+    LIG : BOOL;
+    NDES : BOOL := 1;
+  END_VAR
+  VAR_OUTPUT
+    SOL_A : BOOL;
+    SOL_B : BOOL;
+    S_TV : BOOL;
+    S_TC : BOOL;
+    M : BOOL;
+  END_VAR
+
+  INITIAL_STEP E0:
+  END_STEP
+
+  TRANSITION FROM E0 TO E1
+    := LIG and NDES;
+  END_TRANSITION
+
+  STEP E1:
+    SOL_A(N);
+  END_STEP
+
+  TRANSITION FROM E1 TO E2
+    := S_TC and S_TV and NDES;
+  END_TRANSITION
+
+  STEP E2:
+    M(L, t#10s);
+  END_STEP
+
+  TRANSITION FROM E2 TO E3
+    := not M and NDES;
+  END_TRANSITION
+
+  STEP E3:
+    SOL_B(N);
+  END_STEP
+
+  TRANSITION FROM E3 TO E0
+    := not S_TC and not S_TV;
+  END_TRANSITION
+
+  TRANSITION FROM E2 TO E0
+    := not NDES;
+  END_TRANSITION
+
+  TRANSITION FROM E1 TO E0
+    := not NDES;
+  END_TRANSITION
+
+END_PROGRAM
+
+
+CONFIGURATION Config0
+
+  RESOURCE Res0 ON PLC
+    TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
+    PROGRAM instance0 WITH task0 : sim1;
+  END_RESOURCE
+END_CONFIGURATION
