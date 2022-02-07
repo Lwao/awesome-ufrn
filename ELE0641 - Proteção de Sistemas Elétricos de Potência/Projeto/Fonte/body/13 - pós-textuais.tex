@@ -1,0 +1,263 @@
+% assinatura
+
+\begin{center}
+    \mbox{}
+    \vfill
+    
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=6cm]{images/ass.png}
+        \label{fig:ass}
+    \end{figure}
+    \noindent\rule{8cm}{0.4pt} \\
+    \vspace{0.25cm}
+    Eng. Eletricista Levy Gabriel da Silva Galvão \\
+    Crea-RN nº 20170056839
+    
+    \vspace{2.5cm}
+    
+    Natal, RN. Janeiro de 2022.
+
+\end{center}
+
+
+\newpage
+
+\section{Apêndice}
+
+\subsection{Circuitos de sequências para o sistema proposto}
+
+As figuras \ref{ckt:1}, \ref{ckt:2} e \ref{ckt:3} apresentam o três circuitos de sequências para o sistema proposto, i.e. circuito de sequência positiva, negativa e zero, respectivamente. Estes definem a simbologia a ser utilizada durante os cálculos de curto circuito no ponto de entrega (PE) e no lado de baixa tensão (BT) do transformador.
+
+\input{circuit/circuit1}
+\input{circuit/circuit2}
+\input{circuit/circuit3}
+
+\subsection{Correntes de curto-circuito no ponto de entrega}
+
+Considera-se: 
+
+\begin{flushleft}
+$Z_{base_{AT}} = \frac{V_{base_{AT}}^2}{S_{base}} = 1.9044 \; \Omega$ \\ \vspace{5pt}
+$I_{base_{AT}} = \frac{S_{base}}{\sqrt{3}V_{base_{AT}}} = 4183.7 \; A$ 
+\end{flushleft}
+
+Assim as correntes são:
+
+\begin{flushleft}
+$I_{CC3F_{AT}} = \left|\frac{1}{Z_{1th}}\right| \cdot I_{base_{AT}} = 2271 \; A$ \\
+$I_{CC2F_{AT}} = \left|\frac{j\sqrt{3}}{Z_{1th}+Z_{2th}}\right| \cdot I_{base_{AT}} = 1967 \; A$ \\
+$I_{CCFT_{AT}} = \left|\frac{3}{Z_{1th}+Z_{2th}+Z_{0th}}\right| \cdot I_{base_{AT}} = 1785 \; A$ \\
+$I_{CCFTm_{AT}} = \left|\frac{3}{Z_{1th}+Z_{2th}+Z_{0th}+3\frac{R_t}{Z_{base_{AT}}}}\right| \cdot I_{base_{AT}} = 188 \; A$, $R_t = 40 \; \Omega$ 
+\end{flushleft}
+
+\subsection{Correntes de curto-circuito no secundário do transformador}
+
+As grandezas de base devem ser ajustadas para o secundário, assim considera-se:
+
+\begin{flushleft}
+$Z_{base_{BT}} = \frac{V_{base_{BT}}^2}{S_{base}} = 0.001444 \; \Omega$ \\ \vspace{5pt}
+$I_{base_{BT}} = \frac{S_{base}}{\sqrt{3}V_{base_{BT}}} = 151934.28137 \; A$ 
+\end{flushleft}
+
+Neste caso, além das impedâncias do ponto de entrega, também deve ser considerada a impedância $z=j5.7\%$ do transformador que é dada em sua base ($S_{base_{TRAFO}} = 500 \; kVA$, $V_{base_{AT}} = 13.8 \; kV$). Esta deve ser convertida para a base do sistema, assim tem-se:
+
+\begin{flushleft}
+$Z = z \cdot \frac{V_{base_{AT}}^2}{S_{base_{TRAFO}}} \cdot \frac{1}{Z_{base_{AT}}} = j11.4 \; p.u$ 
+\end{flushleft}
+
+Considerando que todas as reatâncias dos circuitos de sequência são as mesmas que a encontrada anteriormente, tem-se que: $Z = Z_{1trafo} = Z_{2trafo} = Z_{0trafo}$.
+
+Finalmente a correntes serão:
+
+\begin{flushleft}
+$I_{CC3F_{BT}} = \left|\frac{1}{Z_{1th}+Z}\right| \cdot I_{base_{AT}} = 11636 \; A$ \\
+$I_{CC2F_{BT}} = \left|\frac{j\sqrt{3}}{Z_{1th}+Z_{2th}+2Z}\right| \cdot I_{base_{BT}} = 10077 \; A$ \\
+$I_{CCFT_{BT}} = \left|\frac{3}{Z_{1th}+Z_{2th}+3Z}\right| \cdot I_{base_{BT}} = 12155 \; A$ \\
+$I_{CCFTm_{BT}} = \left|\frac{3}{Z_{1th}+Z_{2th}+3Z+3\frac{R_t}{Z_{base_{BT}}}}\right| \cdot I_{base_{BT}} = 43.87 \; A$, $R_t = 5 \; \Omega$ 
+\end{flushleft}
+
+\subsection{Correntes de curto-circuito referidas ao primário do transformador}
+
+A corrente de curto-circuito trifásica referida ao lado de alta tensão pode ser obtida a partir da relação de transformação das tensões:
+
+\begin{flushleft}
+$I_{CC3F_{AT}} = I_{CC3F_{BT}} \cdot \frac{380}{13800} = 320.4 \; A$ 
+\end{flushleft}
+
+As demais correntes de curto-circuito, i.e. bifásica, fase-terra e fase-terra mínimo referida ao lado de alta tensão podem ser obtidas a partir da relação de espiras:
+
+\begin{flushleft}
+$I_{CC2F_{AT}} = 2I_{CC2F_{BT}} \cdot \frac{220}{13800} = 321.28\; A$  \\ \vspace{5pt}
+$I_{CCFT_{AT}} = I_{CCFT_{BT}} \cdot \frac{220}{13800} = 193.78 \; A$  \\ \vspace{5pt}
+$I_{CCFTm_{AT}} = I_{CCFTm_{BT}} \cdot \frac{220}{13800} = 0.7 \; A$  \\
+\end{flushleft}
+
+\subsection{Dimensionamento do TC}
+
+Considerando a corrente de carga baseada na demanda máxima determinada na seção que lista os dados da subestação do consumidor de: $I_{carga,max} = 17.57 \; A$; permite-se limitar a corrente primária do TC a ser maior que a de carga modificada do fator de crescimento ($k = 1.1$), de forma que:
+
+\begin{center}
+$I_{prim,TC} \ge  k \cdot I_{carga,max}$ \\
+$I_{prim,TC} \ge 1.1 \cdot 17.57 \; A$ \\
+$I_{prim,TC} \ge 19.33 \; A$ 
+\end{center}
+
+A corrente nominal primária do TC também deve ser maior do que a razão entre o curto-circuito máximo no ponto de entrega ($I_{CC3F_{AT}} = 2271 \; A$) e o fator de sobrecorrente do TC ($FS=20$), assim:
+
+\begin{center}
+$I_{prim,TC} \ge  \frac{I_{CC3F_{AT}} }{FS}$ \\ \vspace{5pt}
+$I_{prim,TC} \ge \frac{2271}{20}$ \\ \vspace{5pt}
+$I_{prim,TC} \ge 114 \; A$ 
+\end{center}
+
+Dessa forma, permite-se determinar um TC de proteção 150/5 com relação de transformação de corrente $RTC=30$. 
+
+O \textit{burden} do TC será considerado aproximadamente de $300 \; m\Omega$, baseando-se no exemplo fornecido pelo texto da norma DIS-NOR-036. Isso garante que, para a maior corrente de curto-circuito no lado de alta tensão, permite definir a tensão máxima do secundário do TC como:
+
+\begin{center}
+$V_{max,TC} = \frac{I_{CC3F_{AT}}}{RTC} \cdot 300 \cdot 10^{-3}$ \\ \vspace{5pt}
+$V_{max,TC} = \frac{2271}{30} \cdot 300 \cdot 10^{-3}$ \\ \vspace{5pt}
+$V_{max,TC} = 22.71 \; V$ 
+\end{center}
+
+Por fim, permite dimensionar um TC com precisão 10B50, que possui $V_{max,TC} = 50 \; V$.
+
+
+\subsection{Ajustes das unidades de sobrecorrente de fase e neutro do relé}
+
+\subsubsection{Unidade 51}
+
+\begin{comment}
+Para graduação desta unidade, a corrente mínima de atuação no secundário do transformador ($TAP$) deve ser maior que a maior corrente de carga no secundário e ajustada pelo fator de crescimento; e menor que a corrente de curto-circuito bifásico dentro da sua zona de proteção (lado de alta do transformador), portanto:
+\end{comment}
+
+Para a graduação desta unidade a corrente mínima de atuação no secundário do transformador ($TAP$) deve atender os seguintes critérios:
+
+\begin{center}
+$\frac{k \cdot I_{carga,max}}{RTC} \leq TAP \leq \frac{I_{CC2F_{AT}} }{RTC}$ \\ \vspace{5pt}
+$\frac{1.1 \cdot 17.57}{30} \leq TAP \leq \frac{321}{30}$ \\ \vspace{5pt}
+$0.64 \leq TAP \leq 10.7$ \\ 
+\end{center}
+
+O valor escolhido é $TAP = 0.68 \; A$. 
+
+De acordo com os ajustes estabelecidos pela concessionária para a unidade 51, procura-se estabelecer um tempo de atuação da unidade 51 da SE CONSUMIDOR 0.2 segundos mais rápido que o relé da concessionária, para a maior corrente de curto-circuito, portanto:
+
+\begin{center}
+$t_{51} \geq \frac{k_1 \cdot TMS}{\left(\frac{I_{CC3F_{AT}}}{RTC_{con} \cdot TAP_{con}}\right)^{k_2}-1} - 0.2$ \\ \vspace{5pt}
+$t_{51} \geq \frac{13.5 \cdot 0.15}{\frac{2271}{120 \cdot 2.8}-1} - 0.2$ \\ \vspace{5pt}
+$t_{51} \geq 0.15163 \; s$ \\ \vspace{5pt}
+\end{center}
+
+Agora aplicando aos parâmetros da SE CONSUMIDOR para a mesma corrente para obter a curva adequada:
+
+\begin{center}
+$t_{51} \geq \frac{k_1 \cdot TMS}{\left(\frac{I_{CC3F_{AT}}}{RTC \cdot TAP}\right)^{k_2}-1}$ \\ \vspace{5pt}
+$TMS \leq \frac{t_{51}}{k_1} \left(\left(\frac{I_{CC3F_{AT}}}{RTC \cdot TAP}\right)^{k_2}-1\right)$ \\ \vspace{5pt}
+$TMS \leq \frac{0.15163}{13.5} \left(\left(\frac{2271}{30 \cdot 0.68}\right)^{k_2}-1\right)$ \\ \vspace{5pt}
+$TMS \leq 1.23$ \\ \vspace{5pt}
+\end{center}
+
+Portanto, define-se a curva 0.9-MI-IEC para a unidade 51 do relé da SE CONSUMIDOR.
+
+
+\subsubsection{Unidade 50}
+
+\begin{comment}
+Para a graduação desta unidade a corrente mínima de atuação no secundário do transformador ($TAP$) deve superar a corrente máxima de carga escalonada por um fator de multiplicação (esse fator pode ser de 3 até 8, o valor máximo é utilizado para casos em que existem muitos transformadores e motores de indução), que será escolhido como 8, considerando a presença de diversos motores de indução devido aparelhos de condicionamento de ar. O $TAP$ também deve ser maior que a corrente de curto-circuito trifásico próximo ao relé, portanto:
+\end{comment}
+
+Para a graduação desta unidade a corrente mínima de atuação no secundário do transformador ($TAP$) deve atender os seguintes critérios:
+
+\begin{center}
+$TAP \geq \frac{8 \cdot I_{carga,max}}{RTC}$ \\ \vspace{5pt}
+$TAP \geq \frac{8 \cdot 17.57}{30} $ \\ \vspace{5pt}
+$TAP \geq  4.7$ \\ \vspace{5pt}
+\end{center}
+
+e
+
+\begin{center}
+$TAP \geq \frac{I_{CC3F_{AT}}}{RTC}$ \\ \vspace{5pt}
+$TAP \geq \frac{320}{30} $ \\ \vspace{5pt}
+$TAP \geq  10.7$ \\ \vspace{5pt}
+\end{center}
+
+O fator de multiplicação foi escolhido como 8, considerando a presença de diversos motores de indução devido aparelhos de condicionamento de ar.
+
+O valor escolhido é $TAP = 13 \; A$. 
+
+\subsubsection{Unidade 51NS}
+
+A proteção 51NS deve ser do tipo tempo definido. Seu ajuste será definido a uma corrente de 40\% da unidade 51NS da concessionária, esta sendo 12 A referida ao primário, o que resulta em um ajuste de 4.8 A para a unidade do consumidor.
+
+O tempo de atuação deve ser no mínimo 0.4 segundos mais rápido que a da concessionária. Como o da concessionária foi definido como 5 segundos, será escolhido um tempo de atuação de 3 segundos para a unidade 51NS do consumidor.
+
+\subsubsection{Unidade 51N}
+
+Para a graduação desta unidade a corrente mínima de atuação no secundário do transformador ($TAP$) deve atender os seguintes critérios:
+
+\begin{center}
+$\frac{0.1 \cdot I_{carga,max}}{RTC} \leq TAP \leq \frac{I_{CCFTm_{AT}} }{RTC}$ \\ \vspace{5pt}
+$\frac{0.1 \cdot 17.57}{30} \leq TAP \leq \frac{188}{30}$ \\ \vspace{5pt}
+$0.058567 \leq TAP \leq 6.266667$ \\ \vspace{5pt}
+\end{center}
+
+O curto-circuito é considerado no final do trecho, portanto no ponto de entrega.
+
+O TAP da unidade 51N do consumidor deve ser menor que o TAP da unidade 51NS da concessionária ($TAP < 12/RTC_{con} \longrightarrow TAP < 0.4 \; A$, com $RTC_{con}=30$). Portanto o valor escolhido é $TAP = 0.2 \; A$. 
+
+Como o múltiplo avaliado na corrente de curto fase-terra franco no ponto de entrega é deveras alto ($m = I_{CCFT_{AT}}/(RTC \cdot TAP) = 1785/(30 \cdot 0.2) = 297.50$), este deve ser limitado a $m=20$. Isso resulta na corrente limite superior da faixa de coordenação dada por: $I_{lim} = m \cdot RTC \cdot TAP = 20 \cdot 30 \cdot 0.2 = 180 \; A$. Esta corrente será utilizada para coordenar as unidades 51N.
+
+De acordo com os ajustes estabelecidos pela concessionária para a unidade 51N, procura-se estabelecer um tempo de atuação da unidade 51N da SE CONSUMIDOR 0.2 segundos mais rápido que o relé da concessionária, para a corrente limitada, anteriormente encontrada, tem-se:
+
+\begin{center}
+$t_{51N} \geq \frac{k_1 \cdot TMS}{\left(\frac{I_{lim}}{RTC_{con} \cdot TAP_{con}}\right)^{k_2}-1} - 0.2$ \\ \vspace{5pt}
+$t_{51N} \geq \frac{13.5 \cdot 0.2}{\frac{180}{120 \cdot 0.5}-1} - 0.2$ \\ \vspace{5pt}
+$t_{51N} \geq 0.475 \; s$ \\ \vspace{5pt}
+\end{center}
+
+Agora aplicando aos parâmetros da SE CONSUMIDOR para a mesma corrente para obter a curva adequada:
+
+\begin{center}
+$t_{51N} \geq \frac{k_1 \cdot TMS}{\left(\frac{I_{lim}}{RTC \cdot TAP}\right)^{k_2}-1}$ \\ \vspace{5pt}
+$TMS \leq \frac{t_{51}}{k_1} \left(\left(\frac{I_{lim}}{RTC \cdot TAP}\right)^{k_2}-1\right)$ \\ \vspace{5pt}
+$TMS \leq \frac{0.475}{13.5} \left(\left(\frac{180}{30 \cdot 0.2}\right)^{k_2}-1\right)$ \\ \vspace{5pt}
+$TMS \leq $ 0.67\\ \vspace{5pt}
+\end{center}
+
+Portanto, define-se a curva 0.2-MI-IEC para a unidade 51N do relé da SE CONSUMIDOR.
+
+\subsubsection{Unidade 50N}
+
+Para a graduação desta unidade a corrente mínima de atuação no secundário do transformador ($TAP$) deve atender os seguintes critérios:
+
+\begin{center}
+$TAP \geq \frac{8 \cdot 0.3 \cdot I_{carga,max}}{RTC}$ \\ \vspace{5pt}
+$TAP \geq \frac{8 \cdot 0.3 \cdot 17.57}{30} $ \\ \vspace{5pt}
+$TAP \geq  1.4$ \\ \vspace{5pt}
+\end{center}
+
+e
+
+\begin{center}
+$TAP \geq \frac{I_{CCFT_{AT}}}{RTC}$ \\ \vspace{5pt}
+$TAP \geq \frac{\cdot 194}{30} $ \\ \vspace{5pt}
+$TAP \geq 6.5$ \\ \vspace{5pt}
+\end{center}    
+
+O fator de multiplicação de 0.3 foi escolhido para compensar o desequilíbrio.
+
+O valor escolhido é $TAP = 8 \; A$.
+
+\subsubsection{Unidade 59}
+
+A unidade 59 será graduada para atuar quando a tensão do sistema for 120\% da tensão nominal. Considerando a tensão nominal como a do secundário do TP (115 V), a graduação da unidade 59 será 138 V. Isso corresponde ao \textit{pickup} de: $RTP \cdot 138 = 13800/115 \cdot  138 = 16.5 \; kV$.
+
+\newpage
+
+
+
+\newpage

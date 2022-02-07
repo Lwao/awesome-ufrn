@@ -1,0 +1,48 @@
+\section{Dados da concessionária}
+
+Os dados fornecidos pela concessionária, são:
+
+\begin{enumerate}[(a)]
+    \item Impedância equivalente de Thévenin no ponto de entrega:
+    
+    $Z_{1th} = Z_{2th} = 0.8589 + j \, 1.6296 \; pu$ \\
+    $Z_{0th} = 1.7967 + j \, 2.8326 \; pu$ \\
+    $V_{base_{AT}} = 13.8 \; kV$ \\
+    $V_{base_{BT}} = 380 \; V$ \\
+    $S_{base} = 100 \; MVA$ 
+    
+    \item Correntes de curto-circuito no ponto de entrega:
+    
+    $I_{CC3F_{AT}} = 2271 \; A$ \\
+    $I_{CC2F_{AT}} = 1967 \; A$ \\
+    $I_{CCFT_{AT}} = 1785 \; A$ \\
+    $I_{CCFTm_{AT}} = 188 \; A$, $R_t = 40 \; \Omega$ 
+    
+    \item Ajustes do relé associado ao Religador:
+    
+    \begin{itemize}
+        \item $RTC = 600/5$; 
+        \item Relé SEL-551;
+        \item Fase:
+        \begin{itemize}
+            \item Unidade 51: $TAP = 2.8 \; A$ (secundário), curva 0.15-MI-IEC;
+            \item Unidade 50: $TAP = 26 \; A$ (secundário), tempo de 0.07s;
+        \end{itemize}
+        \item Neutro:
+        \begin{itemize}
+            \item Unidade 51N: $TAP = 0.5 \; A$ (secundário), curva 0.2-MI-IEC;
+            \item Unidade 50N: $TAP = 15 \; A$ (secundário), tempo de 0.07s;
+        \end{itemize}
+        \item Neutro sensível (51NS):  $TAP = 0.1 \; A$ (secundário), tempo de 5s;
+        \item Religamentos automáticos:
+        \begin{itemize}
+            \item Número de religamentos: 2;
+            \item Tempos dos religamentos: 1.5/10 s;
+            \item Sequência de operações: (50/51/50N/51N/51) / (51/51N) / (51/51N);
+            \item Funções que bloqueiam o religamento: 51NS;
+            \item Tempo de \textit{reset}: 60s; 
+        \end{itemize}
+    \end{itemize}
+    
+    
+\end{enumerate}

@@ -1,0 +1,21 @@
+\begin{figure}[H]
+\centering
+
+\tikz \node [scale=0.95, inner sep=0] {
+\begin{tikzpicture} [american]
+    \draw (0,0) to[generic, l=$3R_{t_{AT}}$] (0,3)
+    (0,3) to[generic, l=$Z_{0th}$] (3,3)
+    (4,3) to[generic, l=$Z_{0trafo}$] (7,3)
+    (6.5,3) to[short, l=$I_0$, i=$ $] (8,3) 
+    (4,0) to[generic, l=$3R_{t_{BT}}$] (4,3)
+    (0,0) -- (7,0)
+    (3,2.5) -- (3,3.5) 
+    (8,2.5) -- (8,3.5);
+    \node[black] at (3,3.8) {PE};
+    \node[black] at (8,3.8) {BT};
+\end{tikzpicture}
+};
+
+\caption{Circuito de sequência zero do sistema proposto.}
+\label{ckt:3} 
+\end{figure}

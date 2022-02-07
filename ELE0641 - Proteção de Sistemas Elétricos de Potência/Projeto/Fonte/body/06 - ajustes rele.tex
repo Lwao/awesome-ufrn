@@ -1,0 +1,16 @@
+\section{Determinação dos ajustes das unidades de sobrecorrente de fase e neutro do relé}
+
+\begin{enumerate}[(a)]
+    \item Fase
+    \begin{itemize}
+        \item Unidades 51 (temporizadas): $I_s = 20.4 \; A$ (valor primário) ou $TAP = 0.68 \; A$ (valor secundário). Esse ajuste libera uma carga 16.1\% acima da potência informada, que corresponde a uma corrente 17.57 A, em 13,8 kV. Curva: 0.9-MI-IEC. Essa curva coordena com a curva da unidade 51 do religador.
+        \item Unidades 50 (instantâneas): $I_{nst} = 390\; A$ (valor primário) ou $I_{nst} = 13\; A$ (valor secundário), tempo $0.05 \;s$.
+    \end{itemize}
+    \item Neutro
+    \begin{itemize}
+        \item Unidade 51N (temporizada): $I_{sn} = 6\; A$ (valor primário) ou $TAP = 0.2\; A$ (valor secundário). Esse ajuste garante alta sensibilidade às faltas monofásicas na rede primária da unidade consumidora. A curva determinada, 0.2-MI-IEC, coordena com a curva da unidade 51N do relé do religador.
+        \item Unidade 50N (instantâneas): $I_{nst} = 240\; A$ (valor primário) ou $I_{nst} = 8\; A$ (valor secundário), tempo $0.05 \;s$.
+        \item Unidade 51NS: $TAP = 0.16 \; A$ (secundário) e $pickup = 4.8 \; A$ (primário), tempo de 3 s.
+    \end{itemize}
+\end{enumerate}
+
